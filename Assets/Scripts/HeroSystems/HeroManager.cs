@@ -25,17 +25,19 @@ public class HeroManager : MonoBehaviour
 		if(Instance == this)
 		{
 			Instance = null;
+			UnsubscribeFromEvents();
 		}
 	}
 	private void Start()
 	{
+		SubscribeToEvents();
 		Heroes.AddRange(_heroConfig.GetData);
 	}
 	private void SubscribeToEvents()
 	{
 		EventService.Instance.QuestCompleted += OnQuestCompleted;
 	}
-	
+
 	private void UnsubscribeFromEvents()
 	{
 		EventService.Instance.QuestCompleted -= OnQuestCompleted;
@@ -47,9 +49,6 @@ public class HeroManager : MonoBehaviour
 
 	public void OnQuestCompleted(Quest quest, Hero hero)
 	{
-		Debug.Log(quest);
-		Debug.Log(hero);
-		Debug.Log(hero.Bonuses);
 		if(hero.Bonuses.TryGetValue(quest.Name, out var bonus))
 		{
 			hero.CurrentMoodScore += bonus;

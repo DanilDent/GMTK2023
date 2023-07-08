@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
   - _nickname: f0kes
+    _appearanceTimes: []
     _questMoodBonuses:
     - QuestName: 1
       MoodBonus: 10
@@ -24,9 +25,12 @@ MonoBehaviour:
       AvatarParts:
       - Key: 0
         Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      - Key: 0
+        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 100
         _cursorConfidence: 100
+    IsPresent: 0
     CurrentMoodScore: 0
     CurrentHeroMood:
       FromScore: 0

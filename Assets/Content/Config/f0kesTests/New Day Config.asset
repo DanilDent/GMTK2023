@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ec13cde5216644c82fa51c53a73f69, type: 3}
+  m_Name: New Day Config
+  m_EditorClassIdentifier: 
+  _startOfDay:
+    Day: 0
+    Hours: 0
+    Minutes: 0
+  _endOfDay:
+    Day: 2
+    Hours: 0
+    Minutes: 90
+  _timeline:
+  - EventType: 1
+    GameTime:
+      Day: 0
+      Hours: 0
+      Minutes: 10
+    Name: 1
+  - EventType: 0
+    GameTime:
+      Day: 0
+      Hours: 0
+      Minutes: 20
+    Name: f0kes
+  - EventType: 0
+    GameTime:
+      Day: 0
+      Hours: 0
+      Minutes: 30
+    Name: f0kes
+  - EventType: 1
+    GameTime:
+      Day: 0
+      Hours: 0
+      Minutes: 40
+    Name: 2
