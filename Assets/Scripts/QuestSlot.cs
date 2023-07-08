@@ -10,8 +10,7 @@ public class QuestSlot : MonoBehaviour, IDropHandler
         Debug.Log(eventData);
         if (eventData.pointerDrag.TryGetComponent(out QuestPiece questPiece))
         {
-            GameObject quest = questPiece.gameObject;
-            Destroy(quest);
+            questPiece.Destroy();
         }
     }
 
