@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
             _timer -= Time.deltaTime;
             if (_timer < 0f)
             {
-                _timer = _timelineConfig.SecRealTimeToMinsGameTime;
+                _timer = (float)_timelineConfig.SecRealTimeToMinsGameTime / _timelineConfig.GameTimeStepChange;
                 _lastGameTimeTick = _currentGameTime;
                 _currentGameTime += new GameTime(0, 0, minutes: 1);
                 HandleEvents();
