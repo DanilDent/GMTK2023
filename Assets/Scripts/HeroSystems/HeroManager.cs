@@ -31,6 +31,20 @@ public class HeroManager : MonoBehaviour
 	{
 		Heroes.AddRange(_heroConfig.GetData);
 	}
+	private void SubscribeToEvents()
+	{
+		EventService.Instance.QuestCompleted += OnQuestCompleted;
+	}
+	
+	private void UnsubscribeFromEvents()
+	{
+		EventService.Instance.QuestCompleted -= OnQuestCompleted;
+	}
+	private void OnQuestCompleted(Quest quest, bool success)
+	{
+		OnQuestCompleted(quest, quest.HeroName);
+	}
+
 	public void OnQuestCompleted(Quest quest, Hero hero)
 	{
 		Debug.Log(quest);
