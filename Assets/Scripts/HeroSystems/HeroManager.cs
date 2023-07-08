@@ -40,7 +40,7 @@ public class HeroManager : MonoBehaviour
 		int bonus;
 		if(hero.Bonuses.TryGetValue(quest.Name, out bonus))
 		{
-			hero.CurrentMood += bonus;
+			hero.CurrentMoodScore += bonus;
 			UpdateHeroMood(hero);
 		}
 	}
@@ -50,7 +50,7 @@ public class HeroManager : MonoBehaviour
 		int bonus;
 		if(hero.Bonuses.TryGetValue(quest.Name, out bonus))
 		{
-			hero.CurrentMood += bonus;
+			hero.CurrentMoodScore += bonus;
 			UpdateHeroMood(hero);
 		}
 	}
@@ -67,15 +67,14 @@ public class HeroManager : MonoBehaviour
 	{
 		hero.CurrentHeroMood = mood;
 		hero.CurrentAvatarParts = mood.AvatarParts;
-		
 	}
 	public void UpdateHeroMood(Hero hero)
 	{
 		var behaviour = hero.CurrentHeroMood;
-		var ranges = hero.HeroMoods;
-		foreach(var range in ranges.Where(range => hero.CurrentMood >= range.FromScore && hero.CurrentMood <= range.ToScore))
+		var moods = hero.HeroMoods;
+		foreach(var mood in moods.Where(range => hero.CurrentMoodScore >= range.FromScore && hero.CurrentMoodScore <= range.ToScore))
 		{
-			behaviour = range;
+			behaviour = mood;
 			break;
 		}
 		ChangeHeroMood(hero, behaviour);

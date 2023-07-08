@@ -19,19 +19,19 @@ public struct Hero
 		[SerializeField] public int MoodBonus;
 	}
 	[Serializable]
-	public struct HeroBehaviourRange
+	public struct HeroMoodRange
 	{
 		[SerializeField] public int From;
 		[SerializeField] public int To;
-		[SerializeField] public HeroBehaviour HeroBehaviour;
+		[SerializeField] public HeroMood HeroMood;
 	}
 	[SerializeField] private string _nickname;
 	[SerializeField] private QuestMoodBonus[] _questMoodBonuses;
 	[SerializeField] private List<HeroMood> _heroMoods;
 	public Dictionary<string, int> Bonuses{get; private set;}
 	public string Nickname => _nickname;
-	
-	public int CurrentMood;
+
+	public int CurrentMoodScore;
 	public HeroMood CurrentHeroMood;
 	public List<HeroMood> HeroMoods => _heroMoods;
 	public List<AvatarPart> CurrentAvatarParts;
@@ -45,7 +45,7 @@ public struct Hero
 		}
 	}
 
-	
-	
+
+
 
 }
