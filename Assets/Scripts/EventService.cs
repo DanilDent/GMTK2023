@@ -2,7 +2,28 @@ using System;
 
 public class EventService
 {
-    public Action<QuestConfig> NewQuestBecomeAvailable;
+    // Singleton Impl
+    protected EventService() { }
+
+    private static EventService _instance;
+    public static EventService Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = new EventService();
+            }
+
+            return _instance;
+        }
+    }
+
+    // Events
+    public Action<QuestsConfig> NewQuestBecomeAvailable;
+    // Passes current GameTime
+    public Action<GameTime> GameTimeUpdated;
+
 }
 
 
