@@ -20,8 +20,10 @@ public class EventService
     }
 
     // Events
-    public Action<Quest> NewQuestBecomeAvailable;
+  public Action<Quest> NewQuestBecomeAvailable;
     // Passes current GameTime
+=======
+    // Passes current game time
     public Action<GameTime> GameTimeUpdated;
     public Action<OnHeroMoodChangedEventArgs> HeroMoodChanged;
     public Action<Quest> QuestAssigned;

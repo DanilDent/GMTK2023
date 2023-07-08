@@ -4,5 +4,5 @@
 public class HeroConfig : ScriptableObject
 {
 	[SerializeField] private Hero[] data;
-	public Hero[] GetData { get => data; }
+	public Hero[] GetData => data;
 }

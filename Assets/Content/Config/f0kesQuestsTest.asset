@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0f4161882c3d734fa8c0ddd74fc8ab7, type: 3}
-  m_Name: QuestsTest
+  m_Name: f0kesQuestsTest
   m_EditorClassIdentifier: 
   data:
   - startDay: 0
     minStartTime: {x: 12, y: 0}
-    name: 
+    name: 1
     description: 
-    successfulNews: 
-    failureNews: 
-    maxLifetime: 0
-    successfulHPChange: 0
-    failureHPChange: 0
+    successfulNews: asdasd
+    failureNews: dsdsadas
+    maxLifetime: 10
+    successfulHPChange: 50
+    failureHPChange: -10
