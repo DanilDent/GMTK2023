@@ -27,6 +27,17 @@ public class QuestPiecesContainer : MonoBehaviour
         return (from Transform child in transform select child.GetComponent<QuestPiece>()).ToList();
     }
 
+    public void AddQuestToPool(QuestPiece quest)
+    {
+        int index = 0;
+        foreach (var piece in _questPieces)
+        {
+            index++;
+        }
+        _questPieces.Add(quest);
+        quest.SetPieceIndex(index);
+    }
+
     public void DeleteQuestFromList(QuestPiece quest)
     {
         _questPieces.Remove(quest);

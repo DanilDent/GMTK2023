@@ -3,9 +3,11 @@ using System;
 public class EventService
 {
     // Singleton Impl
-    protected EventService() { }
+    protected EventService()
+    { }
 
     private static EventService _instance;
+
     public static EventService Instance
     {
         get
@@ -21,11 +23,10 @@ public class EventService
 
     // Events
     public Action<Quest> NewQuestBecomeAvailable;
+
     public Action GameTimeUpdated;
     public Action<OnHeroMoodChangedEventArgs> HeroMoodChanged;
     public Action<Quest> QuestAssigned;
     public Action<Quest, bool> QuestCompleted;
-
+    public Action<Quest> QuestBecomeAvailableToGiveHero;
 }
-
-
