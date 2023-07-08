@@ -78,6 +78,7 @@ public class HeroManager : MonoBehaviour
 		var heroes = Heroes.Where(h => h.Nickname == heroName).ToList();
 		if(heroes.Count == 0)
 		{
+			Debug.Log(heroName);
 			throw new Exception();
 		}
 		return heroes[0];
@@ -91,6 +92,7 @@ public class HeroManager : MonoBehaviour
 	}
 	public void UpdateHeroMood(Hero hero)
 	{
+		Debug.Log(hero.CurrentMoodScore);
 		var behaviour = hero.CurrentHeroMood;
 		var moods = hero.HeroMoods;
 		foreach(var mood in moods.Where(range => hero.CurrentMoodScore >= range.FromScore && hero.CurrentMoodScore <= range.ToScore))

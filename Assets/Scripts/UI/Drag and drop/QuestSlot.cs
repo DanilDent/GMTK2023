@@ -7,7 +7,7 @@ public class QuestSlot : MonoBehaviour, IDropHandler
 {
     void IDropHandler.OnDrop(PointerEventData eventData)
     {
-        Debug.Log(eventData);
+        //Debug.Log(eventData);
         if (eventData.pointerDrag.TryGetComponent(out QuestPiece questPiece))
         {
             questPiece.Destroy();

@@ -26,7 +26,7 @@ public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Start");
+        //Debug.Log("Start");
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         _offset = Input.mousePosition - _rectTransform.position;
@@ -36,13 +36,13 @@ public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
 
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
-        Debug.Log("Aaaa");
+        //Debug.Log("Aaaa");
         _rectTransform.position = Input.mousePosition - _offset;
     }
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("Finish");
+        //Debug.Log("Finish");
         _canvasGroup.blocksRaycasts = true;
         if (!isGiven)
         {

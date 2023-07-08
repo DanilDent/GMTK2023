@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
 
                 GameTime deltaTime = _currentGameTime - _lastGameTimeTick;
                 _eventService.GameTimeUpdated?.Invoke();
-                Debug.Log($"CurrentGameTime: {_currentGameTime}");
+                //Debug.Log($"CurrentGameTime: {_currentGameTime}");
             }
         }
     }
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
             if (eventData.EventType == TimelineEventType.NewHero)
             {
                 _eventService.NewHeroComing?.Invoke(eventData.Name);
-                Debug.Log($"New hero came to our village: {eventData.Name}");
+                //Debug.Log($"New hero came to our village: {eventData.Name}");
                 SetGameState(GameState.NewHero);
             }
             _eventIndex++;
