@@ -122,6 +122,11 @@ public struct GameTime : IEquatable<GameTime>
         return $"Day {Day + 1} {Hours}:{Minutes}";
     }
 
+    public string ToNiceString()
+    {
+        return $"{_hours.ToString("D2")}:{_minutes.ToString("D2")}";
+    }
+
     private static int GetTotalMinutes(GameTime gameTime)
     {
         return gameTime._day * 24 * 60 + gameTime._hours * 60 + gameTime._minutes;

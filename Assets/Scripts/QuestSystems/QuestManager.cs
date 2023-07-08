@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
@@ -62,13 +62,14 @@ public class QuestManager : MonoBehaviour
     public void OnQuestAssigned(Quest _quest)
     {
         Debug.Log(_quest.Name);
-        string _heroName = "Test";
-        GameTime _gameTime = new(0, new Vector2Int(0, 0));
+        string heroName = GameManager.Instance.CurrentHeroNickname;
+        Hero hero = HeroManager.Instance.Heroes.FirstOrDefault(_ => _.Nickname == heroName);
+        GameTime _gameTime = GameManager.Instance.CurrentTime;
         bool _heroResult = true;
         try
         {
             avalaibleQuests.Remove(_quest);
-            _quest.AssignQuestTo(_heroName, _heroResult);
+            _quest.AssignQuestTo(heroName, _heroResult);
             inProgressQuests.Add(_quest);
         }
         catch

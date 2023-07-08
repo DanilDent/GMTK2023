@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public bool IsPaused { get => _isPaused; set { _isPaused = value; } }
     public GameTime CurrentTime => _currentGameTime;
     public GameState CurrentState => _currentState;
+    public string CurrentHeroNickname { get => _currentHeroNickname; set => _currentHeroNickname = value; }
 
     // Singleton impl
     public static GameManager Instance => _instance;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     private GameTime _currentGameTime;
     private GameTime _lastGameTimeTick;
+    private string _currentHeroNickname;
     private float _timer;
     private bool _isPaused;
     private int _eventIndex;
@@ -52,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _timer = _timelineConfig.SecRealTimeToMinsGameTime;
+        _timer = (float)_timelineConfig.SecRealTimeToMinsGameTime / _timelineConfig.GameTimeStepChange;
         _eventService = EventService.Instance;
 
         _currentGameTime = _timelineConfig.Days.FirstOrDefault().StartOfDay;
@@ -73,7 +75,7 @@ public class GameManager : MonoBehaviour
             {
                 _timer = _timelineConfig.SecRealTimeToMinsGameTime;
                 _lastGameTimeTick = _currentGameTime;
-                _currentGameTime += new GameTime(0, 0, minutes: _timelineConfig.GameTimeStepChange);
+                _currentGameTime += new GameTime(0, 0, minutes: 1);
                 HandleEvents();
 
                 if (_currentGameTime.Day >= _timelineConfig.Days.Length ||

@@ -4223,6 +4223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heroAvatarImg: {fileID: 655692980}
   _heroNicknameText: {fileID: 1201759485}
+  _timeText: {fileID: 662314910}
 --- !u!1 &2049183536
 GameObject:
   m_ObjectHideFlags: 0
