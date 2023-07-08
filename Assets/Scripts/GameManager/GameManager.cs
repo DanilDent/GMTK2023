@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     private GameTime _currentGameTime;
     private GameTime _lastGameTimeTick;
     private float _timer;
-    private bool _isPaused;
+    public bool IsPaused;
 
     private void Awake()
     {
@@ -31,12 +31,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SetCurrentTime(GameTime time) => _currentGameTime = time;
+
     private void Start()
     {
         _timer = _timelineConfig.SecRealTimeToMinsGameTime;
         _eventService = EventService.Instance;
 
-        _currentGameTime = _timelineConfig.Days.FirstOrDefault().StartOfDay;
+       // _currentGameTime = _timelineConfig.Days.FirstOrDefault().StartOfDay;
     }
 
     private void Update()
@@ -46,7 +48,7 @@ public class GameManager : MonoBehaviour
 
     private void Tick()
     {
-        if (!_isPaused)
+        if (!IsPaused)
         {
             _timer -= Time.deltaTime;
             if (_timer < 0f)
@@ -63,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     private void SwitchTimePause()
     {
-        _isPaused = !_isPaused;
+        IsPaused = !IsPaused;
     }
 
     private void OnDestroy()

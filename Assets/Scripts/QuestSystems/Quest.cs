@@ -16,6 +16,21 @@ public struct Quest
     private bool result;
     private GameTime assignedTime;
 
+    public Quest(GameTime _minStart, GameTime _maxLifetime, News _successfulNews, News _failureNews, bool _result)
+    {
+        name = $"Test {_minStart.Day}d {_minStart.Hours}h {_minStart.Minutes}m";
+        description = "";
+        minStartTime = _minStart;
+        maxLifetime = _maxLifetime;
+        successfulNews = _successfulNews;
+        failureNews = _failureNews;
+        successfulHPChange = 0; 
+        failureHPChange=0;
+        heroName = "";
+        result = _result;
+        assignedTime = new GameTime();
+    }
+
     public GameTime StartTime { get => minStartTime; }
     public GameTime Lifetime { get => maxLifetime; }
     public GameTime AssignedTime { get => assignedTime; }
@@ -28,10 +43,10 @@ public struct Quest
     public int FailureHPChange { get => failureHPChange; }
     public bool Result { get => result; }
 
-    public void AssignQuestTo(GameTime _currentTime, string _heroName, bool _isSuccessful)
+    public void AssignQuestTo(string _heroName, bool _isSuccessful)
     {
         heroName = _heroName;
         result = _isSuccessful;
-        assignedTime = _currentTime;
+        assignedTime = GameManager.Instance.CurrentTime;
     }
 }
