@@ -17,7 +17,7 @@ MonoBehaviour:
     Hours: 0
     Minutes: 0
   _endOfDay:
-    Day: 2
+    Day: 0
     Hours: 0
     Minutes: 90
   _timeline:

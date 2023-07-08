@@ -1850,7 +1850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895024734fd906b4f869beed39820380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timelineConfig: {fileID: 11400000, guid: 4b761ddc349057b4fa5df99a8fff2a6b, type: 2}
+  _timelineConfig: {fileID: 11400000, guid: 9fa1185a958f0ec4db7c1acd13cef874, type: 2}
 --- !u!4 &894295896
 Transform:
   m_ObjectHideFlags: 0

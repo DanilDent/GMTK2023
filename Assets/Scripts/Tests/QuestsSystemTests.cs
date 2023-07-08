@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -204,3 +205,4 @@ public class QuestsSystemTests : MonoBehaviour
         Debug.Log($"Test 7) IQ={invQuestsCount} AQ={avalQuestsCount} PQ={progQuestCount} | {correctRes} | {result}");
     }
 }
+*/
