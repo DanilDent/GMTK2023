@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
@@ -10,9 +11,17 @@ public class QuestManager : MonoBehaviour
 
     public static QuestManager Instance;
 
+    // Incoming events
+    public event Action<GameTime> OnTimeUpdate;
+    public event Action<Quest> OnQuestAssign;
+    public event Action<string> OnQuestComplete;
+
+    // Outgoing events
+    public event Action<Quest> OnQuestHasBecomeAvalaible;
+
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -24,45 +33,42 @@ public class QuestManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(Instance == this)
+        if (Instance == this)
         {
             Instance = null;
         }
+        OnTimeUpdate -= CheckAvalaibleQuests;
+        OnQuestAssign -= QuestAssign;
+        OnQuestComplete -= CompleteQuest;
     }
 
     private void Start()
     {
-        invisibleQuests.AddRange(config.GetData);
-        CheckAvalaibleQuests(0, 0);
-        //if(TryQuestAssignTo("Test", avalaibleQuests[0]))
-        //{
-        //    TryCompleteQuest(inProgressQuests[0].Name);
-        //}
+        //invisibleQuests.AddRange(config.GetData);
+        OnTimeUpdate += CheckAvalaibleQuests;
+        OnQuestAssign += QuestAssign;
+        OnQuestComplete += CompleteQuest;
     }
 
-    public void CheckAvalaibleQuests(int _currentDay, int _currentTime)
+    public void CheckAvalaibleQuests(GameTime cuurentTime)
     {
         for (int i = invisibleQuests.Count - 1; i >= 0; i--)
         {
             var _quest = invisibleQuests[i];
-            if (_currentDay < _quest.StartDay)
-            {
-                continue;
-            }
-
-            var _time = _quest.MinStartTime.x * 60 + _quest.MinStartTime.y;
-            if (_currentTime < _time)
+            if (cuurentTime < _quest.startTime)
             {
                 continue;
             }
             avalaibleQuests.Add(_quest);
+            OnQuestHasBecomeAvalaible?.Invoke(_quest);
             invisibleQuests.Remove(_quest);
         }
     }
 
-    public bool TryQuestAssignTo(string _heroName, Quest _quest)
+    public void QuestAssign(Quest _quest)
     {
-        try 
+        string _heroName = "Test";
+        try
         {
             avalaibleQuests.Remove(_quest);
             _quest.AssignQuestTo(_heroName);
@@ -70,12 +76,11 @@ public class QuestManager : MonoBehaviour
         }
         catch
         {
-            return false;
+
         }
-        return true;        
     }
 
-    public bool TryCompleteQuest(string _name)
+    public void CompleteQuest(string _name)
     {
         try
         {
@@ -83,8 +88,6 @@ public class QuestManager : MonoBehaviour
         }
         catch
         {
-            return false;
         }
-        return true;
     }
 }
