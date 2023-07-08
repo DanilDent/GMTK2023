@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
                 _lastGameTimeTick = _currentGameTime;
                 _currentGameTime += new GameTime { Minutes = _timelineConfig.GameTimeStepChange };
                 GameTime deltaTime = _currentGameTime - _lastGameTimeTick;
-                _eventService.GameTimeUpdated?.Invoke(deltaTime);
+                _eventService.GameTimeUpdated?.Invoke();
                 Debug.Log($"CurrentGameTime: {_currentGameTime}");
             }
         }
