@@ -12,7 +12,7 @@ public class QuestManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -24,7 +24,7 @@ public class QuestManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(Instance == this)
+        if (Instance == this)
         {
             Instance = null;
         }
@@ -62,7 +62,7 @@ public class QuestManager : MonoBehaviour
 
     public bool TryQuestAssignTo(string _heroName, Quest _quest)
     {
-        try 
+        try
         {
             avalaibleQuests.Remove(_quest);
             _quest.AssignQuestTo(_heroName);
@@ -72,7 +72,7 @@ public class QuestManager : MonoBehaviour
         {
             return false;
         }
-        return true;        
+        return true;
     }
 
     public bool TryCompleteQuest(string _name)

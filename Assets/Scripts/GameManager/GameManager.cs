@@ -41,6 +41,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        Tick();
+    }
+
+    private void Tick()
+    {
         if (!_isPaused)
         {
             _timer -= Time.deltaTime;

@@ -39,6 +39,15 @@ public struct GameTime : IEquatable<GameTime>
         return !t1.Equals(t2);
     }
 
+    public static bool operator <(GameTime gameTime1, GameTime gameTime2)
+    {
+        return GetTotalMinutes(gameTime1) < GetTotalMinutes(gameTime2);
+    }
+    public static bool operator >(GameTime gameTime1, GameTime gameTime2)
+    {
+        return GetTotalMinutes(gameTime1) > GetTotalMinutes(gameTime2);
+    }
+
     public static GameTime operator +(GameTime t1, GameTime t2)
     {
         int totalMinutesT1 = t1.Day * 24 * 60 + t1.Hours * 60 + t1.Minutes;
@@ -56,8 +65,8 @@ public struct GameTime : IEquatable<GameTime>
 
     public static GameTime operator -(GameTime t1, GameTime t2)
     {
-        int totalMinutesT1 = t1.Day * 24 * 60 + t1.Hours * 60 + t1.Minutes;
-        int totalMinutesT2 = t2.Day * 24 * 60 + t2.Hours * 60 + t2.Minutes;
+        int totalMinutesT1 = GetTotalMinutes(t1);
+        int totalMinutesT2 = GetTotalMinutes(t2);
         int totalMinutesResult = totalMinutesT1 + totalMinutesT2;
 
         if (totalMinutesResult < 0)
@@ -77,5 +86,10 @@ public struct GameTime : IEquatable<GameTime>
     public override string ToString()
     {
         return $"Day {Day} {Hours}:{Minutes}";
+    }
+
+    private static int GetTotalMinutes(GameTime gameTime)
+    {
+        return gameTime.Day * 24 * 60 + gameTime.Hours * 60 + gameTime.Minutes;
     }
 }
