@@ -13,7 +13,6 @@ public class QuestSlot : MonoBehaviour, IDropHandler
             GameObject quest = questPiece.gameObject;
             Destroy(quest);
         }
-        //Ивент с передачей квеста герою
     }
 
     // Start is called before the first frame update
