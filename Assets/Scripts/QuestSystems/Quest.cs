@@ -14,11 +14,29 @@ public struct Quest
     [SerializeField] private int failureHPChange;
     private string heroName;
     private bool result;
+    private GameTime timeBecomeAvalaible;
     private GameTime assignedTime;
+
+    public Quest(GameTime _minStart, GameTime _maxLifetime, News _successfulNews, News _failureNews, bool _result)
+    {
+        name = $"Test {_minStart.Day}d {_minStart.Hours}h {_minStart.Minutes}m";
+        description = "";
+        minStartTime = _minStart;
+        maxLifetime = _maxLifetime;
+        successfulNews = _successfulNews;
+        failureNews = _failureNews;
+        successfulHPChange = 0; 
+        failureHPChange=0;
+        heroName = "";
+        result = _result;
+        assignedTime = new GameTime();
+        timeBecomeAvalaible = new GameTime();
+    }
 
     public GameTime StartTime { get => minStartTime; }
     public GameTime Lifetime { get => maxLifetime; }
     public GameTime AssignedTime { get => assignedTime; }
+    public GameTime TimeBecomeAvalaible { get => timeBecomeAvalaible; }
     public News SuccessfulNews { get => successfulNews; }
     public News FailureNews { get => failureNews; }
     public string Name { get => name; }
@@ -28,10 +46,23 @@ public struct Quest
     public int FailureHPChange { get => failureHPChange; }
     public bool Result { get => result; }
 
-    public void AssignQuestTo(GameTime _currentTime, string _heroName, bool _isSuccessful)
+    public void AssignQuestTo(string _heroName, bool _isSuccessful)
     {
         heroName = _heroName;
         result = _isSuccessful;
-        assignedTime = _currentTime;
+        assignedTime = GameManager.Instance.CurrentTime;
+    }
+    public void SetTimeBecomeAvalaible()
+    {
+        timeBecomeAvalaible = GameManager.Instance.CurrentTime;
+    }
+
+    public override bool Equals(object obj)
+    {
+        if(obj is Quest quest)
+        {
+            return name == quest.name;
+        }
+        return base.Equals(obj);
     }
 }

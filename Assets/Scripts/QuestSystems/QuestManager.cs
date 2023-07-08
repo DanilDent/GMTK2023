@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
@@ -43,7 +45,7 @@ public class QuestManager : MonoBehaviour
 
     private void Start()
     {
-        invisibleQuests.AddRange(config.Data);
+        //invisibleQuests.AddRange(config.Data);
 
         EventService.Instance.GameTimeUpdated += OnGameTimeUpdate;
         EventService.Instance.QuestAssigned += OnQuestAssigned;
@@ -54,20 +56,19 @@ public class QuestManager : MonoBehaviour
 
     public void OnGameTimeUpdate()
     {
-        CheckAvalaibleQuests();
-        CheckAvalaibleQuestLifetimeEnd();
         CheckInProgressQuestResult();
+        CheckAvalaibleQuestLifetimeEnd();
+        CheckAvalaibleQuests();
     }
 
     public void OnQuestAssigned(Quest _quest)
     {
         string _heroName = "Test";
-        GameTime _gameTime = new(0, new Vector2Int(0, 0));
         bool _heroResult = true;
         try
         {
             avalaibleQuests.Remove(_quest);
-            _quest.AssignQuestTo(_gameTime, _heroName, _heroResult);
+            _quest.AssignQuestTo(_heroName, _heroResult);
             inProgressQuests.Add(_quest);
         }
         catch
@@ -75,18 +76,19 @@ public class QuestManager : MonoBehaviour
     }
 
 
-    private  void CheckAvalaibleQuests()
+    private void CheckAvalaibleQuests()
     {
         for (int i = invisibleQuests.Count - 1; i >= 0; i--)
         {
             var _quest = invisibleQuests[i];
-            if (GameManager.Instance.CurrentTime < _quest.StartTime)
+            if (GameManager.Instance.CurrentTime < _quest.StartTime || avalaibleQuests.Count == 6)
             {
                 continue;
             }
+            invisibleQuests.Remove(_quest);
+            _quest.SetTimeBecomeAvalaible();
             avalaibleQuests.Add(_quest);
             QuestBecomeAvalaibled?.Invoke(_quest);
-            invisibleQuests.Remove(_quest);
         }
     }
 
@@ -95,7 +97,7 @@ public class QuestManager : MonoBehaviour
         for (int i = avalaibleQuests.Count - 1; i >= 0; i--)
         {
             var _quest = avalaibleQuests[i];
-            if ((_quest.StartTime + _quest.Lifetime) >= GameManager.Instance.CurrentTime)
+            if ((_quest.TimeBecomeAvalaible + _quest.Lifetime) <= GameManager.Instance.CurrentTime)
             {
                 avalaibleQuests.Remove(_quest);
                 QuestCompleted?.Invoke(_quest, false);
@@ -109,7 +111,7 @@ public class QuestManager : MonoBehaviour
             var _quest = inProgressQuests[i];
 
             var timeToNews = _quest.Result ? _quest.SuccessfulNews.timeToNews : _quest.FailureNews.timeToNews;
-            if (_quest.AssignedTime + timeToNews >= GameManager.Instance.CurrentTime)
+            if (_quest.AssignedTime + timeToNews <= GameManager.Instance.CurrentTime)
             {
                 inProgressQuests.Remove(_quest);
                 QuestCompleted?.Invoke(_quest, _quest.Result);
