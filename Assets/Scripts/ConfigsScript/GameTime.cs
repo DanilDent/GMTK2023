@@ -72,13 +72,13 @@ public struct GameTime : IEquatable<GameTime>
 
     public static GameTime operator +(GameTime t1, GameTime t2)
     {
-        int totalMinutesT1 = t1.Day * 24 * 60 + t1.Hours * 60 + t1.Minutes;
-        int totalMinutesT2 = t2.Day * 24 * 60 + t2.Hours * 60 + t2.Minutes;
+        int totalMinutesT1 = GetTotalMinutes(t1);
+        int totalMinutesT2 = GetTotalMinutes(t2);
         int totalMinutesResult = totalMinutesT1 + totalMinutesT2;
 
-        int resDay = totalMinutesResult / (24 * 60);
+        int resDay = (totalMinutesResult / (24 * 60)) * 24 * 60;
         totalMinutesResult -= resDay;
-        int resHours = totalMinutesResult / 60;
+        int resHours = (totalMinutesResult / 60) * 60;
         totalMinutesResult -= resHours;
         int resMinutes = totalMinutesResult;
 
@@ -89,16 +89,11 @@ public struct GameTime : IEquatable<GameTime>
     {
         int totalMinutesT1 = GetTotalMinutes(t1);
         int totalMinutesT2 = GetTotalMinutes(t2);
-        int totalMinutesResult = totalMinutesT1 + totalMinutesT2;
+        int totalMinutesResult = totalMinutesT1 - totalMinutesT2;
 
-        if (totalMinutesResult < 0)
-        {
-            UnityEngine.Debug.LogWarning("Warning: you substracting future time from past time");
-        }
-
-        int resDay = totalMinutesResult / (24 * 60);
+        int resDay = (totalMinutesResult / (24 * 60)) * 24 * 60;
         totalMinutesResult -= resDay;
-        int resHours = totalMinutesResult / 60;
+        int resHours = (totalMinutesResult / 60) * 60;
         totalMinutesResult -= resHours;
         int resMinutes = totalMinutesResult;
 
