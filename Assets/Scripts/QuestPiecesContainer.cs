@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class QuestPiecesContainer : MonoBehaviour
 {
-    [SerializeField] private GameObject _mainCanvas;
     [SerializeField] private List<QuestPiece> _questPieces;
 
     // Start is called before the first frame update
@@ -13,7 +12,7 @@ public class QuestPiecesContainer : MonoBehaviour
         int index = 0;
         foreach (var piece in _questPieces)
         {
-            piece.Initialize(_mainCanvas.transform, this, index);
+            piece.Initialize(this, index);
             index++;
         }
     }

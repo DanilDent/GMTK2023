@@ -2,30 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    private Transform _mainCanvas;
     private QuestPiecesContainer _container;
     private int _index;
+    private Image _selfImage;
 
     private Vector3 _offset;
 
     private bool isGiven = false;
     private RectTransform _rectTransform;
 
-    public void Initialize(Transform mainCanvas, QuestPiecesContainer parentContainer, int index)
+    public void Initialize(QuestPiecesContainer parentContainer, int index)
     {
-        _mainCanvas = mainCanvas;
         _container = parentContainer;
         _index = index;
+        _selfImage = GetComponent<Image>();
     }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("Start");
-        //transform.SetParent(_mainCanvas);
+        transform.SetParent(transform.root);
+        transform.SetAsLastSibling();
         _offset = Input.mousePosition - _rectTransform.position;
+        _selfImage.raycastTarget = false;
     }
 
     void IDragHandler.OnDrag(PointerEventData eventData)
@@ -37,6 +40,7 @@ public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("Finish");
+        _selfImage.raycastTarget = true;
         if (!isGiven)
         {
             transform.SetParent(_container.transform);
