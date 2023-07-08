@@ -35,7 +35,9 @@ public class QuestPiecesContainer : MonoBehaviour
             index++;
         }
         _questPieces.Add(quest);
+        quest.transform.parent = transform;
         quest.SetPieceIndex(index);
+        quest.Initialize(this, index);
     }
 
     public void DeleteQuestFromList(QuestPiece quest)

@@ -16,11 +16,11 @@ public class QuestPacker : MonoBehaviour
     {
         Debug.Log(quest.Name);
         var questInformation = Instantiate(_questInformation, transform.position, Quaternion.identity);
-        questInformation.Initialize(quest);
         if (questInformation.TryGetComponent(out QuestPiece piece))
         {
             questPiecesContainer.AddQuestToPool(piece);
         }
+        questInformation.Initialize(quest);
     }
 
     private void OnDisable()

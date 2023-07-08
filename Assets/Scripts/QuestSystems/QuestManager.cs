@@ -61,6 +61,7 @@ public class QuestManager : MonoBehaviour
 
     public void OnQuestAssigned(Quest _quest)
     {
+        Debug.Log(_quest.Name);
         string _heroName = "Test";
         GameTime _gameTime = new(0, new Vector2Int(0, 0));
         bool _heroResult = true;
