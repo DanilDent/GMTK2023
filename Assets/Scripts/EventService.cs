@@ -21,7 +21,7 @@ public class EventService
 
     // Events
     public Action<Quest> NewQuestBecomeAvailable;
-    public Action<GameTime> GameTimeUpdated;
+    public Action GameTimeUpdated;
     public Action<OnHeroMoodChangedEventArgs> HeroMoodChanged;
     public Action<Quest> QuestAssigned;
     public Action<Quest, bool> QuestCompleted;

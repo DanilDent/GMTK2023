@@ -11,10 +11,6 @@ public class QuestManager : MonoBehaviour
 
     public static QuestManager Instance;
 
-    // Incoming events
-    public event Action<GameTime> OnTimeUpdate;
-    public event Action<Quest> OnQuestAssign;
-
     // Outgoing events
     public event Action<Quest> QuestBecomeAvalaibled;
     public event Action<Quest, bool> QuestCompleted;
@@ -56,11 +52,11 @@ public class QuestManager : MonoBehaviour
         QuestCompleted += EventService.Instance.QuestCompleted;
     }
 
-    public void OnGameTimeUpdate(GameTime _currentTime)
+    public void OnGameTimeUpdate()
     {
-        CheckAvalaibleQuests(_currentTime);
-        CheckAvalaibleQuestLifetimeEnd(_currentTime);
-        CheckInProgressQuestResult(_currentTime);
+        CheckAvalaibleQuests();
+        CheckAvalaibleQuestLifetimeEnd();
+        CheckInProgressQuestResult();
     }
 
     public void OnQuestAssigned(Quest _quest)
@@ -79,12 +75,12 @@ public class QuestManager : MonoBehaviour
     }
 
 
-    private void CheckAvalaibleQuests(GameTime _currentTime)
+    private  void CheckAvalaibleQuests()
     {
         for (int i = invisibleQuests.Count - 1; i >= 0; i--)
         {
             var _quest = invisibleQuests[i];
-            if (_currentTime < _quest.StartTime)
+            if (GameManager.Instance.CurrentTime < _quest.StartTime)
             {
                 continue;
             }
@@ -94,26 +90,26 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    private void CheckAvalaibleQuestLifetimeEnd(GameTime _currentTime)
+    private void CheckAvalaibleQuestLifetimeEnd()
     {
         for (int i = avalaibleQuests.Count - 1; i >= 0; i--)
         {
             var _quest = avalaibleQuests[i];
-            if ((_quest.StartTime + _quest.Lifetime) >= _currentTime)
+            if ((_quest.StartTime + _quest.Lifetime) >= GameManager.Instance.CurrentTime)
             {
                 avalaibleQuests.Remove(_quest);
                 QuestCompleted?.Invoke(_quest, false);
             }
         }
     }
-    private void CheckInProgressQuestResult(GameTime _currentTime)
+    private void CheckInProgressQuestResult()
     {
         for (int i = inProgressQuests.Count - 1; i >= 0; i--)
         {
             var _quest = inProgressQuests[i];
 
             var timeToNews = _quest.Result ? _quest.SuccessfulNews.timeToNews : _quest.FailureNews.timeToNews;
-            if (_quest.AssignedTime + timeToNews >= _currentTime)
+            if (_quest.AssignedTime + timeToNews >= GameManager.Instance.CurrentTime)
             {
                 inProgressQuests.Remove(_quest);
                 QuestCompleted?.Invoke(_quest, _quest.Result);
