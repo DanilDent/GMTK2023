@@ -1,33 +1,52 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Hero", menuName = "Configs/Hero", order = 0)]
-public class Hero : ScriptableObject
+
+[Serializable]
+public struct Hero
 {
 	[Serializable]
 	public struct AvatarPart
 	{
-		[SerializeField] private AvatarPartType _key;
-		[SerializeField] private Sprite _value;
+		[SerializeField] public AvatarPartType Key;
+		[SerializeField] public Sprite Value;
 	}
 	[Serializable]
 	public struct QuestMoodBonus
 	{
-		//[SerializeField] private Quest _quest;
-		[SerializeField] private int _moodBonus;
+		[SerializeField] public string QuestName;
+		[SerializeField] public int MoodBonus;
 	}
 	[Serializable]
 	public struct HeroBehaviourRange
 	{
-		[SerializeField] private int _from;
-		[SerializeField] private int _to;
-		[SerializeField] private HeroBehaviour _heroBehaviour;
+		[SerializeField] public int From;
+		[SerializeField] public int To;
+		[SerializeField] public HeroBehaviour HeroBehaviour;
 	}
 	[SerializeField] private string _nickname;
-	[SerializeField] private AvatarPart[] _avatarParts;
+	[SerializeField] private List<AvatarPart> _avatarParts;
 	[SerializeField] private QuestMoodBonus[] _questMoodBonuses;
-	[SerializeField] private HeroBehaviourRange[] _heroBehaviourRanges;
+	[SerializeField] private List<HeroBehaviourRange> _heroBehaviourRanges;
 
+	public Dictionary<string, int> Bonuses{get; private set;}
+	public string Nickname => _nickname;
+	public List<AvatarPart> AvatarParts => _avatarParts;
+	public int CurrentMood;
+	public HeroBehaviour CurrentHeroBehaviour;
+	public List<HeroBehaviourRange> HeroBehaviourRanges => _heroBehaviourRanges;
 
+	public void Init()
+	{
+		Bonuses = new Dictionary<string, int>();
+		foreach(var bonus in _questMoodBonuses)
+		{
+			Bonuses[bonus.QuestName] = bonus.MoodBonus;
+		}
+	}
+
+	
+	
 
 }
