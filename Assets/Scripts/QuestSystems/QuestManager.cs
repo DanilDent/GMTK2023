@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    public QuestConfig config;
+    public QuestsConfig config;
     public List<Quest> invisibleQuests = new();
     public List<Quest> avalaibleQuests = new();
     public List<Quest> inProgressQuests = new();
