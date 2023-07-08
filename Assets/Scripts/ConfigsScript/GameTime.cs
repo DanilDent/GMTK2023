@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 [Serializable]
 public struct GameTime : IEquatable<GameTime>
@@ -6,6 +7,13 @@ public struct GameTime : IEquatable<GameTime>
     public int Day;
     public int Hours;
     public int Minutes;
+
+    public GameTime(int day, Vector2Int time)
+    {
+        Day = day;
+        Hours = time.x;
+        Minutes = time.y;
+    }
 
     public bool Equals(GameTime other)
     {
@@ -46,6 +54,20 @@ public struct GameTime : IEquatable<GameTime>
     public static bool operator >(GameTime gameTime1, GameTime gameTime2)
     {
         return GetTotalMinutes(gameTime1) > GetTotalMinutes(gameTime2);
+    }
+
+    public static bool operator <=(GameTime gameTime1, GameTime gameTime2)
+    {
+        return GetTotalMinutes(gameTime1) <= GetTotalMinutes(gameTime2);
+    }
+    public static bool operator >=(GameTime gameTime1, GameTime gameTime2)
+    {
+        return GetTotalMinutes(gameTime1) >= GetTotalMinutes(gameTime2);
+    }
+
+    public static explicit operator int(GameTime gameTime)
+    {
+        return GetTotalMinutes(gameTime);
     }
 
     public static GameTime operator +(GameTime t1, GameTime t2)

@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         _timer = _timelineConfig.SecRealTimeToMinsGameTime;
         _eventService = EventService.Instance;
 
-        _currentGameTime = _timelineConfig.Timeline.FirstOrDefault(_ => _.EventType == TimelineEventType.StartOfDay).GameTime;
+        _currentGameTime = _timelineConfig.Days.FirstOrDefault().StartOfDay;
     }
 
     private void Update()

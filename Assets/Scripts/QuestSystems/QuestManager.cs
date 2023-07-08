@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
@@ -9,6 +10,14 @@ public class QuestManager : MonoBehaviour
     public List<Quest> inProgressQuests = new();
 
     public static QuestManager Instance;
+
+    // Incoming events
+    public event Action<GameTime> OnTimeUpdate;
+    public event Action<Quest> OnQuestAssign;
+
+    // Outgoing events
+    public event Action<Quest> QuestBecomeAvalaibled;
+    public event Action<Quest, bool> QuestCompleted;
 
     private void Awake()
     {
@@ -28,63 +37,87 @@ public class QuestManager : MonoBehaviour
         {
             Instance = null;
         }
+
+        EventService.Instance.GameTimeUpdated -= OnGameTimeUpdate;
+        EventService.Instance.QuestAssigned -= OnQuestAssigned;
+
+        QuestBecomeAvalaibled -= EventService.Instance.NewQuestBecomeAvailable;
+        QuestCompleted -= EventService.Instance.QuestCompleted;
     }
 
     private void Start()
     {
-        invisibleQuests.AddRange(config.GetData);
-        CheckAvalaibleQuests(0, 0);
-        //if(TryQuestAssignTo("Test", avalaibleQuests[0]))
-        //{
-        //    TryCompleteQuest(inProgressQuests[0].Name);
-        //}
+        invisibleQuests.AddRange(config.Data);
+
+        EventService.Instance.GameTimeUpdated += OnGameTimeUpdate;
+        EventService.Instance.QuestAssigned += OnQuestAssigned;
+
+        QuestBecomeAvalaibled += EventService.Instance.NewQuestBecomeAvailable;
+        QuestCompleted += EventService.Instance.QuestCompleted;
     }
 
-    public void CheckAvalaibleQuests(int _currentDay, int _currentTime)
+    public void OnGameTimeUpdate(GameTime _currentTime)
+    {
+        CheckAvalaibleQuests(_currentTime);
+        CheckAvalaibleQuestLifetimeEnd(_currentTime);
+        CheckInProgressQuestResult(_currentTime);
+    }
+
+    public void OnQuestAssigned(Quest _quest)
+    {
+        string _heroName = "Test";
+        GameTime _gameTime = new(0, new Vector2Int(0, 0));
+        bool _heroResult = true;
+        try
+        {
+            avalaibleQuests.Remove(_quest);
+            _quest.AssignQuestTo(_gameTime, _heroName, _heroResult);
+            inProgressQuests.Add(_quest);
+        }
+        catch
+        { }
+    }
+
+
+    private void CheckAvalaibleQuests(GameTime _currentTime)
     {
         for (int i = invisibleQuests.Count - 1; i >= 0; i--)
         {
             var _quest = invisibleQuests[i];
-            if (_currentDay < _quest.StartDay)
-            {
-                continue;
-            }
-
-            var _time = _quest.MinStartTime.x * 60 + _quest.MinStartTime.y;
-            if (_currentTime < _time)
+            if (_currentTime < _quest.StartTime)
             {
                 continue;
             }
             avalaibleQuests.Add(_quest);
+            QuestBecomeAvalaibled?.Invoke(_quest);
             invisibleQuests.Remove(_quest);
         }
     }
 
-    public bool TryQuestAssignTo(string _heroName, Quest _quest)
+    private void CheckAvalaibleQuestLifetimeEnd(GameTime _currentTime)
     {
-        try
+        for (int i = avalaibleQuests.Count - 1; i >= 0; i--)
         {
-            avalaibleQuests.Remove(_quest);
-            _quest.AssignQuestTo(_heroName);
-            inProgressQuests.Add(_quest);
+            var _quest = avalaibleQuests[i];
+            if ((_quest.StartTime + _quest.Lifetime) >= _currentTime)
+            {
+                avalaibleQuests.Remove(_quest);
+                QuestCompleted?.Invoke(_quest, false);
+            }
         }
-        catch
-        {
-            return false;
-        }
-        return true;
     }
-
-    public bool TryCompleteQuest(string _name)
+    private void CheckInProgressQuestResult(GameTime _currentTime)
     {
-        try
+        for (int i = inProgressQuests.Count - 1; i >= 0; i--)
         {
-            inProgressQuests.Remove(inProgressQuests.Find(quest => quest.Name == _name));
+            var _quest = inProgressQuests[i];
+
+            var timeToNews = _quest.Result ? _quest.SuccessfulNews.timeToNews : _quest.FailureNews.timeToNews;
+            if (_quest.AssignedTime + timeToNews >= _currentTime)
+            {
+                inProgressQuests.Remove(_quest);
+                QuestCompleted?.Invoke(_quest, _quest.Result);
+            }
         }
-        catch
-        {
-            return false;
-        }
-        return true;
     }
 }
