@@ -65,11 +65,11 @@ public class QuestManager : MonoBehaviour
         string heroName = GameManager.Instance.CurrentHeroNickname;
         Hero hero = HeroManager.Instance.Heroes.FirstOrDefault(_ => _.Nickname == heroName);
         GameTime _gameTime = GameManager.Instance.CurrentTime;
-        bool _heroResult = true;
+        bool heroResult = true;
         try
         {
             avalaibleQuests.Remove(_quest);
-            _quest.AssignQuestTo(heroName, _heroResult);
+            _quest.AssignQuestTo(heroName, heroResult);
             inProgressQuests.Add(_quest);
         }
         catch
