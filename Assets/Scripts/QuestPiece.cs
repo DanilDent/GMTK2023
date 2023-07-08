@@ -57,8 +57,14 @@ public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
         _rectTransform = GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
-    private void Update()
+    public void Destroy()
     {
+        _container.DeleteQuestFromList(this);
+        Destroy(gameObject);
+    }
+
+    public void SetPieceIndex(int index)
+    {
+        _index = index;
     }
 }
