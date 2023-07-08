@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         _timer = (float)_timelineConfig.SecRealTimeToMinsGameTime / _timelineConfig.GameTimeStepChange;
         _eventService = EventService.Instance;
 
-        //_currentGameTime = _timelineConfig.Days.FirstOrDefault().StartOfDay;
+        _currentGameTime = _timelineConfig.Days.FirstOrDefault().StartOfDay;
         SetGameState(GameState.AwaitingQuests);
     }
 

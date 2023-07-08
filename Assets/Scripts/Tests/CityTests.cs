@@ -12,6 +12,10 @@ public class CityTests : MonoBehaviour
         {
             return;
         }
+    }
+    private void Update()
+    {
+
         if (!isStart)
         {
             return;
