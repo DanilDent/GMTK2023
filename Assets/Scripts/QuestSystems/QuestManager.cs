@@ -99,7 +99,7 @@ public class QuestManager : MonoBehaviour
         {
             var _quest = inProgressQuests[i];
 
-            var timeToNews = _quest.Result ? _quest.SuccessfulNews.timeToNews : _quest.FailureNews.timeToNews;
+            var timeToNews = (_quest.Result ? _quest.SuccessfulNews.timeToNews : _quest.FailureNews.timeToNews) + new GameTime(1, Vector2Int.zero);
             if (_quest.AssignedTime + timeToNews >= GameManager.Instance.CurrentTime)
             {
                 inProgressQuests.Remove(_quest);
