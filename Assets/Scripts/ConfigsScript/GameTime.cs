@@ -4,17 +4,28 @@ using UnityEngine;
 [Serializable]
 public struct GameTime : IEquatable<GameTime>
 {
-    public int Day;
-    public int Hours;
-    public int Minutes;
+    public int Day => _day - 1;
+    public int Hours => _hours;
+    public int Minutes => _minutes;
+
+    [SerializeField] private int _day;
+    [SerializeField] private int _hours;
+    [SerializeField] private int _minutes;
 
     public static GameTime Zero => new(0, new Vector2Int(0, 0));
 
+    public GameTime(int day = 0, int hours = 0, int minutes = 0)
+    {
+        _day = day;
+        _hours = hours;
+        _minutes = minutes;
+    }
+
     public GameTime(int day, Vector2Int time)
     {
-        Day = day;
-        Hours = time.x;
-        Minutes = time.y;
+        _day = day;
+        _hours = time.x;
+        _minutes = time.y;
     }
 
     public bool Equals(GameTime other)
@@ -84,7 +95,7 @@ public struct GameTime : IEquatable<GameTime>
         totalMinutesResult -= resHours * 60;
         int resMinutes = totalMinutesResult;
 
-        return new GameTime { Day = resDay, Hours = resHours, Minutes = resMinutes };
+        return new GameTime(resDay, resHours, resMinutes);
     }
 
     public static GameTime operator -(GameTime t1, GameTime t2)
@@ -103,16 +114,16 @@ public struct GameTime : IEquatable<GameTime>
         totalMinutesResult -= resHours * 60;
         int resMinutes = totalMinutesResult;
 
-        return new GameTime { Day = resDay, Hours = resHours, Minutes = resMinutes };
+        return new GameTime(resDay, resHours, resMinutes);
     }
 
     public override string ToString()
     {
-        return $"Day {Day} {Hours}:{Minutes}";
+        return $"Day {Day + 1} {Hours}:{Minutes}";
     }
 
     private static int GetTotalMinutes(GameTime gameTime)
     {
-        return gameTime.Day * 24 * 60 + gameTime.Hours * 60 + gameTime.Minutes;
+        return gameTime._day * 24 * 60 + gameTime._hours * 60 + gameTime._minutes;
     }
 }

@@ -1,5 +1,5 @@
 public enum TimelineEventType
 {
-    NewCharacter,
+    NewHero,
     NewQuest,
 }
