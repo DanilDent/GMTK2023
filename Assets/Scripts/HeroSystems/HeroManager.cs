@@ -37,12 +37,19 @@ public class HeroManager : MonoBehaviour
 	}
 	public void OnQuestCompleted(Quest quest, Hero hero)
 	{
-		int bonus;
-		if(hero.Bonuses.TryGetValue(quest.Name, out bonus))
+		if(hero.Bonuses.TryGetValue(quest.Name, out var bonus))
 		{
 			hero.CurrentMoodScore += bonus;
 			UpdateHeroMood(hero);
 		}
+	}
+	public bool IsQuestCompletable(Quest quest, Hero hero)
+	{
+		if(hero.Bonuses.TryGetValue(quest.Name, out var bonus))
+		{
+			return bonus > 0;
+		}
+		return false;
 	}
 	public void OnQuestCompleted(Quest quest, string heroName)
 	{
