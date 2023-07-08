@@ -73,13 +73,14 @@ public class GameManager : MonoBehaviour
             {
                 _timer = _timelineConfig.SecRealTimeToMinsGameTime;
                 _lastGameTimeTick = _currentGameTime;
-                _currentGameTime += new GameTime { Minutes = _timelineConfig.GameTimeStepChange };
+                _currentGameTime += new GameTime(0, 0, minutes: _timelineConfig.GameTimeStepChange);
                 HandleEvents();
 
-                if (_currentGameTime >= _timelineConfig.Days[_currentGameTime.Day].EndOfDay)
+                if (_currentGameTime.Day >= _timelineConfig.Days.Length ||
+                    _currentGameTime >= _timelineConfig.Days[_currentGameTime.Day].EndOfDay)
                 {
                     _eventIndex = 0;
-                    if (_currentGameTime.Day + 1 >= _timelineConfig.Days.Length)
+                    if (_currentGameTime.Day >= _timelineConfig.Days.Length)
                     {
                         /// GAME OVER
                         SetGameState(GameState.GameOver);
@@ -99,14 +100,15 @@ public class GameManager : MonoBehaviour
 
     private void HandleEvents()
     {
-        while (_currentGameTime >= _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex].GameTime &&
+        while (_currentGameTime.Day < _timelineConfig.Days.Length &&
             _eventIndex < _timelineConfig.Days[_currentGameTime.Day].Timeline.Length &&
-            _currentGameTime.Day < _timelineConfig.Days.Length)
+            _currentGameTime >= _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex].GameTime)
         {
             TimelineEventData eventData = _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex];
             if (eventData.EventType == TimelineEventType.NewHero)
             {
                 _eventService.NewHeroComing?.Invoke(eventData.Name);
+                Debug.Log($"New hero came to our village: {eventData.Name}");
                 SetGameState(GameState.NewHero);
             }
             _eventIndex++;
