@@ -14,7 +14,7 @@ public class QuestPacker : MonoBehaviour
 
     private void CreateNewQuestOnScreen(Quest quest)
     {
-        Debug.Log(quest.Name);
+        //Debug.Log(quest.Name);
         var questInformation = Instantiate(_questInformation, transform.position, Quaternion.identity);
         if (questInformation.TryGetComponent(out QuestPiece piece))
         {

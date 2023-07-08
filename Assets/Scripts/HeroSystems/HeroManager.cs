@@ -78,6 +78,7 @@ public class HeroManager : MonoBehaviour
 		var heroes = Heroes.Where(h => h.Nickname == heroName).ToList();
 		if(heroes.Count == 0)
 		{
+			Debug.Log(heroName);
 			throw new Exception();
 		}
 		return heroes[0];
