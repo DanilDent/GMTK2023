@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,6 +23,7 @@ public class DialogManager : MonoSingleton<DialogManager>
 
     private string[] helloPhrases;
     private float allDurationMessage;
+    private IEnumerator _dispDiagCoroutine;
 
     void Start()
     {
@@ -36,7 +38,14 @@ public class DialogManager : MonoSingleton<DialogManager>
 
     public void UpdateDialogueText(string text)
     {
-        _dialogueText.text = text;
+        _dialogueText.text = string.Empty;
+        if (_dispDiagCoroutine != null)
+        {
+            StopCoroutine(_dispDiagCoroutine);
+            _dispDiagCoroutine = null;
+        }
+        _dispDiagCoroutine = DisplayDialogueTextCoroutine(text);
+        StartCoroutine(_dispDiagCoroutine);
     }
 
     public void DisplayHello()
@@ -47,16 +56,19 @@ public class DialogManager : MonoSingleton<DialogManager>
 
     public void DisplayMain()
     {
+        UpdateDialogueText("What do you want to do?");
         Display(2, 3, 4, 5);
     }
 
     public void DisplayShop()
     {
+        UpdateDialogueText("Shop feedback message will displayed here soon");
         Display(5);
     }
 
     public void DisplayTalk()
     {
+        UpdateDialogueText("Some question here");
         Display(6, 7);
     }
 
@@ -70,6 +82,19 @@ public class DialogManager : MonoSingleton<DialogManager>
         for (int i = 0; i < btnIndecies.Length; ++i)
         {
             _btns[btnIndecies[i]].gameObject.SetActive(true);
+        }
+    }
+
+    private IEnumerator DisplayDialogueTextCoroutine(string message)
+    {
+        int charIndex = 0;
+
+        while (charIndex < message.Length)
+        {
+            _dialogueText.text += message[charIndex];
+            ++charIndex;
+            float waitFor = (float)allDurationMessage / message.Length;
+            yield return new WaitForSeconds(waitFor);
         }
     }
 }
