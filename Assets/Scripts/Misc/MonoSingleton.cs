@@ -3,7 +3,7 @@
 public class MonoSingleton<T> : MonoBehaviour
     where T : MonoBehaviour
 {
-    private static T _instance;
+    protected static T _instance;
     public static T Instance => _instance;
 
     protected virtual void Awake()

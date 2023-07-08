@@ -6,53 +6,57 @@ using UnityEngine;
 [Serializable]
 public struct Hero
 {
-	[Serializable]
-	public struct AvatarPart
-	{
-		[SerializeField] public AvatarPartType Key;
-		[SerializeField] public Sprite Value;
-	}
-	[Serializable]
-	public struct QuestMoodBonus
-	{
-		[SerializeField] public string QuestName;
-		[SerializeField] public int MoodBonus;
-	}
-	[Serializable]
-	public struct HeroMoodRange
-	{
-		[SerializeField] public int From;
-		[SerializeField] public int To;
-		[SerializeField] public HeroMood HeroMood;
-	}
-	[SerializeField] private string _nickname;
-	[SerializeField] private GameTime[] _appearanceTimes;
-	[SerializeField] private QuestMoodBonus[] _questMoodBonuses;
-	[SerializeField] private List<HeroMood> _heroMoods;
-	private Dictionary<string, int> _bonuses;
-	
-	[HideInInspector]public bool IsPresent;
+    public string HeroBehPatternName => _heroBehPatternName;
 
-	public Dictionary<string, int> Bonuses
-	{
-		get
-		{
-			if(_bonuses != null) return _bonuses;
-			_bonuses = new Dictionary<string, int>();
-			foreach(var bonus in _questMoodBonuses)
-			{
-				_bonuses[bonus.QuestName] = bonus.MoodBonus;
-			}
-			return _bonuses;
-		}
+    [SerializeField] private string _heroBehPatternName;
 
-	}
+    [Serializable]
+    public struct AvatarPart
+    {
+        [SerializeField] public AvatarPartType Key;
+        [SerializeField] public Sprite Value;
+    }
+    [Serializable]
+    public struct QuestMoodBonus
+    {
+        [SerializeField] public string QuestName;
+        [SerializeField] public int MoodBonus;
+    }
+    [Serializable]
+    public struct HeroMoodRange
+    {
+        [SerializeField] public int From;
+        [SerializeField] public int To;
+        [SerializeField] public HeroMood HeroMood;
+    }
+    [SerializeField] private string _nickname;
+    [SerializeField] private GameTime[] _appearanceTimes;
+    [SerializeField] private QuestMoodBonus[] _questMoodBonuses;
+    [SerializeField] private List<HeroMood> _heroMoods;
+    private Dictionary<string, int> _bonuses;
 
-	public string Nickname => _nickname;
+    [HideInInspector] public bool IsPresent;
 
-	public int CurrentMoodScore;
-	public HeroMood CurrentHeroMood;
-	public List<HeroMood> HeroMoods => _heroMoods;
-	public List<AvatarPart> CurrentAvatarParts;
+    public Dictionary<string, int> Bonuses
+    {
+        get
+        {
+            if (_bonuses != null) return _bonuses;
+            _bonuses = new Dictionary<string, int>();
+            foreach (var bonus in _questMoodBonuses)
+            {
+                _bonuses[bonus.QuestName] = bonus.MoodBonus;
+            }
+            return _bonuses;
+        }
+
+    }
+
+    public string Nickname => _nickname;
+
+    public int CurrentMoodScore;
+    public HeroMood CurrentHeroMood;
+    public List<HeroMood> HeroMoods => _heroMoods;
+    public List<AvatarPart> CurrentAvatarParts;
 
 }

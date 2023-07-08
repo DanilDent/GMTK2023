@@ -30,12 +30,12 @@ MonoBehaviour:
   - EventType: 0
     GameTime:
       _day: 1
-      _hours: 9
-      _minutes: 30
+      _hours: 23
+      _minutes: 23
     Name: drawing_dead
   - EventType: 0
     GameTime:
       _day: 1
-      _hours: 10
-      _minutes: 10
+      _hours: 23
+      _minutes: 56
     Name: Kr0lik

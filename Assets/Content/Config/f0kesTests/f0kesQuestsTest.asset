@@ -16,9 +16,9 @@ MonoBehaviour:
   - name: 1
     description: 
     minStartTime:
-      _day: 0
-      _hours: 0
-      _minutes: 1
+      _day: 1
+      _hours: 19
+      _minutes: 0
     successfulNews:
       description: 
       timeToNews:

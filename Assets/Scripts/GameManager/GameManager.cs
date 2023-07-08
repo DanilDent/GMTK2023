@@ -112,6 +112,12 @@ public class GameManager : MonoBehaviour
                 _eventService.NewHeroComing?.Invoke(eventData.Name);
                 //Debug.Log($"New hero came to our village: {eventData.Name}");
                 SetGameState(GameState.NewHero);
+                Hero hero = HeroManager.Instance.Heroes.FirstOrDefault(_ => _.Nickname == eventData.Name);
+                if (HeroBehPatternExecutor.IsEnabled)
+                {
+                    HeroBehPatternExecutor.Instance.SetRecording(hero.HeroBehPatternName);
+                    HeroBehPatternExecutor.Instance.StartPlay();
+                }
             }
             _eventIndex++;
         }
