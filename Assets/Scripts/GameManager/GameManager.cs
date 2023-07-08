@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {
         AwaitingQuests,
-        NewCharacter,
+        NewHero,
         BehaviourAnalysis,
         QuestGiving,
         NewsReading,
@@ -32,6 +33,9 @@ public class GameManager : MonoBehaviour
     private bool _isPaused;
     private int _eventIndex;
     private GameState _currentState;
+    //
+    private List<Hero> _heroes;
+    private Hero _currentHero;
 
     public void SetGameState(GameState state)
     {
@@ -48,6 +52,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        _heroes = new List<Hero>();
     }
 
     private void Start()
@@ -107,7 +113,7 @@ public class GameManager : MonoBehaviour
             if (eventData.EventType == TimelineEventType.NewCharacter)
             {
                 _eventService.NewHeroComing?.Invoke(eventData.Name);
-                SetGameState(GameState.NewCharacter);
+                SetGameState(GameState.NewHero);
             }
             _eventIndex++;
         }
