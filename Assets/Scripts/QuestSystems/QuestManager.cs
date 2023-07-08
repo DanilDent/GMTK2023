@@ -68,7 +68,6 @@ public class QuestManager : MonoBehaviour
 		}
 	}
 
-
 	private void CheckAvalaibleQuests()
 	{
 		for(int i = invisibleQuests.Count - 1; i >= 0; i--)

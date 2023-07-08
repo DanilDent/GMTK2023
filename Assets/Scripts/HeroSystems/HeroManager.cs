@@ -92,6 +92,7 @@ public class HeroManager : MonoBehaviour
 	}
 	public void UpdateHeroMood(Hero hero)
 	{
+		Debug.Log(hero.CurrentMoodScore);
 		var behaviour = hero.CurrentHeroMood;
 		var moods = hero.HeroMoods;
 		foreach(var mood in moods.Where(range => hero.CurrentMoodScore >= range.FromScore && hero.CurrentMoodScore <= range.ToScore))
