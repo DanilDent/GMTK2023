@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Day Config", menuName = "Configs/Day Config")]
 public class DayConfig : ScriptableObject
 {
     public GameTime StartOfDay => _startOfDay;
