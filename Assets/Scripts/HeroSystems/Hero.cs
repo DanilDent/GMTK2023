@@ -28,24 +28,28 @@ public struct Hero
 	[SerializeField] private string _nickname;
 	[SerializeField] private QuestMoodBonus[] _questMoodBonuses;
 	[SerializeField] private List<HeroMood> _heroMoods;
-	public Dictionary<string, int> Bonuses{get; private set;}
+	private Dictionary<string, int> _bonuses;
+
+	public Dictionary<string, int> Bonuses
+	{
+		get
+		{
+			if(_bonuses != null) return _bonuses;
+			_bonuses = new Dictionary<string, int>();
+			foreach(var bonus in _questMoodBonuses)
+			{
+				_bonuses[bonus.QuestName] = bonus.MoodBonus;
+			}
+			return _bonuses;
+		}
+
+	}
+
 	public string Nickname => _nickname;
 
 	public int CurrentMoodScore;
 	public HeroMood CurrentHeroMood;
 	public List<HeroMood> HeroMoods => _heroMoods;
 	public List<AvatarPart> CurrentAvatarParts;
-
-	public void Init()
-	{
-		Bonuses = new Dictionary<string, int>();
-		foreach(var bonus in _questMoodBonuses)
-		{
-			Bonuses[bonus.QuestName] = bonus.MoodBonus;
-		}
-	}
-
-
-
 
 }

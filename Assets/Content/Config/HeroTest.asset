@@ -12,4 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de275a9e594439e9281aa5cc2e3ffa6, type: 3}
   m_Name: HeroTest
   m_EditorClassIdentifier: 
-  data: []
+  data:
+  - _nickname: f0kes
+    _questMoodBonuses:
+    - QuestName: 1
+      MoodBonus: 10
+    _heroMoods:
+    - FromScore: 10
+      ToScore: 20
+      MoodName: genius
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 100
+        _cursorConfidence: 100
+    CurrentMoodScore: 0
+    CurrentHeroMood:
+      FromScore: 0
+      ToScore: 10
+      MoodName: Idiot
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 0
+        _cursorConfidence: 0
+    CurrentAvatarParts: []

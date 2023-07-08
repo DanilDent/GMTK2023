@@ -7,7 +7,7 @@ public class HeroManager : MonoBehaviour
 {
 	public static HeroManager Instance;
 	[SerializeField] private HeroConfig _heroConfig;
-	public List<Hero> Heroes = new();
+	[HideInInspector] public List<Hero> Heroes = new();
 	private void Awake()
 	{
 		if(Instance == null)
@@ -30,13 +30,12 @@ public class HeroManager : MonoBehaviour
 	private void Start()
 	{
 		Heroes.AddRange(_heroConfig.GetData);
-		foreach(var hero in Heroes)
-		{
-			hero.Init();
-		}
 	}
 	public void OnQuestCompleted(Quest quest, Hero hero)
 	{
+		Debug.Log(quest);
+		Debug.Log(hero);
+		Debug.Log(hero.Bonuses);
 		if(hero.Bonuses.TryGetValue(quest.Name, out var bonus))
 		{
 			hero.CurrentMoodScore += bonus;
@@ -75,7 +74,7 @@ public class HeroManager : MonoBehaviour
 		hero.CurrentHeroMood = mood;
 		hero.CurrentAvatarParts = mood.AvatarParts;
 		var moodChangedEventArgs = new OnHeroMoodChangedEventArgs(hero, mood);
-		EventService.Instance.HeroMoodChanged.Invoke(moodChangedEventArgs);
+		EventService.Instance.HeroMoodChanged?.Invoke(moodChangedEventArgs);
 	}
 	public void UpdateHeroMood(Hero hero)
 	{
