@@ -8,7 +8,6 @@ public class GameTimelineConfig
     public int GameTimeStepChange => _gameTimeStepChange;
     public DayConfig[] Days => _days;
 
-    [SerializeField] private TimelineEventData[] _timeline;
     [SerializeField] private int _secRealTimeToMinsGameTime = 3;
     [SerializeField] private int _gameTimeStepChange = 10;
     [SerializeField] private DayConfig[] _days;

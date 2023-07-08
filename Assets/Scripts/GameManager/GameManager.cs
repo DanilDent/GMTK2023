@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     private GameTime _lastGameTimeTick;
     private float _timer;
     private bool _isPaused;
-    private int _eventIndex = -1;
+    private int _eventIndex;
     private GameState _currentState;
 
     public void SetGameState(GameState state)
@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
 
                 if (_currentGameTime >= _timelineConfig.Days[_currentGameTime.Day].EndOfDay)
                 {
+                    _eventIndex = 0;
                     if (_currentGameTime.Day + 1 >= _timelineConfig.Days.Length)
                     {
                         /// GAME OVER
