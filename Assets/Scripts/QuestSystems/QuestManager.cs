@@ -36,7 +36,7 @@ public class QuestManager : MonoBehaviour
 
 	private void Start()
 	{
-		invisibleQuests.AddRange(config.Data);
+		//invisibleQuests.AddRange(config.Data);
 
 		EventService.Instance.GameTimeUpdated += OnGameTimeUpdate;
 		EventService.Instance.QuestAssigned += OnQuestAssigned;
@@ -88,7 +88,7 @@ public class QuestManager : MonoBehaviour
 		for(int i = avalaibleQuests.Count - 1; i >= 0; i--)
 		{
 			var _quest = avalaibleQuests[i];
-			if((_quest.StartTime + _quest.Lifetime) >= GameManager.Instance.CurrentTime)
+			if((_quest.StartTime + _quest.Lifetime + new GameTime(1, Vector2Int.zero)) <= GameManager.Instance.CurrentTime)
 			{
 				avalaibleQuests.Remove(_quest);
 				EventService.Instance.QuestCompleted?.Invoke(_quest, false);

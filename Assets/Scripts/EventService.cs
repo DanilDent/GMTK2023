@@ -35,4 +35,7 @@ public class EventService
     public Action<Quest, bool> QuestCompleted;
 
     public Action<Quest> QuestBecomeAvailableToGiveHero;
+
+    public Action CityDestroyed;
+    public Action<float> CityHealthChanged;
 }
