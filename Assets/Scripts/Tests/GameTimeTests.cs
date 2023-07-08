@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class GameTimeTests : MonoBehaviour
 {
-    private GameTime time1 = new GameTime(0, new Vector2Int(0, 0));
-    private GameTime time2 = new GameTime(0, new Vector2Int(3, 3));
-    private GameTime time3 = new GameTime(0, new Vector2Int(1, 40));
-    private GameTime time4 = new GameTime(1, new Vector2Int(1, 7));
-    private GameTime time5 = new GameTime(1, new Vector2Int(0, 21));
-    private GameTime time6 = new GameTime(1, new Vector2Int(0, 21));
+    private GameTime time1 = new(0, new Vector2Int(0, 0));
+    private GameTime time2 = new(0, new Vector2Int(3, 3));
+    private GameTime time3 = new(0, new Vector2Int(1, 40));
+    private GameTime time4 = new(1, new Vector2Int(1, 7));
+    private GameTime time5 = new(1, new Vector2Int(0, 21));
+    private GameTime time6 = new(1, new Vector2Int(0, 21));
     private void Start()
     {
         Debug.Log($"1) {time1}");
@@ -18,7 +18,7 @@ public class GameTimeTests : MonoBehaviour
         Debug.Log($"3) {time4 + time2} | Res: 1:4:10");
         Debug.Log($"4) {time3 + time5} | Res: 1:2:1");
 
-        Debug.Log($"5) {time3 - time4} | Res: 0:0:33");
+        Debug.Log($"5) {time3 - time4} | Res: 0:0:0");
         Debug.Log($"6) {time2 - time3} | Res: 0:1:23");
         Debug.Log($"7) {time3 - time2} | Res: 0:0:0");
         Debug.Log($"8) {time4 - time2} | Res: 0:22:4");

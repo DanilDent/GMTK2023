@@ -8,6 +8,8 @@ public struct GameTime : IEquatable<GameTime>
     public int Hours;
     public int Minutes;
 
+    public static GameTime Zero => new(0, new Vector2Int(0, 0));
+
     public GameTime(int day, Vector2Int time)
     {
         Day = day;
@@ -18,9 +20,9 @@ public struct GameTime : IEquatable<GameTime>
     public bool Equals(GameTime other)
     {
         return
-            Day.Equals(other) &&
-            Hours.Equals(other) &&
-            Minutes.Equals(other);
+            Day.Equals(other.Day) &&
+            Hours.Equals(other.Hours) &&
+            Minutes.Equals(other.Minutes);
     }
 
     public override bool Equals(object obj)
@@ -76,10 +78,10 @@ public struct GameTime : IEquatable<GameTime>
         int totalMinutesT2 = GetTotalMinutes(t2);
         int totalMinutesResult = totalMinutesT1 + totalMinutesT2;
 
-        int resDay = (totalMinutesResult / (24 * 60)) * 24 * 60;
-        totalMinutesResult -= resDay;
-        int resHours = (totalMinutesResult / 60) * 60;
-        totalMinutesResult -= resHours;
+        int resDay = totalMinutesResult / (24 * 60);
+        totalMinutesResult -= resDay * 60 * 24;
+        int resHours = totalMinutesResult / 60;
+        totalMinutesResult -= resHours * 60;
         int resMinutes = totalMinutesResult;
 
         return new GameTime { Day = resDay, Hours = resHours, Minutes = resMinutes };
@@ -90,11 +92,15 @@ public struct GameTime : IEquatable<GameTime>
         int totalMinutesT1 = GetTotalMinutes(t1);
         int totalMinutesT2 = GetTotalMinutes(t2);
         int totalMinutesResult = totalMinutesT1 - totalMinutesT2;
+        if (totalMinutesResult < 0)
+        {
+            return Zero;
+        }
 
-        int resDay = (totalMinutesResult / (24 * 60)) * 24 * 60;
-        totalMinutesResult -= resDay;
-        int resHours = (totalMinutesResult / 60) * 60;
-        totalMinutesResult -= resHours;
+        int resDay = totalMinutesResult / (24 * 60);
+        totalMinutesResult -= resDay * 24 * 60;
+        int resHours = totalMinutesResult / 60;
+        totalMinutesResult -= resHours * 60;
         int resMinutes = totalMinutesResult;
 
         return new GameTime { Day = resDay, Hours = resHours, Minutes = resMinutes };
