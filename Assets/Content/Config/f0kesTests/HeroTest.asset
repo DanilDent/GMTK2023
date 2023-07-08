@@ -14,34 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
   - _nickname: f0kes
-    _questMoodBonuses:
-    - QuestName: 1
-      MoodBonus: 10
-    _heroMoods:
-    - FromScore: 10
-      ToScore: 20
-      MoodName: genius
-      AvatarParts:
-      - Key: 0
-        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 100
-        _cursorConfidence: 100
-    CurrentMoodScore: 0
-    CurrentHeroMood:
-      FromScore: 0
-      ToScore: 10
-      MoodName: Idiot
-      AvatarParts:
-      - Key: 0
-        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 0
-        _cursorConfidence: 0
-    CurrentAvatarParts:
-    - Key: 0
-      Value: {fileID: 21300000, guid: 216eb4294f6c8704fa7302f12e9c61a9, type: 3}
-  - _nickname: f0kes
     _appearanceTimes: []
     _questMoodBonuses:
     - QuestName: 1
@@ -51,8 +23,6 @@ MonoBehaviour:
       ToScore: 20
       MoodName: genius
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
       - Key: 0
         Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
@@ -70,4 +40,66 @@ MonoBehaviour:
       HeroBehaviour:
         _cursorSpeed: 0
         _cursorConfidence: 0
-    CurrentAvatarParts: []
+    CurrentAvatarParts:
+    - Key: 0
+      Value: {fileID: 21300000, guid: 216eb4294f6c8704fa7302f12e9c61a9, type: 3}
+  - _nickname: drawing_dead
+    _appearanceTimes: []
+    _questMoodBonuses:
+    - QuestName: 1
+      MoodBonus: 10
+    _heroMoods:
+    - FromScore: 10
+      ToScore: 20
+      MoodName: genius
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 100
+        _cursorConfidence: 100
+    IsPresent: 0
+    CurrentMoodScore: 0
+    CurrentHeroMood:
+      FromScore: 0
+      ToScore: 10
+      MoodName: Idiot
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 0
+        _cursorConfidence: 0
+    CurrentAvatarParts:
+    - Key: 0
+      Value: {fileID: 21300000, guid: a443e8cefb01d9946b3df0e0ee31e397, type: 3}
+  - _nickname: Kr0lik
+    _appearanceTimes: []
+    _questMoodBonuses:
+    - QuestName: 1
+      MoodBonus: 10
+    _heroMoods:
+    - FromScore: 10
+      ToScore: 20
+      MoodName: genius
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 100
+        _cursorConfidence: 100
+    IsPresent: 0
+    CurrentMoodScore: 0
+    CurrentHeroMood:
+      FromScore: 0
+      ToScore: 10
+      MoodName: Idiot
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 0
+        _cursorConfidence: 0
+    CurrentAvatarParts:
+    - Key: 0
+      Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}

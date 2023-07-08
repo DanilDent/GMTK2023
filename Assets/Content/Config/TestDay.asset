@@ -27,3 +27,15 @@ MonoBehaviour:
       _hours: 9
       _minutes: 1
     Name: f0kes
+  - EventType: 0
+    GameTime:
+      _day: 1
+      _hours: 9
+      _minutes: 30
+    Name: drawing_dead
+  - EventType: 0
+    GameTime:
+      _day: 1
+      _hours: 10
+      _minutes: 10
+    Name: Kr0lik
