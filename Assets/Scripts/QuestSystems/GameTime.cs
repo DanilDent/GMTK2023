@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-
 [Serializable]
 public struct GameTime
 {
@@ -116,6 +115,9 @@ public struct GameTime
         var newHours = (result.Time.y + 1) / 60;
         result.Time.y -= newHours * 60;
         result.Time.x += newHours;
+        var newDay = (result.Time.y + 1) / 24;
+        result.Time.x -= newDay * 24;
+        result.Day += newDay;
         return result;
     }
 
@@ -135,11 +137,19 @@ public struct GameTime
             var reducedHours = Mathf.Abs((result.Time.y + 1) / 60) + 1;
             result.Time.y += reducedHours * 60;
             result.Time.x -= reducedHours;
-            if (result.Time.x < 0)
-            {
-                result.Time.x = 0;
-                result.Time.y = 0;
-            }
+
+        }
+        if (result.Time.x < 0)
+        {
+            var reducedDay = Mathf.Abs((result.Time.x + 1) / 24) + 1;
+            result.Time.x += reducedDay * 24;
+            result.Day -= reducedDay;            
+        }
+        if (result.Day < 0)
+        {
+            result.Day = 0;
+            result.Time.x = 0;
+            result.Time.y = 0;
         }
 
         return result;
