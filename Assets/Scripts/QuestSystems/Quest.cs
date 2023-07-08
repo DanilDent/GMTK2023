@@ -12,6 +12,7 @@ public struct Quest
     [SerializeField] private GameTime maxLifetime;
     [SerializeField] private int successfulHPChange;
     [SerializeField] private int failureHPChange;
+    
     private string heroName;
     private bool result;
     private GameTime timeBecomeAvalaible;
