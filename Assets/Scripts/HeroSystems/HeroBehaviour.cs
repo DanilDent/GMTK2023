@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroBehaviour : ScriptableObject
+[Serializable]
+public struct HeroBehaviour 
 {
 	[SerializeField] private float _cursorSpeed;
 	[SerializeField] private float _cursorConfidence;

@@ -23,6 +23,7 @@ public class EventService
     public Action<QuestsConfig> NewQuestBecomeAvailable;
     // Passes current GameTime
     public Action<GameTime> GameTimeUpdated;
+    public Action<OnHeroMoodChangedEventArgs> HeroMoodChanged;
 
 }
 

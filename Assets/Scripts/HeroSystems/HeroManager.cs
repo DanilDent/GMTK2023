@@ -67,6 +67,8 @@ public class HeroManager : MonoBehaviour
 	{
 		hero.CurrentHeroMood = mood;
 		hero.CurrentAvatarParts = mood.AvatarParts;
+		var moodChangedEventArgs = new OnHeroMoodChangedEventArgs(hero, mood);
+		EventService.Instance.HeroMoodChanged.Invoke(moodChangedEventArgs);
 	}
 	public void UpdateHeroMood(Hero hero)
 	{
