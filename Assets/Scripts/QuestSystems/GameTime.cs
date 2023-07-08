@@ -55,6 +55,40 @@ public struct GameTime
     {
         return !gameTime1.Equals(gameTime2);
     }
+    public static bool operator <=(GameTime gameTime1, GameTime gameTime2)
+    {
+        if (gameTime1.Equals(gameTime2))
+        {
+            return true;
+        }
+        if (gameTime1.Day < gameTime2.Day)
+        {
+            return true;
+        }
+        else if (gameTime1.Day > gameTime2.Day)
+        {
+            return false;
+        }
+        return (int)gameTime1 < (int)gameTime2;
+    }
+
+    public static bool operator >=(GameTime gameTime1, GameTime gameTime2)
+    {
+        if (gameTime1.Equals(gameTime2))
+        {
+            return true;
+        }
+        if (gameTime1.Day > gameTime2.Day)
+        {
+            return true;
+        }
+        else if (gameTime1.Day < gameTime2.Day)
+        {
+            return false;
+        }
+        return (int)gameTime1 > (int)gameTime2;
+    }
+
 
     public override bool Equals(object obj)
     {
