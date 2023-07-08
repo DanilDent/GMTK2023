@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -33,9 +32,6 @@ public class GameManager : MonoBehaviour
     private bool _isPaused;
     private int _eventIndex;
     private GameState _currentState;
-    //
-    private List<Hero> _heroes;
-    private Hero _currentHero;
 
     public void SetGameState(GameState state)
     {
@@ -52,8 +48,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        _heroes = new List<Hero>();
     }
 
     private void Start()
@@ -110,7 +104,7 @@ public class GameManager : MonoBehaviour
             _currentGameTime.Day < _timelineConfig.Days.Length)
         {
             TimelineEventData eventData = _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex];
-            if (eventData.EventType == TimelineEventType.NewCharacter)
+            if (eventData.EventType == TimelineEventType.NewHero)
             {
                 _eventService.NewHeroComing?.Invoke(eventData.Name);
                 SetGameState(GameState.NewHero);
