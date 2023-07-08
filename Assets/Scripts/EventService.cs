@@ -20,6 +20,7 @@ public class EventService
     }
 
     // Events
+    public Action<string> NewHeroComing;
     public Action<Quest> NewQuestBecomeAvailable;
     public Action GameTimeUpdated;
     public Action<OnHeroMoodChangedEventArgs> HeroMoodChanged;

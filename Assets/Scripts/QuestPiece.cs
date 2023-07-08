@@ -14,12 +14,14 @@ public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
 
     private bool isGiven = false;
     private RectTransform _rectTransform;
+    private CanvasGroup _canvasGroup;
 
     public void Initialize(QuestPiecesContainer parentContainer, int index)
     {
         _container = parentContainer;
         _index = index;
         _selfImage = GetComponent<Image>();
+        _canvasGroup = GetComponent<CanvasGroup>();
     }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
@@ -28,7 +30,8 @@ public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         _offset = Input.mousePosition - _rectTransform.position;
-        _selfImage.raycastTarget = false;
+        //_selfImage.raycastTarget = false;
+        _canvasGroup.blocksRaycasts = false;
     }
 
     void IDragHandler.OnDrag(PointerEventData eventData)
@@ -40,7 +43,7 @@ public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("Finish");
-        _selfImage.raycastTarget = true;
+        _canvasGroup.blocksRaycasts = true;
         if (!isGiven)
         {
             transform.SetParent(_container.transform);
@@ -54,8 +57,14 @@ public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
         _rectTransform = GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
-    private void Update()
+    public void Destroy()
     {
+        _container.DeleteQuestFromList(this);
+        Destroy(gameObject);
+    }
+
+    public void SetPieceIndex(int index)
+    {
+        _index = index;
     }
 }

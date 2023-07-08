@@ -10,10 +10,8 @@ public class QuestSlot : MonoBehaviour, IDropHandler
         Debug.Log(eventData);
         if (eventData.pointerDrag.TryGetComponent(out QuestPiece questPiece))
         {
-            GameObject quest = questPiece.gameObject;
-            Destroy(quest);
+            questPiece.Destroy();
         }
-        //Ивент с передачей квеста герою
     }
 
     // Start is called before the first frame update
