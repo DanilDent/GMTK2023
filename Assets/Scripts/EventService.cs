@@ -23,11 +23,16 @@ public class EventService
 
     // Events
     public Action<string> NewHeroComing;
+
     public Action<Quest> NewQuestBecomeAvailable;
 
     public Action GameTimeUpdated;
+
     public Action<OnHeroMoodChangedEventArgs> HeroMoodChanged;
+
     public Action<Quest> QuestAssigned;
+
     public Action<Quest, bool> QuestCompleted;
+
     public Action<Quest> QuestBecomeAvailableToGiveHero;
 }

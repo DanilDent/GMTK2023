@@ -67,15 +67,14 @@ public class QuestManager : MonoBehaviour
         try
         {
             avalaibleQuests.Remove(_quest);
-            _quest.AssignQuestTo(_gameTime, _heroName, _heroResult);
+            _quest.AssignQuestTo(_heroName, _heroResult);
             inProgressQuests.Add(_quest);
         }
         catch
         { }
     }
 
-
-    private  void CheckAvalaibleQuests()
+    private void CheckAvalaibleQuests()
     {
         for (int i = invisibleQuests.Count - 1; i >= 0; i--)
         {
@@ -104,6 +103,7 @@ public class QuestManager : MonoBehaviour
             }
         }
     }
+
     private void CheckInProgressQuestResult()
     {
         for (int i = inProgressQuests.Count - 1; i >= 0; i--)

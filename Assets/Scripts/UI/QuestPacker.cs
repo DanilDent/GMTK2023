@@ -14,11 +14,17 @@ public class QuestPacker : MonoBehaviour
 
     private void CreateNewQuestOnScreen(Quest quest)
     {
+        Debug.Log(quest.Name);
         var questInformation = Instantiate(_questInformation, transform.position, Quaternion.identity);
         questInformation.Initialize(quest);
         if (questInformation.TryGetComponent(out QuestPiece piece))
         {
             questPiecesContainer.AddQuestToPool(piece);
         }
+    }
+
+    private void OnDisable()
+    {
+        EventService.Instance.NewQuestBecomeAvailable -= CreateNewQuestOnScreen;
     }
 }
