@@ -3,8 +3,20 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public enum GameState
+    {
+        AwaitingQuests,
+        NewCharacter,
+        BehaviourAnalysis,
+        QuestGiving,
+        NewsReading,
+        GameOver
+    }
+
     // Public interface
+    public bool IsPaused { get => _isPaused; set { _isPaused = value; } }
     public GameTime CurrentTime => _currentGameTime;
+    public GameState CurrentState => _currentState;
 
     // Singleton impl
     public static GameManager Instance => _instance;
@@ -18,6 +30,13 @@ public class GameManager : MonoBehaviour
     private GameTime _lastGameTimeTick;
     private float _timer;
     private bool _isPaused;
+    private int _eventIndex = -1;
+    private GameState _currentState;
+
+    public void SetGameState(GameState state)
+    {
+        _currentState = state;
+    }
 
     private void Awake()
     {
@@ -36,7 +55,8 @@ public class GameManager : MonoBehaviour
         _timer = _timelineConfig.SecRealTimeToMinsGameTime;
         _eventService = EventService.Instance;
 
-        _currentGameTime = _timelineConfig.Timeline.FirstOrDefault(_ => _.EventType == TimelineEventType.StartOfDay).GameTime;
+        _currentGameTime = _timelineConfig.Days.FirstOrDefault().StartOfDay;
+        SetGameState(GameState.AwaitingQuests);
     }
 
     private void Update()
@@ -54,6 +74,21 @@ public class GameManager : MonoBehaviour
                 _timer = _timelineConfig.SecRealTimeToMinsGameTime;
                 _lastGameTimeTick = _currentGameTime;
                 _currentGameTime += new GameTime { Minutes = _timelineConfig.GameTimeStepChange };
+                HandleEvents();
+
+                if (_currentGameTime >= _timelineConfig.Days[_currentGameTime.Day].EndOfDay)
+                {
+                    if (_currentGameTime.Day + 1 >= _timelineConfig.Days.Length)
+                    {
+                        /// GAME OVER
+                        SetGameState(GameState.GameOver);
+                    }
+                    else
+                    {
+                        _currentGameTime = _timelineConfig.Days[_currentGameTime.Day + 1].StartOfDay;
+                    }
+                }
+
                 GameTime deltaTime = _currentGameTime - _lastGameTimeTick;
                 _eventService.GameTimeUpdated?.Invoke(deltaTime);
                 Debug.Log($"CurrentGameTime: {_currentGameTime}");
@@ -61,9 +96,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void SwitchTimePause()
+    private void HandleEvents()
     {
-        _isPaused = !_isPaused;
+        while (_currentGameTime >= _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex].GameTime &&
+            _eventIndex < _timelineConfig.Days[_currentGameTime.Day].Timeline.Length &&
+            _currentGameTime.Day < _timelineConfig.Days.Length)
+        {
+            TimelineEventData eventData = _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex];
+            if (eventData.EventType == TimelineEventType.NewCharacter)
+            {
+                _eventService.NewHeroComing?.Invoke(eventData.Name);
+                SetGameState(GameState.NewCharacter);
+            }
+            _eventIndex++;
+        }
     }
 
     private void OnDestroy()
