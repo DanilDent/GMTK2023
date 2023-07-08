@@ -11,10 +11,6 @@ public class QuestManager : MonoBehaviour
 
     public static QuestManager Instance;
 
-    // Outgoing events
-    //public event Action<Quest> QuestBecomeAvalaibled;
-    //public event Action<Quest, bool> QuestCompleted;
-
     private void Awake()
     {
         if (Instance == null)
@@ -36,9 +32,6 @@ public class QuestManager : MonoBehaviour
 
         EventService.Instance.GameTimeUpdated -= OnGameTimeUpdate;
         EventService.Instance.QuestAssigned -= OnQuestAssigned;
-
-        //QuestBecomeAvalaibled -= EventService.Instance.NewQuestBecomeAvailable;
-        //QuestCompleted -= EventService.Instance.QuestCompleted;
     }
 
     private void Start()
@@ -47,9 +40,6 @@ public class QuestManager : MonoBehaviour
 
         EventService.Instance.GameTimeUpdated += OnGameTimeUpdate;
         EventService.Instance.QuestAssigned += OnQuestAssigned;
-
-        //QuestBecomeAvalaibled += EventService.Instance.NewQuestBecomeAvailable;
-        //QuestCompleted += EventService.Instance.QuestCompleted;
     }
 
     public void OnGameTimeUpdate()
@@ -85,7 +75,6 @@ public class QuestManager : MonoBehaviour
                 continue;
             }
             avalaibleQuests.Add(_quest);
-            //QuestBecomeAvalaibled?.Invoke(_quest);
             EventService.Instance.NewQuestBecomeAvailable?.Invoke(_quest);
             invisibleQuests.Remove(_quest);
         }
@@ -99,7 +88,6 @@ public class QuestManager : MonoBehaviour
             if ((_quest.StartTime + _quest.Lifetime) >= GameManager.Instance.CurrentTime)
             {
                 avalaibleQuests.Remove(_quest);
-                //QuestCompleted?.Invoke(_quest, false);
                 EventService.Instance.QuestCompleted?.Invoke(_quest, false);
             }
         }
@@ -115,7 +103,6 @@ public class QuestManager : MonoBehaviour
             if (_quest.AssignedTime + timeToNews >= GameManager.Instance.CurrentTime)
             {
                 inProgressQuests.Remove(_quest);
-                //QuestCompleted?.Invoke(_quest, _quest.Result);
                 EventService.Instance.QuestCompleted?.Invoke(_quest, true);
             }
         }
