@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class DialogManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private HelloPhrasesConfig helloPhrasesConfig;
+    [SerializeField] private DialogConfig dialogConfig;
+
+
+    private string[] helloPhrases;
+    private float allDurationMessage;
+
     void Start()
     {
-        
+        helloPhrases = helloPhrasesConfig.Data;
+        allDurationMessage = dialogConfig.AllDurationMessage;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
 }
-[CreateAssetMenu(fileName = "Quests", menuName = "Configs/QuestsConfig", order = 1)]
-public class HelloPhrasesConfig
+
+public class BehaviorPatterns
 {
-    [SerializeField] private string[] phrases;
-    public string[] HelloPhrases => phrases;
+
 }
