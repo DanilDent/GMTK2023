@@ -14,22 +14,27 @@ public class GameManager : MonoBehaviour
     }
 
     // Public interface
-    public bool IsPaused { get => _isPaused; set { _isPaused = value; } }
+    public bool IsPaused
+    { get => _isPaused; set { _isPaused = value; } }
+
     public GameTime CurrentTime => _currentGameTime;
     public GameState CurrentState => _currentState;
 
     // Singleton impl
     public static GameManager Instance => _instance;
+
     private static GameManager _instance;
+
     // From inspector
     [SerializeField] private GameTimelineConfig _timelineConfig;
+
     // Other dependencies
     private EventService _eventService;
 
     private GameTime _currentGameTime;
     private GameTime _lastGameTimeTick;
     private float _timer;
-    public bool IsPaused;
+    private bool _isPaused;
     private int _eventIndex;
     private GameState _currentState;
 
@@ -37,6 +42,7 @@ public class GameManager : MonoBehaviour
     {
         _currentState = state;
     }
+
     private void Awake()
     {
         if (_instance == null)
@@ -56,7 +62,7 @@ public class GameManager : MonoBehaviour
         _timer = _timelineConfig.SecRealTimeToMinsGameTime;
         _eventService = EventService.Instance;
 
-      _currentGameTime = _timelineConfig.Days.FirstOrDefault().StartOfDay;
+        _currentGameTime = _timelineConfig.Days.FirstOrDefault().StartOfDay;
         SetGameState(GameState.AwaitingQuests);
     }
 
@@ -100,10 +106,10 @@ public class GameManager : MonoBehaviour
 
     private void HandleEvents()
     {
- IsPaused = !IsPaused;
-while (_currentGameTime >= _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex].GameTime &&
-            _eventIndex < _timelineConfig.Days[_currentGameTime.Day].Timeline.Length &&
-            _currentGameTime.Day < _timelineConfig.Days.Length)
+        IsPaused = !IsPaused;
+        while (_currentGameTime >= _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex].GameTime &&
+                    _eventIndex < _timelineConfig.Days[_currentGameTime.Day].Timeline.Length &&
+                    _currentGameTime.Day < _timelineConfig.Days.Length)
         {
             TimelineEventData eventData = _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex];
             if (eventData.EventType == TimelineEventType.NewCharacter)
