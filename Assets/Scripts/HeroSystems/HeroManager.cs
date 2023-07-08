@@ -41,7 +41,7 @@ public class HeroManager : MonoBehaviour
 		if(hero.Bonuses.TryGetValue(quest.Name, out bonus))
 		{
 			hero.CurrentMood += bonus;
-			UpdateHeroBehaviour(hero);
+			UpdateHeroMood(hero);
 		}
 	}
 	public void OnQuestCompleted(Quest quest, string heroName)
@@ -51,7 +51,7 @@ public class HeroManager : MonoBehaviour
 		if(hero.Bonuses.TryGetValue(quest.Name, out bonus))
 		{
 			hero.CurrentMood += bonus;
-			UpdateHeroBehaviour(hero);
+			UpdateHeroMood(hero);
 		}
 	}
 	public Hero GetHeroByName(string heroName)
@@ -63,23 +63,21 @@ public class HeroManager : MonoBehaviour
 		}
 		return heroes[0];
 	}
-	public void AddAvatarPartToHero(Hero.AvatarPart part, Hero hero)
+	public void ChangeHeroMood(Hero hero, HeroMood mood)
 	{
-		hero.AvatarParts.Add(part);
+		hero.CurrentHeroMood = mood;
+		hero.CurrentAvatarParts = mood.AvatarParts;
+		
 	}
-	public void ChangeHeroBehaviour(Hero hero, HeroBehaviour behaviour)
+	public void UpdateHeroMood(Hero hero)
 	{
-		hero.CurrentHeroBehaviour = behaviour;
-	}
-	public void UpdateHeroBehaviour(Hero hero)
-	{
-		var behaviour = hero.CurrentHeroBehaviour;
-		var ranges = hero.HeroBehaviourRanges;
-		foreach(var range in ranges.Where(range => hero.CurrentMood >= range.From && hero.CurrentMood <= range.To))
+		var behaviour = hero.CurrentHeroMood;
+		var ranges = hero.HeroMoods;
+		foreach(var range in ranges.Where(range => hero.CurrentMood >= range.FromScore && hero.CurrentMood <= range.ToScore))
 		{
-			behaviour = range.HeroBehaviour;
+			behaviour = range;
 			break;
 		}
-		ChangeHeroBehaviour(hero, behaviour);
+		ChangeHeroMood(hero, behaviour);
 	}
 }

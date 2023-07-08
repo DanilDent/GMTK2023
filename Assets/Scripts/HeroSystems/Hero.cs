@@ -26,16 +26,15 @@ public struct Hero
 		[SerializeField] public HeroBehaviour HeroBehaviour;
 	}
 	[SerializeField] private string _nickname;
-	[SerializeField] private List<AvatarPart> _avatarParts;
 	[SerializeField] private QuestMoodBonus[] _questMoodBonuses;
-	[SerializeField] private List<HeroBehaviourRange> _heroBehaviourRanges;
-
+	[SerializeField] private List<HeroMood> _heroMoods;
 	public Dictionary<string, int> Bonuses{get; private set;}
 	public string Nickname => _nickname;
-	public List<AvatarPart> AvatarParts => _avatarParts;
+	
 	public int CurrentMood;
-	public HeroBehaviour CurrentHeroBehaviour;
-	public List<HeroBehaviourRange> HeroBehaviourRanges => _heroBehaviourRanges;
+	public HeroMood CurrentHeroMood;
+	public List<HeroMood> HeroMoods => _heroMoods;
+	public List<AvatarPart> CurrentAvatarParts;
 
 	public void Init()
 	{
