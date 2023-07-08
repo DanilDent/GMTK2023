@@ -35,7 +35,7 @@ public class HeroManager : MonoBehaviour
 			hero.Init();
 		}
 	}
-	public void ApplyQuestBonuses(Quest quest, Hero hero)
+	public void OnQuestCompleted(Quest quest, Hero hero)
 	{
 		int bonus;
 		if(hero.Bonuses.TryGetValue(quest.Name, out bonus))
@@ -44,7 +44,7 @@ public class HeroManager : MonoBehaviour
 			UpdateHeroBehaviour(hero);
 		}
 	}
-	public void ApplyQuestBonuses(Quest quest, string heroName)
+	public void OnQuestCompleted(Quest quest, string heroName)
 	{
 		Hero hero = GetHeroByName(heroName);
 		int bonus;
