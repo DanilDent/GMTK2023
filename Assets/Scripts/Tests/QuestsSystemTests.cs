@@ -22,9 +22,9 @@ public class QuestsSystemTests : MonoBehaviour
         Quest[] testQuests = new Quest[]
         {
             new Quest(
-            new GameTime(0, new Vector2Int(0,0)), 
-            new GameTime(2, new Vector2Int(0,0)), 
-            new News("", new GameTime(0, new Vector2Int(12,0))), 
+            new GameTime(0, new Vector2Int(0,0)),
+            new GameTime(2, new Vector2Int(0,0)),
+            new News("", new GameTime(0, new Vector2Int(12,0))),
             new News("", new GameTime(0, new Vector2Int(12,0))),
             true),
             new Quest(
@@ -45,6 +45,62 @@ public class QuestsSystemTests : MonoBehaviour
             new News("", new GameTime(1, new Vector2Int(0,0))),
             new News("", new GameTime(0, new Vector2Int(12,0))),
             false),
+            new Quest(
+            new GameTime(10, new Vector2Int(0,0)),
+            new GameTime(2, new Vector2Int(0,0)),
+            new News("", new GameTime(1, new Vector2Int(0,0))),
+            new News("", new GameTime(0, new Vector2Int(12,0))),
+            false),
+            new Quest(
+            new GameTime(10, new Vector2Int(0,0)),
+            new GameTime(2, new Vector2Int(0,0)),
+            new News("", new GameTime(1, new Vector2Int(0,0))),
+            new News("", new GameTime(0, new Vector2Int(12,0))),
+            false),
+            new Quest(
+            new GameTime(10, new Vector2Int(0,0)),
+            new GameTime(2, new Vector2Int(0,0)),
+            new News("", new GameTime(1, new Vector2Int(0,0))),
+            new News("", new GameTime(0, new Vector2Int(12,0))),
+            false),
+            new Quest(
+            new GameTime(10, new Vector2Int(0,0)),
+            new GameTime(2, new Vector2Int(0,0)),
+            new News("", new GameTime(1, new Vector2Int(0,0))),
+            new News("", new GameTime(0, new Vector2Int(12,0))),
+            false),
+            new Quest(
+            new GameTime(10, new Vector2Int(0,0)),
+            new GameTime(2, new Vector2Int(0,0)),
+            new News("", new GameTime(1, new Vector2Int(0,0))),
+            new News("", new GameTime(0, new Vector2Int(12,0))),
+            false),
+            new Quest(
+            new GameTime(10, new Vector2Int(0,0)),
+            new GameTime(2, new Vector2Int(0,0)),
+            new News("", new GameTime(1, new Vector2Int(0,0))),
+            new News("", new GameTime(0, new Vector2Int(12,0))),
+            false),
+            new Quest(
+            new GameTime(10, new Vector2Int(0,0)),
+            new GameTime(2, new Vector2Int(0,0)),
+            new News("", new GameTime(1, new Vector2Int(0,0))),
+            new News("", new GameTime(0, new Vector2Int(12,0))),
+            false),
+            new Quest(
+            new GameTime(10, new Vector2Int(0,0)),
+            new GameTime(2, new Vector2Int(0,0)),
+            new News("", new GameTime(1, new Vector2Int(0,0))),
+            new News("", new GameTime(0, new Vector2Int(12,0))),
+            false),
+            new Quest(
+            new GameTime(10, new Vector2Int(0,0)),
+            new GameTime(2, new Vector2Int(0,0)),
+            new News("", new GameTime(1, new Vector2Int(0,0))),
+            new News("", new GameTime(0, new Vector2Int(12,0))),
+            false),
+
+
         }; 
         questManager.invisibleQuests.AddRange(testQuests);
         Test1();
@@ -52,6 +108,8 @@ public class QuestsSystemTests : MonoBehaviour
         Test3();
         Test4();
         Test5();
+        Test6();
+        Test7();
     }
 
     private void Test1()
@@ -62,7 +120,7 @@ public class QuestsSystemTests : MonoBehaviour
         var avalQuestsCount = questManager.avalaibleQuests.Count;
         var progQuestCount = questManager.inProgressQuests.Count;
 
-        var correctRes = new Vector3Int(3, 1, 0);
+        var correctRes = new Vector3Int(12, 1, 0);
         var result = invQuestsCount == correctRes.x && avalQuestsCount == correctRes.y && progQuestCount == correctRes.z;
         Debug.Log($"Test 1) IQ={invQuestsCount} AQ={avalQuestsCount} PQ={progQuestCount} | {correctRes} | {result}");
     }
@@ -75,7 +133,7 @@ public class QuestsSystemTests : MonoBehaviour
         var avalQuestsCount = questManager.avalaibleQuests.Count;
         var progQuestCount = questManager.inProgressQuests.Count;
 
-        var correctRes = new Vector3Int(1, 3, 0);
+        var correctRes = new Vector3Int(10, 3, 0);
         var result = invQuestsCount == correctRes.x && avalQuestsCount == correctRes.y && progQuestCount == correctRes.z;
         Debug.Log($"Test 2) IQ={invQuestsCount} AQ={avalQuestsCount} PQ={progQuestCount} | {correctRes} | {result}");
     }
@@ -89,7 +147,7 @@ public class QuestsSystemTests : MonoBehaviour
         var avalQuestsCount = questManager.avalaibleQuests.Count;
         var progQuestCount = questManager.inProgressQuests.Count;
         
-        var correctRes = new Vector3Int(1, 2, 1);
+        var correctRes = new Vector3Int(10, 2, 1);
         var result = invQuestsCount == correctRes.x && avalQuestsCount == correctRes.y && progQuestCount == correctRes.z;
         Debug.Log($"Test 3) IQ={invQuestsCount} AQ={avalQuestsCount} PQ={progQuestCount} | {correctRes} | {result}");
     }
@@ -101,7 +159,7 @@ public class QuestsSystemTests : MonoBehaviour
         var avalQuestsCount = questManager.avalaibleQuests.Count;
         var progQuestCount = questManager.inProgressQuests.Count;
 
-        var correctRes = new Vector3Int(1, 2, 0);
+        var correctRes = new Vector3Int(10, 2, 0);
         var result = invQuestsCount == correctRes.x && avalQuestsCount == correctRes.y && progQuestCount == correctRes.z;
         Debug.Log($"Test 4) IQ={invQuestsCount} AQ={avalQuestsCount} PQ={progQuestCount} | {correctRes} | {result}");
     }
@@ -114,8 +172,35 @@ public class QuestsSystemTests : MonoBehaviour
         var avalQuestsCount = questManager.avalaibleQuests.Count;
         var progQuestCount = questManager.inProgressQuests.Count;
 
-        var correctRes = new Vector3Int(0, 2, 0);
+        var correctRes = new Vector3Int(9, 1, 0);
         var result = invQuestsCount == correctRes.x && avalQuestsCount == correctRes.y && progQuestCount == correctRes.z;
-        Debug.Log($"Test 4) IQ={invQuestsCount} AQ={avalQuestsCount} PQ={progQuestCount} | {correctRes} | {result}");
+        Debug.Log($"Test 5) IQ={invQuestsCount} AQ={avalQuestsCount} PQ={progQuestCount} | {correctRes} | {result}");
+    }
+    private void Test6()
+    {
+        gameManager.SetCurrentTime(new GameTime(5, new Vector2Int(1, 0)));
+        questManager.OnGameTimeUpdate();
+        gameManager.SetCurrentTime(new GameTime(10, new Vector2Int(1, 0)));
+        questManager.OnGameTimeUpdate();
+        var invQuestsCount = questManager.invisibleQuests.Count;
+        var avalQuestsCount = questManager.avalaibleQuests.Count;
+        var progQuestCount = questManager.inProgressQuests.Count;
+
+        var correctRes = new Vector3Int(3, 6, 0);
+        var result = invQuestsCount == correctRes.x && avalQuestsCount == correctRes.y && progQuestCount == correctRes.z;
+        Debug.Log($"Test 6) IQ={invQuestsCount} AQ={avalQuestsCount} PQ={progQuestCount} | {correctRes} | {result}");
+    }
+
+    private void Test7()
+    {
+        gameManager.SetCurrentTime(new GameTime(20, new Vector2Int(1, 0)));
+        questManager.OnGameTimeUpdate();
+        var invQuestsCount = questManager.invisibleQuests.Count;
+        var avalQuestsCount = questManager.avalaibleQuests.Count;
+        var progQuestCount = questManager.inProgressQuests.Count;
+
+        var correctRes = new Vector3Int(0, 3, 0);
+        var result = invQuestsCount == correctRes.x && avalQuestsCount == correctRes.y && progQuestCount == correctRes.z;
+        Debug.Log($"Test 7) IQ={invQuestsCount} AQ={avalQuestsCount} PQ={progQuestCount} | {correctRes} | {result}");
     }
 }
