@@ -70,7 +70,7 @@ public class HeroManager : MonoBehaviour
 		}
 		return heroes[0];
 	}
-	public void ChangeHeroMood(Hero hero, HeroMood mood)
+	private void ChangeHeroMood(Hero hero, HeroMood mood)
 	{
 		hero.CurrentHeroMood = mood;
 		hero.CurrentAvatarParts = mood.AvatarParts;
