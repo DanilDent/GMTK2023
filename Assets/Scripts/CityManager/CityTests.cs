@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 public class CityTests : MonoBehaviour
 {
     [SerializeField] private City city;
+    [SerializeField] private bool isStart;
     private void Start()
     {
         city = FindAnyObjectByType<City>();
@@ -10,7 +12,11 @@ public class CityTests : MonoBehaviour
         {
             return;
         }
-
+        if (!isStart)
+        {
+            return;
+        }
+        isStart = false;
         EventService.Instance.QuestCompleted?.Invoke(QuestManager.Instance.invisibleQuests[0], false);
         Debug.Log(city.CurrentHealth);
         EventService.Instance.QuestCompleted?.Invoke(QuestManager.Instance.invisibleQuests[0], true);
