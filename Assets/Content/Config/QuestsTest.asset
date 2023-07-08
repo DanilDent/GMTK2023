@@ -13,12 +13,27 @@ MonoBehaviour:
   m_Name: QuestsTest
   m_EditorClassIdentifier: 
   data:
-  - startDay: 0
-    minStartTime: {x: 12, y: 0}
-    name: 
+  - name: 
     description: 
-    successfulNews: 
-    failureNews: 
-    maxLifetime: 0
-    successfulHPChange: 0
-    failureHPChange: 0
+    minStartTime:
+      _day: 1
+      _hours: 0
+      _minutes: 0
+    successfulNews:
+      description: 
+      timeToNews:
+        _day: 1
+        _hours: 0
+        _minutes: 0
+    failureNews:
+      description: 
+      timeToNews:
+        _day: 1
+        _hours: 0
+        _minutes: 0
+    maxLifetime:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+    successfulHPChange: 10
+    failureHPChange: -20
