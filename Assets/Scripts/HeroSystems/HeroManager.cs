@@ -44,6 +44,16 @@ public class HeroManager : MonoBehaviour
 			UpdateHeroBehaviour(hero);
 		}
 	}
+	public void ApplyQuestBonuses(Quest quest, string heroName)
+	{
+		Hero hero = GetHeroByName(heroName);
+		int bonus;
+		if(hero.Bonuses.TryGetValue(quest.Name, out bonus))
+		{
+			hero.CurrentMood += bonus;
+			UpdateHeroBehaviour(hero);
+		}
+	}
 	public Hero GetHeroByName(string heroName)
 	{
 		var heroes = Heroes.Where(h => h.Nickname == heroName).ToList();
