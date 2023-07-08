@@ -7,5 +7,4 @@ public struct HeroBehaviour
 {
 	[SerializeField] private float _cursorSpeed;
 	[SerializeField] private float _cursorConfidence;
-	
 }
