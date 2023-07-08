@@ -26,22 +26,4 @@ MonoBehaviour:
       _day: 1
       _hours: 9
       _minutes: 1
-    Name: Hero1
-  - EventType: 0
-    GameTime:
-      _day: 1
-      _hours: 9
-      _minutes: 3
-    Name: Hero2
-  - EventType: 0
-    GameTime:
-      _day: 1
-      _hours: 9
-      _minutes: 5
-    Name: Hero3
-  - EventType: 0
-    GameTime:
-      _day: 1
-      _hours: 9
-      _minutes: 15
-    Name: Hero4
+    Name: f0kes
