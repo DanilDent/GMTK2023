@@ -1,5 +1,4 @@
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +10,7 @@ public class GameManager : MonoBehaviour
         BehaviourAnalysis,
         QuestGiving,
         NewsReading,
+        Win,
         GameOver
     }
 
@@ -117,14 +117,14 @@ public class GameManager : MonoBehaviour
                     _currentGameTime >= _timelineConfig.Days[_currentGameTime.Day].EndOfDay)
                 {
                     _eventIndex = 0;
-                    if (_currentGameTime.Day+1 >= _timelineConfig.Days.Length)
+                    if (_currentGameTime.Day + 1 >= _timelineConfig.Days.Length)
                     {
-                        /// GAME OVER
-                        SetGameState(GameState.GameOver);
+                        /// Show win screen here
+                        SetGameState(GameState.Win);
                     }
                     else
                     {
-                        _currentGameTime = _timelineConfig.Days[_currentGameTime.Day+1].StartOfDay;
+                        _currentGameTime = _timelineConfig.Days[_currentGameTime.Day + 1].StartOfDay;
                     }
                 }
 
