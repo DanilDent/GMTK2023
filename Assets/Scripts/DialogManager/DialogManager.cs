@@ -1,106 +1,183 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+using Random = UnityEngine.Random;
+
 public class DialogManager : MonoSingleton<DialogManager>
 {
-	[SerializeField] private HelloPhrasesConfig helloPhrasesConfig;
-	[SerializeField] private DialogConfig dialogConfig;
-	// Btns
-	//[SerializeField] private Button _skipBtn; // 0
-	//[SerializeField] private Button _nextBtn; // 1
-	//[SerializeField] private Button _shopBtn; // 2
-	//[SerializeField] private Button _talkBtn; // 3
-	//[SerializeField] private Button _getQuestBtn; // 4
-	//[SerializeField] private Button _exitBtn; // 5
-	//[SerializeField] private Button _ansABtn; // 6
-	//[SerializeField] private Button _ansBBtn; // 7
-	//[SerializeField] private Button _backBtn; // 8
-	[SerializeField] private TextMeshProUGUI _dialogueText;
-	[SerializeField] private Button[] _btns;
+    [SerializeField] private HelloPhrasesConfig helloPhrasesConfig;
+    [SerializeField] private DialogConfig dialogConfig;
+    // Btns
+    //[SerializeField] private Button _skipBtn; // 0
+    //[SerializeField] private Button _nextBtn; // 1
+    //[SerializeField] private Button _shopBtn; // 2
+    //[SerializeField] private Button _talkBtn; // 3
+    //[SerializeField] private Button _getQuestBtn; // 4
+    //[SerializeField] private Button _exitBtn; // 5
+    //[SerializeField] private Button _ansABtn; // 6
+    //[SerializeField] private Button _ansBBtn; // 7
+    //[SerializeField] private Button _backBtn; // 8
+    [SerializeField] private TextMeshProUGUI _dialogueText;
+    [SerializeField] private Button[] _btns;
+    [SerializeField] private RectTransform _envelope;
 
 
-	private string[] helloPhrases;
-	private float allDurationMessage;
-	private IEnumerator _dispDiagCoroutine;
+    private string[] helloPhrases;
+    private float allDurationMessage;
+    private IEnumerator _dispDiagCoroutine;
+    private IEnumerator _displayNextButtonWithDelay;
 
-	void Start()
-	{
-		helloPhrases = helloPhrasesConfig.Data;
-		allDurationMessage = dialogConfig.AllDurationMessage;
-	}
+    void Start()
+    {
+        helloPhrases = helloPhrasesConfig.Data;
+        allDurationMessage = dialogConfig.AllDurationMessage;
 
-	void Update()
-	{
-	}
+        EventService.Instance.DiagButtonClicked += HandleDiagBbtnClicked;
+    }
 
-	public void UpdateDialogueText(string text)
-	{
-		_dialogueText.text = string.Empty;
-		if(_dispDiagCoroutine != null)
-		{
-			StopCoroutine(_dispDiagCoroutine);
-			_dispDiagCoroutine = null;
-		}
-		_dispDiagCoroutine = DisplayDialogueTextCoroutine(text);
-		StartCoroutine(_dispDiagCoroutine);
-	}
+    protected override void OnDestroy()
+    {
+        EventService.Instance.DiagButtonClicked -= HandleDiagBbtnClicked;
+    }
 
-	public void DisplayHello()
-	{
-		UpdateDialogueText(helloPhrases[Random.Range(0, helloPhrases.Length)]);
-		Display(0, 1);
-	}
+    void Update()
+    {
 
-	public void DisplayMain()
-	{
-		UpdateDialogueText("What do you want to do?");
-		Display(2, 3, 4, 5);
-	}
-	
-	public void DisplayEmpty()
-	{
-		UpdateDialogueText(string.Empty);
-		Display();
-	}
-	public void DisplayShop()
-	{
-		UpdateDialogueText("Shop feedback message will displayed here soon");
-		Display(5);
-	}
+    }
 
-	public void DisplayTalk()
-	{
-		UpdateDialogueText("Some question here");
-		Display(6, 7);
-	}
+    public void UpdateDialogueText(string text)
+    {
+        _dialogueText.text = string.Empty;
+        if (_dispDiagCoroutine != null)
+        {
+            StopCoroutine(_dispDiagCoroutine);
+            _dispDiagCoroutine = null;
+        }
+        _dispDiagCoroutine = DisplayDialogueTextCoroutine(text);
+        StartCoroutine(_dispDiagCoroutine);
+    }
 
-	private void Display(params int[] btnIndecies)
-	{
-		for(int i = 0; i < _btns.Length; ++i)
-		{
-			_btns[i].gameObject.SetActive(false);
-		}
+    public void DisplayBlank()
+    {
+        UpdateDialogueText(String.Empty);
+        Display();
+    }
 
-		for(int i = 0; i < btnIndecies.Length; ++i)
-		{
-			_btns[btnIndecies[i]].gameObject.SetActive(true);
-		}
-	}
+    public void DisplayHello()
+    {
+        UpdateDialogueText(helloPhrases[Random.Range(0, helloPhrases.Length)]);
+        Display(0);
+        _displayNextButtonWithDelay = InvokeWithDelay(() => { Display(1); }, allDurationMessage + .5f);
+        StartCoroutine(_displayNextButtonWithDelay);
+    }
 
-	private IEnumerator DisplayDialogueTextCoroutine(string message)
-	{
-		int charIndex = 0;
+    public void DisplayDropEnvelope()
+    {
+        Display();
+        if (_dispDiagCoroutine != null)
+        {
+            StopCoroutine(_dispDiagCoroutine);
+            _dispDiagCoroutine = null;
+        }
+        if (_displayNextButtonWithDelay != null)
+        {
+            StopCoroutine(_displayNextButtonWithDelay);
+            _displayNextButtonWithDelay = null;
+        }
+        _dialogueText.gameObject.SetActive(false);
+        _envelope.gameObject.SetActive(true);
+    }
 
-		while (charIndex < message.Length)
-		{
-			_dialogueText.text += message[charIndex];
-			++charIndex;
-			float waitFor = (float)allDurationMessage / message.Length;
-			yield return new WaitForSeconds(waitFor);
-		}
-	}
+    public void DisplayMain()
+    {
+        UpdateDialogueText("What do you want to do?");
+        Display(2, 3, 4, 5);
+    }
+
+    public void DisplayShop()
+    {
+        UpdateDialogueText("Shop feedback message will displayed here soon");
+        Display(5);
+    }
+
+    public void DisplayTalk()
+    {
+        UpdateDialogueText("Some question here");
+        Display(6, 7);
+    }
+
+    private void Display(params int[] btnIndecies)
+    {
+        _dialogueText.gameObject.SetActive(true);
+        _envelope.gameObject.SetActive(false);
+
+        for (int i = 0; i < _btns.Length; ++i)
+        {
+            _btns[i].gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < btnIndecies.Length; ++i)
+        {
+            _btns[btnIndecies[i]].gameObject.SetActive(true);
+        }
+    }
+
+    private IEnumerator DisplayDialogueTextCoroutine(string message)
+    {
+        int charIndex = 0;
+
+        while (charIndex < message.Length)
+        {
+            _dialogueText.text += message[charIndex];
+            ++charIndex;
+            float waitFor = (float)allDurationMessage / message.Length;
+            yield return new WaitForSeconds(waitFor);
+        }
+    }
+
+    private void HandleDiagBbtnClicked(ButtonType btnType)
+    {
+        switch (btnType)
+        {
+            case ButtonType.Skip:
+                StopCoroutine(_displayNextButtonWithDelay);
+                _displayNextButtonWithDelay = null;
+                DisplayMain();
+                break;
+            case ButtonType.Next:
+                DisplayMain();
+                break;
+            case ButtonType.Shop:
+                DisplayShop();
+                break;
+            case ButtonType.Talk:
+                DisplayTalk();
+                break;
+            case ButtonType.GetQuest:
+                DisplayDropEnvelope();
+                break;
+            case ButtonType.Exit:
+                EventService.Instance.HeroLeaving?.Invoke();
+                break;
+            case ButtonType.AnsA:
+                DisplayMain();
+                break;
+            case ButtonType.AnsB:
+                DisplayMain();
+                break;
+            case ButtonType.Back:
+                break;
+        }
+    }
+
+    private IEnumerator InvokeWithDelay(Action action, float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        action?.Invoke();
+    }
 }
 
 public class BehaviorPatterns
