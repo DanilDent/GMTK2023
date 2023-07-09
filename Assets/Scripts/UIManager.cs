@@ -8,7 +8,7 @@ public class UIManager : MonoSingleton<UIManager>
 	[SerializeField] private Image _heroAvatarImg;
 	[SerializeField] private TextMeshProUGUI _heroNicknameText;
 	[SerializeField] private TextMeshProUGUI _timeText;
-	
+
 
 	private HeroManager _heroManager;
 	private EventService _eventService;
@@ -21,6 +21,15 @@ public class UIManager : MonoSingleton<UIManager>
 		// Events 
 		_eventService.NewHeroComing += HandleNewHeroComing;
 		_eventService.GameTimeUpdated += HandleGameTimeUpdated;
+		_eventService.HeroMoodChanged += HandleHeroMoodChanged;
+	}
+
+	private void HandleHeroMoodChanged(OnHeroMoodChangedEventArgs obj)
+	{
+		var hero = obj.Hero;
+		if(hero.Nickname != GameManager.Instance.CurrentHeroNickname) return;
+		_heroNicknameText.text = hero.Nickname;
+		_heroAvatarImg.sprite = hero.CurrentAvatarParts[0].Value;
 	}
 
 	private void HandleNewHeroComing(string heroNickname)
