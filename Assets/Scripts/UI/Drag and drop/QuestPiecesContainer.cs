@@ -54,7 +54,7 @@ public class QuestPiecesContainer : MonoBehaviour
             index++;
         }
         _questPieces.Add(quest);
-        quest.transform.parent = transform;
+        quest.transform.SetParent(transform, false);
         quest.SetPieceIndex(index);
         quest.Initialize(this, index);
     }

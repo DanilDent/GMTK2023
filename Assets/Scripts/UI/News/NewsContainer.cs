@@ -20,7 +20,7 @@ public class NewsContainer : MonoBehaviour
     public void AddCityNewsToDisplay(News news)
     {
         NewsInfo createdNews = Instantiate(_newsPrefab, transform.position, Quaternion.identity);
-        createdNews.transform.parent = transform;
+        createdNews.transform.SetParent(transform, false);
         createdNews.transform.SetAsFirstSibling();
         createdNews.Initialize(news, NewsInfo.NewsType.City);
         _news.Enqueue(createdNews);
@@ -34,7 +34,7 @@ public class NewsContainer : MonoBehaviour
     private void AddNewsToDisplay(Quest quest, bool isQuestSuccesed)
     {
         NewsInfo createdNews = Instantiate(_newsPrefab, transform.position, Quaternion.identity);
-        createdNews.transform.parent = transform;
+        createdNews.transform.SetParent(transform, false);
         createdNews.transform.SetAsFirstSibling();
         if (isQuestSuccesed)
         {
