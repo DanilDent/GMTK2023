@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.IO;
 using UnityEngine;
 
 public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
@@ -15,9 +16,8 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
 
     public void SetRecording(string patternName)
     {
-        //string path = Path.Combine(RECORDINGS_PATH, $"{patternName}.json");
-        //string json = _patterns.patterns.FirstOrDefault(_ => _.Name == patternName).Value;\
-        string json = PatternsStatic.Pattern_1;
+        string path = Path.Combine(RECORDINGS_PATH, $"{patternName}.json");
+        string json = Resources.Load<TextAsset>($"{patternName}").text;
         _recording = JsonConvert.DeserializeObject<Recording>(json);
         Debug.Log($"Recording: {_recording}");
         _currentIndex = 0;
