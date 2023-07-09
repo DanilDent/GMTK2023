@@ -3,10 +3,8 @@
 public class OnHeroMoodChangedEventArgs : EventArgs
 {
 	public Hero Hero{get; private set;}
-	public HeroMood HeroMood{get; private set;}
-	public OnHeroMoodChangedEventArgs(Hero hero, HeroMood heroMood)
+	public OnHeroMoodChangedEventArgs(Hero hero)
 	{
 		Hero = hero;
-		HeroMood = heroMood;
 	}
 }
