@@ -13,402 +13,292 @@ MonoBehaviour:
   m_Name: Hero Main
   m_EditorClassIdentifier: 
   data:
-  - _heroBehPatternName: 
+  - _heroBehPatternName: Pattern1
+    _shopLists: []
     _nickname: LuckyAlex18962
-    _appearanceTimes:
-    - _day: 1
-      _hours: 18
-      _minutes: 20
-    _questMoodBonuses:
+    _completableQuestsSO:
     - QuestName: Clear the innkeeper's basement of rats
-      MoodBonus: 10
+      AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods: []
-    IsPresent: 0
     CurrentMoodScore: 0
     CurrentHeroMood:
       FromScore: 0
       ToScore: 10
       MoodName: Idiot
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 21300000, guid: 216eb4294f6c8704fa7302f12e9c61a9, type: 3}
       HeroBehaviour:
         _cursorSpeed: 0
         _cursorConfidence: 0
     CurrentAvatarParts:
-    - Key: 0
-      Value: {fileID: 21300000, guid: a443e8cefb01d9946b3df0e0ee31e397, type: 3}
-  - _heroBehPatternName: 
+    - Value: {fileID: 21300000, guid: 216eb4294f6c8704fa7302f12e9c61a9, type: 3}
+  - _heroBehPatternName: Pattern2
+    _shopLists: []
     _nickname: 4Gr@ynd
-    _appearanceTimes:
-    - _day: 1
-      _hours: 19
-      _minutes: 0
-    _questMoodBonuses:
+    _completableQuestsSO:
     - QuestName: Destroy the camp of dangerous bandits
-      MoodBonus: 10
+      AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10
       ToScore: 20
       MoodName: genius
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 100
         _cursorConfidence: 100
-    IsPresent: 0
     CurrentMoodScore: 0
     CurrentHeroMood:
       FromScore: 0
       ToScore: 10
       MoodName: Idiot
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 0
         _cursorConfidence: 0
     CurrentAvatarParts:
-    - Key: 0
-      Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
   - _heroBehPatternName: 
+    _shopLists: []
+    _nickname: GloriousNimfa
+    _completableQuestsSO:
+    - QuestName: Seduce merchant's wife from Far Foxes village
+      AvatarOnQuestAssigned: {fileID: 0}
+    _heroMoods:
+    - FromScore: 10
+      ToScore: 20
+      MoodName: genius
+      AvatarParts:
+      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 100
+        _cursorConfidence: 100
+    CurrentMoodScore: 0
+    CurrentHeroMood:
+      FromScore: 0
+      ToScore: 10
+      MoodName: Idiot
+      AvatarParts:
+      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 0
+        _cursorConfidence: 0
+    CurrentAvatarParts:
+    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+  - _heroBehPatternName: 
+    _shopLists: []
     _nickname: Nagibator777
-    _appearanceTimes:
-    - _day: 1
-      _hours: 20
-      _minutes: 0
-    _questMoodBonuses:
+    _completableQuestsSO:
     - QuestName: Seduce merchant's wife from Far Foxes village
-      MoodBonus: 10
+      AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10
       ToScore: 20
       MoodName: genius
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 100
         _cursorConfidence: 100
-    IsPresent: 0
     CurrentMoodScore: 0
     CurrentHeroMood:
       FromScore: 0
       ToScore: 10
       MoodName: Idiot
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 0
         _cursorConfidence: 0
     CurrentAvatarParts:
-    - Key: 0
-      Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
   - _heroBehPatternName: 
-    _nickname: GloriousNimfa
-    _appearanceTimes:
-    - _day: 1
-      _hours: 20
-      _minutes: 0
-    _questMoodBonuses:
-    - QuestName: Seduce merchant's wife from Far Foxes village
-      MoodBonus: 10
-    _heroMoods:
-    - FromScore: 10
-      ToScore: 20
-      MoodName: genius
-      AvatarParts:
-      - Key: 0
-        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 100
-        _cursorConfidence: 100
-    IsPresent: 0
-    CurrentMoodScore: 0
-    CurrentHeroMood:
-      FromScore: 0
-      ToScore: 10
-      MoodName: Idiot
-      AvatarParts:
-      - Key: 0
-        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 0
-        _cursorConfidence: 0
-    CurrentAvatarParts:
-    - Key: 0
-      Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
-  - _heroBehPatternName: 
-    _nickname: GloriousNimfa
-    _appearanceTimes:
-    - _day: 1
-      _hours: 20
-      _minutes: 0
-    _questMoodBonuses:
-    - QuestName: Seduce merchant's wife from Far Foxes village
-      MoodBonus: 10
-    _heroMoods:
-    - FromScore: 10
-      ToScore: 20
-      MoodName: genius
-      AvatarParts:
-      - Key: 0
-        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 100
-        _cursorConfidence: 100
-    IsPresent: 0
-    CurrentMoodScore: 0
-    CurrentHeroMood:
-      FromScore: 0
-      ToScore: 10
-      MoodName: Idiot
-      AvatarParts:
-      - Key: 0
-        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 0
-        _cursorConfidence: 0
-    CurrentAvatarParts:
-    - Key: 0
-      Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
-  - _heroBehPatternName: 
+    _shopLists: []
     _nickname: WoodGoblinGuild
-    _appearanceTimes:
-    - _day: 1
-      _hours: 20
-      _minutes: 0
-    _questMoodBonuses:
+    _completableQuestsSO:
     - QuestName: Seduce merchant's wife from Far Foxes village
-      MoodBonus: 10
+      AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10
       ToScore: 20
       MoodName: genius
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 100
         _cursorConfidence: 100
-    IsPresent: 0
     CurrentMoodScore: 0
     CurrentHeroMood:
       FromScore: 0
       ToScore: 10
       MoodName: Idiot
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 0
         _cursorConfidence: 0
     CurrentAvatarParts:
-    - Key: 0
-      Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
   - _heroBehPatternName: 
+    _shopLists: []
     _nickname: PVPKi11Twitch
-    _appearanceTimes:
-    - _day: 1
-      _hours: 20
-      _minutes: 0
-    _questMoodBonuses:
+    _completableQuestsSO:
     - QuestName: Seduce merchant's wife from Far Foxes village
-      MoodBonus: 10
+      AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10
       ToScore: 20
       MoodName: genius
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 100
         _cursorConfidence: 100
-    IsPresent: 0
     CurrentMoodScore: 0
     CurrentHeroMood:
       FromScore: 0
       ToScore: 10
       MoodName: Idiot
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 0
         _cursorConfidence: 0
     CurrentAvatarParts:
-    - Key: 0
-      Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
   - _heroBehPatternName: 
+    _shopLists: []
     _nickname: Hgdfgkke
-    _appearanceTimes:
-    - _day: 1
-      _hours: 20
-      _minutes: 0
-    _questMoodBonuses:
+    _completableQuestsSO:
     - QuestName: Seduce merchant's wife from Far Foxes village
-      MoodBonus: 10
+      AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10
       ToScore: 20
       MoodName: genius
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 100
         _cursorConfidence: 100
-    IsPresent: 0
     CurrentMoodScore: 0
     CurrentHeroMood:
       FromScore: 0
       ToScore: 10
       MoodName: Idiot
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 0
         _cursorConfidence: 0
     CurrentAvatarParts:
-    - Key: 0
-      Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
   - _heroBehPatternName: 
+    _shopLists: []
     _nickname: Ben1276
-    _appearanceTimes:
-    - _day: 1
-      _hours: 20
-      _minutes: 0
-    _questMoodBonuses:
+    _completableQuestsSO:
     - QuestName: Seduce merchant's wife from Far Foxes village
-      MoodBonus: 10
+      AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10
       ToScore: 20
       MoodName: genius
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 100
         _cursorConfidence: 100
-    IsPresent: 0
     CurrentMoodScore: 0
     CurrentHeroMood:
       FromScore: 0
       ToScore: 10
       MoodName: Idiot
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 0
         _cursorConfidence: 0
     CurrentAvatarParts:
-    - Key: 0
-      Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
   - _heroBehPatternName: 
+    _shopLists: []
     _nickname: ImInUrMom
-    _appearanceTimes:
-    - _day: 1
-      _hours: 20
-      _minutes: 0
-    _questMoodBonuses:
+    _completableQuestsSO:
     - QuestName: Seduce merchant's wife from Far Foxes village
-      MoodBonus: 10
+      AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10
       ToScore: 20
       MoodName: genius
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 100
         _cursorConfidence: 100
-    IsPresent: 0
     CurrentMoodScore: 0
     CurrentHeroMood:
       FromScore: 0
       ToScore: 10
       MoodName: Idiot
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 0
         _cursorConfidence: 0
     CurrentAvatarParts:
-    - Key: 0
-      Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
   - _heroBehPatternName: 
+    _shopLists: []
     _nickname: Magnus Hammerbonk
-    _appearanceTimes:
-    - _day: 1
-      _hours: 20
-      _minutes: 0
-    _questMoodBonuses:
+    _completableQuestsSO:
     - QuestName: Seduce merchant's wife from Far Foxes village
-      MoodBonus: 10
+      AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10
       ToScore: 20
       MoodName: genius
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 100
         _cursorConfidence: 100
-    IsPresent: 0
     CurrentMoodScore: 0
     CurrentHeroMood:
       FromScore: 0
       ToScore: 10
       MoodName: Idiot
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 0
         _cursorConfidence: 0
     CurrentAvatarParts:
-    - Key: 0
-      Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
   - _heroBehPatternName: 
+    _shopLists: []
     _nickname: ' AbsolutlyEvilGenius'
-    _appearanceTimes:
-    - _day: 1
-      _hours: 20
-      _minutes: 0
-    _questMoodBonuses:
+    _completableQuestsSO:
     - QuestName: Seduce merchant's wife from Far Foxes village
-      MoodBonus: 10
+      AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10
       ToScore: 20
       MoodName: genius
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 100
         _cursorConfidence: 100
-    IsPresent: 0
     CurrentMoodScore: 0
     CurrentHeroMood:
       FromScore: 0
       ToScore: 10
       MoodName: Idiot
       AvatarParts:
-      - Key: 0
-        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
       HeroBehaviour:
         _cursorSpeed: 0
         _cursorConfidence: 0
     CurrentAvatarParts:
-    - Key: 0
-      Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
