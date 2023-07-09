@@ -59,8 +59,10 @@ public class DiagButton : MonoBehaviour
                 diagManager.DisplayTalk();
                 break;
             case ButtonType.GetQuest:
+                EventService.Instance.GetQuesDiagBtnClicked?.Invoke();
                 break;
             case ButtonType.Exit:
+                EventService.Instance.ExitDiagBtnClicked?.Invoke();
                 break;
             case ButtonType.AnsA:
                 diagManager.DisplayMain();

@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
+using Random = UnityEngine.Random;
 
 public class DialogManager : MonoSingleton<DialogManager>
 {
@@ -51,7 +54,8 @@ public class DialogManager : MonoSingleton<DialogManager>
     public void DisplayHello()
     {
         UpdateDialogueText(helloPhrases[Random.Range(0, helloPhrases.Length)]);
-        Display(0, 1);
+        Display(0);
+        StartCoroutine(InvokeWithDelay(() => { Display(1); }, allDurationMessage + .5f));
     }
 
     public void DisplayMain()
@@ -96,6 +100,12 @@ public class DialogManager : MonoSingleton<DialogManager>
             float waitFor = (float)allDurationMessage / message.Length;
             yield return new WaitForSeconds(waitFor);
         }
+    }
+
+    private IEnumerator InvokeWithDelay(Action action, float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        action?.Invoke();
     }
 }
 
