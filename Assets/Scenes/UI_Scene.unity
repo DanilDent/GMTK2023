@@ -1270,8 +1270,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 605629222}
+  - component: {fileID: 605629223}
   m_Layer: 0
-  m_Name: NewsStore
+  m_Name: NewsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1292,6 +1293,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &605629223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605629221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88b37de5c0127b45bfc7762a316bf8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _BadNews:
+  - description: "\u041F\u043B\u043E\u0445\u0430\u044F \u043D\u043E\u0432\u043E\u0441\u0442\u044C
+      1"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  - description: "\u041F\u043B\u043E\u0445\u0430\u044F \u043D\u043E\u0432\u043E\u0441\u0442\u044C
+      2"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  - description: "\u041F\u043B\u043E\u0445\u0430\u044F \u043D\u043E\u0432\u043E\u0441\u0442\u044C
+      3"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  _NeuralNews:
+  - description: "\u041D\u0435\u0439\u0442\u0440\u0430\u043B\u044C\u043D\u044B\u0435
+      \u043D\u043E\u0432\u043E\u0441\u0442\u0438 1"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  - description: "\u041D\u0435\u0439\u0442\u0440\u0430\u043B\u044C\u043D\u044B\u0435
+      \u043D\u043E\u0432\u043E\u0441\u0442\u0438 2"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  - description: "\u041D\u0435\u0439\u0442\u0440\u0430\u043B\u044C\u043D\u044B\u0435
+      \u043D\u043E\u0432\u043E\u0441\u0442\u0438 3"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  _GoodNews:
+  - description: "\u041F\u043E\u043B\u043E\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435
+      \u043D\u043E\u0432\u043E\u0441\u0442\u0438 1"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  - description: "\u041F\u043E\u043B\u043E\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435
+      \u043D\u043E\u0432\u043E\u0441\u0442\u0438 2"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  - description: "\u041F\u043E\u043B\u043E\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435
+      \u043D\u043E\u0432\u043E\u0441\u0442\u0438 3"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  _cityNewsTime:
+  - _day: 1
+    _hours: 9
+    _minutes: 40
+  _newsContainer: {fileID: 1956289631}
 --- !u!1001 &644754710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1938,7 +2013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01663bc0dbf640dcadfa9f0aa66af1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroConfig: {fileID: 11400000, guid: 1a5be651e3a8d1d43b10f53d3b326ba0, type: 2}
+  _heroConfig: {fileID: 11400000, guid: ad1040c1799b422459789ca8854c76c6, type: 2}
   Heroes: []
 --- !u!4 &754200283
 Transform:
@@ -2989,7 +3064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShouldHideCursor: 0
-  _timelineConfig: {fileID: 11400000, guid: ea34c06f8217fa74d99aeabcabfb6f5c, type: 2}
+  _timelineConfig: {fileID: 11400000, guid: 208c76eab416c41479ae4fd77bdc9740, type: 2}
   _diagRect: {fileID: 856402414}
 --- !u!4 &1427590225
 Transform:
@@ -3853,7 +3928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4053c307b341144be8d197a41cf8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 5053d078375d1c04fa9d2d9977cd231c, type: 2}
+  config: {fileID: 11400000, guid: 5df6b8ea16e89fb4fa46387fa95db33d, type: 2}
   invisibleQuests: []
   avalaibleQuests: []
   inProgressQuests: []

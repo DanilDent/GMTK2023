@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6ec13cde5216644c82fa51c53a73f69, type: 3}
-  m_Name: TestDay
+  m_Name: VladDay
   m_EditorClassIdentifier: 
   _startOfDay:
     _day: 1
