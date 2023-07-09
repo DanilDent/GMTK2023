@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     private int _eventIndex;
     private GameState _currentState;
 
+    public void SetCurrentTime(GameTime time) => _currentGameTime = time;
+
     public void SetGameState(GameState state)
     {
         _currentState = state;

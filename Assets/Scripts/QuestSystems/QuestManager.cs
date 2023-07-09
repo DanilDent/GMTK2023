@@ -37,7 +37,6 @@ public class QuestManager : MonoBehaviour
     private void Start()
     {
         invisibleQuests.AddRange(config.Data);
-
         EventService.Instance.GameTimeUpdated += OnGameTimeUpdate;
         EventService.Instance.QuestAssigned += OnQuestAssigned;
     }
