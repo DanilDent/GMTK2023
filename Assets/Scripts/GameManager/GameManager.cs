@@ -1,4 +1,5 @@
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -69,6 +70,14 @@ public class GameManager : MonoBehaviour
 
         _currentGameTime = _timelineConfig.Days.FirstOrDefault().StartOfDay;
         SetGameState(GameState.AwaitingQuests);
+
+        EventService.Instance.QuestAssigned += OnQuestAssined;
+    }
+
+    private void OnDestroy()
+    {
+        _instance = null;
+        EventService.Instance.QuestAssigned -= OnQuestAssined;
     }
 
     private void Update()
@@ -126,6 +135,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void OnQuestAssined(Quest _)
+    {
+        IsPaused = false;
+    }
+
     private void HandleEvents()
     {
         while (_currentGameTime.Day < _timelineConfig.Days.Length &&
@@ -149,10 +163,5 @@ public class GameManager : MonoBehaviour
             }
             _eventIndex++;
         }
-    }
-
-    private void OnDestroy()
-    {
-        _instance = null;
     }
 }

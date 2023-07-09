@@ -17,8 +17,8 @@ MonoBehaviour:
     description: 
     minStartTime:
       _day: 1
-      _hours: 9
-      _minutes: 50
+      _hours: 8
+      _minutes: 59
     successfulNews:
       description: "\u0423\u0440\u0430 1"
       timeToNews:
@@ -33,7 +33,7 @@ MonoBehaviour:
         _minutes: 5
     maxLifetime:
       _day: 0
-      _hours: 0
+      _hours: 2
       _minutes: 15
     successfulHPChange: 50
     failureHPChange: -10

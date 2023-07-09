@@ -9,7 +9,7 @@ public class City : MonoBehaviour
     private int maxHealth;
     private int lowerThresholdWellBeingCity;
     private int upperThresholdDeclineCity;
-    private int cityStatus = 0;
+    private int cityStatus = -2;
 
     public int CurrentHealth => currentHealth;
     private void Start()
@@ -17,7 +17,7 @@ public class City : MonoBehaviour
         maxHealth = config.CityHealth;
         lowerThresholdWellBeingCity = config.LowerThresholdWellBeingCity;
         upperThresholdDeclineCity = config.UpperThresholdDeclineCity;
-        currentHealth = maxHealth;
+        currentHealth = maxHealth/2;
         EventService.Instance.QuestCompleted += OnQuestComleted;
     }
     private void OnDestroy()
