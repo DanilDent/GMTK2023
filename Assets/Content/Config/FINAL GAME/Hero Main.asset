@@ -90,7 +90,7 @@ MonoBehaviour:
     _shopLists: []
     _nickname: Nagibator777
     _completableQuestsSO:
-    - QuestName: Seduce merchant's wife from Far Foxes village
+    - QuestName: Dance on the Kniaz's Banquet
       AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10
@@ -117,7 +117,7 @@ MonoBehaviour:
     _shopLists: []
     _nickname: WoodGoblinGuild
     _completableQuestsSO:
-    - QuestName: Seduce merchant's wife from Far Foxes village
+    - QuestName: Bring the Red Flover
       AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10
@@ -144,7 +144,7 @@ MonoBehaviour:
     _shopLists: []
     _nickname: PVPKi11Twitch
     _completableQuestsSO:
-    - QuestName: Seduce merchant's wife from Far Foxes village
+    - QuestName: Slay the Damned Idolische
       AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10
@@ -171,7 +171,7 @@ MonoBehaviour:
     _shopLists: []
     _nickname: Hgdfgkke
     _completableQuestsSO:
-    - QuestName: Seduce merchant's wife from Far Foxes village
+    - QuestName: Find a koshchei needle
       AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10
@@ -198,7 +198,7 @@ MonoBehaviour:
     _shopLists: []
     _nickname: Ben1276
     _completableQuestsSO:
-    - QuestName: Seduce merchant's wife from Far Foxes village
+    - QuestName: Slay the Dragon with companion
       AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10
@@ -225,7 +225,7 @@ MonoBehaviour:
     _shopLists: []
     _nickname: ImInUrMom
     _completableQuestsSO:
-    - QuestName: Seduce merchant's wife from Far Foxes village
+    - QuestName: Go through fire, water, and copper pipes.
       AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10
@@ -252,7 +252,7 @@ MonoBehaviour:
     _shopLists: []
     _nickname: Magnus Hammerbonk
     _completableQuestsSO:
-    - QuestName: Seduce merchant's wife from Far Foxes village
+    - QuestName: Kill new bandits in a forest camp
       AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10
@@ -279,7 +279,7 @@ MonoBehaviour:
     _shopLists: []
     _nickname: ' AbsolutlyEvilGenius'
     _completableQuestsSO:
-    - QuestName: Seduce merchant's wife from Far Foxes village
+    - QuestName: Find an artefact "Apple of Youth".
       AvatarOnQuestAssigned: {fileID: 0}
     _heroMoods:
     - FromScore: 10

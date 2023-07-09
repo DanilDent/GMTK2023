@@ -110,7 +110,7 @@ MonoBehaviour:
       _minutes: 5
     successfulHPChange: 1
     failureHPChange: -2
-  - name: Slay the Damned Idolische.
+  - name: Slay the Damned Idolische
     description: An incredible trial for those who challenge themselves.
     minStartTime:
       _day: 2
@@ -184,3 +184,123 @@ MonoBehaviour:
       _minutes: 0
     successfulHPChange: 1
     failureHPChange: -2
+  - name: Slay the Dragon with companion
+    description: Cooperation with another player in a pair
+    minStartTime:
+      _day: 2
+      _hours: 19
+      _minutes: 0
+    successfulNews:
+      description: The fearless pair of warriors defeated the dragon
+      timeToNews:
+        _day: 0
+        _hours: 1
+        _minutes: 0
+    failureNews:
+      description: The dragon attacked and burned down half of our village
+      timeToNews:
+        _day: 0
+        _hours: 1
+        _minutes: 0
+    maxLifetime:
+      _day: 2
+      _hours: 0
+      _minutes: 0
+    successfulHPChange: 1
+    failureHPChange: -2
+  - name: Find an artefact "Apple of Youth".
+    description: Find an extremely rare and very expensive artifact
+    minStartTime:
+      _day: 2
+      _hours: 19
+      _minutes: 30
+    successfulNews:
+      description: Recently, the artifact Young Apples was sold
+      timeToNews:
+        _day: 0
+        _hours: 1
+        _minutes: 0
+    failureNews:
+      description: An enraged adventurer robbed a shop in search of rare artifacts
+      timeToNews:
+        _day: 0
+        _hours: 1
+        _minutes: 0
+    maxLifetime:
+      _day: 2
+      _hours: 0
+      _minutes: 0
+    successfulHPChange: 1
+    failureHPChange: -3
+  - name: 'Deliver a package '
+    description: The most boring quest in the game
+    minStartTime:
+      _day: 3
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: The most boring quest in the game
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 20
+    failureNews:
+      description: Nothing important
+      timeToNews:
+        _day: 1
+        _hours: 1
+        _minutes: 0
+    maxLifetime:
+      _day: 0
+      _hours: 5
+      _minutes: 0
+    successfulHPChange: 0
+    failureHPChange: 0
+  - name: Go through fire, water, and copper pipes.
+    description: Everyone who completed this quest have died
+    minStartTime:
+      _day: 3
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: Villan died on his way through fire, water and copper pipes
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: An adventurer killed half of our village with his mace
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 15
+    maxLifetime:
+      _day: 0
+      _hours: 5
+      _minutes: 0
+    successfulHPChange: 1
+    failureHPChange: -3
+  - name: Kill new bandits in a forest camp
+    description: Quest where player must destroy another bandit camp
+    minStartTime:
+      _day: 3
+      _hours: 18
+      _minutes: 30
+    successfulNews:
+      description: The bandits have been finally defeated
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: Unfortunately, the bandits looted some of our wagons
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 5
+      _minutes: 0
+    successfulHPChange: 1
+    failureHPChange: -3
