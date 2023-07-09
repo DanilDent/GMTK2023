@@ -7,13 +7,17 @@ using Vector3 = System.Numerics.Vector3;
 
 public class HeroBehPatternRecorder : MonoBehaviour
 {
-    private string RECORDINGS_PATH => Application.dataPath + "\\Content\\Config\\_HeroBehPatterns\\_jsons";
+    private string RECORDINGS_PATH => Application.dataPath + "\\Content\\Config\\_HeroBehPatterns\\_jsons\\Resources";
+    private const int _recordFrameRate = 60;
+    private float _timerMax;
+    private float _timer;
 
     public void StartRecording()
     {
         _isRecording = true;
         _recording.Data.Add(new Command { CmdType = CommandType.SetCursorPosition, Vec3 = AbsolutePosToRelativePos(UnityVector3ToSystemVector3(Input.mousePosition)) });
         _prevMousePosition = UnityVector3ToSystemVector3(Input.mousePosition);
+        _timer = _timerMax;
     }
 
     public void StopRecording()
@@ -38,6 +42,7 @@ public class HeroBehPatternRecorder : MonoBehaviour
 
     private void Start()
     {
+        _timerMax = 1f / _recordFrameRate;
         EventService.Instance.DiagButtonClicked += HandleDialogueButtonClick;
     }
 
@@ -61,13 +66,21 @@ public class HeroBehPatternRecorder : MonoBehaviour
             {
                 StopRecording();
             }
-        }
 
-        if (_isRecording)
-        {
-            Vector3 mouseDelta = UnityVector3ToSystemVector3(Input.mousePosition) - _prevMousePosition;
-            _prevMousePosition = UnityVector3ToSystemVector3(Input.mousePosition);
-            _recording.Data.Add(new Command { CmdType = CommandType.MoveCursorTo, Vec3 = AbsolutePosToRelativePos(mouseDelta) });
+            _timer -= Time.deltaTime;
+
+            if (_timer < 0f)
+            {
+                _timer = _timerMax;
+
+
+                if (_isRecording)
+                {
+                    Vector3 mouseDelta = UnityVector3ToSystemVector3(Input.mousePosition) - _prevMousePosition;
+                    _prevMousePosition = UnityVector3ToSystemVector3(Input.mousePosition);
+                    _recording.Data.Add(new Command { CmdType = CommandType.MoveCursorTo, Vec3 = AbsolutePosToRelativePos(mouseDelta) });
+                }
+            }
         }
     }
 

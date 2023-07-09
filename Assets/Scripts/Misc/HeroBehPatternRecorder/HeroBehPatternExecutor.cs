@@ -8,10 +8,13 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
     private string RECORDINGS_PATH => Application.dataPath + "\\Content\\Config\\_HeroBehPatterns\\_jsons";
     private string RECORDINGS_PATH_PERS => Application.persistentDataPath + "\\APP_DATA";
     [SerializeField] private PatternsConfig _patterns;
+    private const int _recordFrameRate = 60;
+    private float _timerMax;
+    private float _timer;
 
     private void Start()
     {
-
+        _timerMax = 1f / _recordFrameRate;
     }
 
     public void SetRecording(string patternName)
@@ -28,6 +31,7 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
         _heroCursorRect.gameObject.SetActive(true);
         _isPlaying = true;
         _currentIndex = 0;
+        _timer = _timerMax;
     }
     public void Pause()
     {
@@ -51,35 +55,42 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
     {
         if (_isPlaying)
         {
-            if (_currentIndex >= _recording.Data.Count)
-            {
-                // Fire cutscene completed event
-                _isPlaying = false;
-                _recording = null;
-                _heroCursorRect.gameObject.SetActive(false);
-                return;
-            }
+            _timer -= Time.deltaTime;
 
-            Command command = _recording.Data[_currentIndex];
+            if (_timer < 0f)
+            {
+                _timer = _timerMax;
 
-            UnityEngine.Vector3 relativeVec3 = SystemVector3ToUnityVector3(command.Vec3);
-            UnityEngine.Vector3 absoluteVec3ScreenSpace = RelativePosToAbsolutePos(relativeVec3);
-            UnityEngine.Vector3 adjustedAbsVec3 = new UnityEngine.Vector3(absoluteVec3ScreenSpace.x, absoluteVec3ScreenSpace.y, absoluteVec3ScreenSpace.z);
-            if (command.CmdType == CommandType.SetCursorPosition)
-            {
-                _heroCursorRect.position = adjustedAbsVec3;
-            }
-            else if (command.CmdType == CommandType.MoveCursorTo)
-            {
-                _heroCursorRect.position += absoluteVec3ScreenSpace;
-            }
-            else if (command.CmdType == CommandType.ClickButtonCommand)
-            {
-                DialogManager diagManager = DialogManager.Instance;
-                EventService.Instance.DiagButtonClickedByBot?.Invoke(command.BtnType);
-            }
+                if (_currentIndex >= _recording.Data.Count)
+                {
+                    // Fire cutscene completed event
+                    _isPlaying = false;
+                    _recording = null;
+                    _heroCursorRect.gameObject.SetActive(false);
+                    return;
+                }
 
-            _currentIndex++;
+                Command command = _recording.Data[_currentIndex];
+
+                UnityEngine.Vector3 relativeVec3 = SystemVector3ToUnityVector3(command.Vec3);
+                UnityEngine.Vector3 absoluteVec3ScreenSpace = RelativePosToAbsolutePos(relativeVec3);
+                UnityEngine.Vector3 adjustedAbsVec3 = new UnityEngine.Vector3(absoluteVec3ScreenSpace.x, absoluteVec3ScreenSpace.y, absoluteVec3ScreenSpace.z);
+                if (command.CmdType == CommandType.SetCursorPosition)
+                {
+                    _heroCursorRect.position = adjustedAbsVec3;
+                }
+                else if (command.CmdType == CommandType.MoveCursorTo)
+                {
+                    _heroCursorRect.position += absoluteVec3ScreenSpace;
+                }
+                else if (command.CmdType == CommandType.ClickButtonCommand)
+                {
+                    DialogManager diagManager = DialogManager.Instance;
+                    EventService.Instance.DiagButtonClickedByBot?.Invoke(command.BtnType);
+                }
+
+                _currentIndex++;
+            }
         }
     }
 

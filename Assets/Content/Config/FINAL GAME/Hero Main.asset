@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hero Main
   m_EditorClassIdentifier: 
   data:
-  - _heroBehPatternName: LuckyAlex18962
+  - _heroBehPatternName: TestPattern
     _shopLists:
     - {fileID: 11400000, guid: aae1b27ef1ec8214389046faf8cca73b, type: 2}
     _nickname: LuckyAlex18962
