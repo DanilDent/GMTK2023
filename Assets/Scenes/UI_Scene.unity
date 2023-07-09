@@ -1345,66 +1345,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _BadNews:
-  - description: "\u041F\u043B\u043E\u0445\u0430\u044F \u043D\u043E\u0432\u043E\u0441\u0442\u044C
-      1"
+  - description: The residents are starting to leave our village
     timeToNews:
       _day: 0
       _hours: 0
       _minutes: 0
-  - description: "\u041F\u043B\u043E\u0445\u0430\u044F \u043D\u043E\u0432\u043E\u0441\u0442\u044C
-      2"
+  - description: Adventurers are not helping at all in the development of our village
     timeToNews:
       _day: 0
       _hours: 0
       _minutes: 0
-  - description: "\u041F\u043B\u043E\u0445\u0430\u044F \u043D\u043E\u0432\u043E\u0441\u0442\u044C
-      3"
+  - description: People in our village are finding life increasingly difficult
     timeToNews:
       _day: 0
       _hours: 0
       _minutes: 0
   _NeuralNews:
-  - description: "\u041D\u0435\u0439\u0442\u0440\u0430\u043B\u044C\u043D\u044B\u0435
-      \u043D\u043E\u0432\u043E\u0441\u0442\u0438 1"
+  - description: They changed the signpost on the main square
     timeToNews:
       _day: 0
       _hours: 0
       _minutes: 0
-  - description: "\u041D\u0435\u0439\u0442\u0440\u0430\u043B\u044C\u043D\u044B\u0435
-      \u043D\u043E\u0432\u043E\u0441\u0442\u0438 2"
+  - description: There will be a small festival on the weekend
     timeToNews:
       _day: 0
       _hours: 0
       _minutes: 0
-  - description: "\u041D\u0435\u0439\u0442\u0440\u0430\u043B\u044C\u043D\u044B\u0435
-      \u043D\u043E\u0432\u043E\u0441\u0442\u0438 3"
+  - description: The pole on the main road has tilted by 10 centimeters
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  - description: Honey is now being sold at a reduced price
     timeToNews:
       _day: 0
       _hours: 0
       _minutes: 0
   _GoodNews:
-  - description: "\u041F\u043E\u043B\u043E\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435
-      \u043D\u043E\u0432\u043E\u0441\u0442\u0438 1"
+  - description: The village is flourishing, perhaps soon we will become a city
     timeToNews:
       _day: 0
       _hours: 0
       _minutes: 0
-  - description: "\u041F\u043E\u043B\u043E\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435
-      \u043D\u043E\u0432\u043E\u0441\u0442\u0438 2"
+  - description: hanks to the brave adventurers, everything is going well in our
+      village
     timeToNews:
       _day: 0
       _hours: 0
       _minutes: 0
-  - description: "\u041F\u043E\u043B\u043E\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435
-      \u043D\u043E\u0432\u043E\u0441\u0442\u0438 3"
+  - description: People from all over the country are moving to our beautiful village
     timeToNews:
       _day: 0
       _hours: 0
       _minutes: 0
   _cityNewsTime:
   - _day: 1
-    _hours: 9
-    _minutes: 40
+    _hours: 18
+    _minutes: 30
   _newsContainer: {fileID: 1956289631}
 --- !u!1001 &644754710
 PrefabInstance:
@@ -1595,7 +1592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &645017764
 Transform:
   m_ObjectHideFlags: 0
@@ -2187,7 +2184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01663bc0dbf640dcadfa9f0aa66af1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroConfig: {fileID: 11400000, guid: ad1040c1799b422459789ca8854c76c6, type: 2}
+  _heroConfig: {fileID: 11400000, guid: e900a724f6e45c54caa6851fccb0d49f, type: 2}
   Heroes: []
 --- !u!4 &754200283
 Transform:
@@ -3382,7 +3379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShouldHideCursor: 0
-  _timelineConfig: {fileID: 11400000, guid: 208c76eab416c41479ae4fd77bdc9740, type: 2}
+  _timelineConfig: {fileID: 11400000, guid: 47ed835e504ee6442bd9e1f36a038f3d, type: 2}
   _diagRect: {fileID: 0}
 --- !u!4 &1427590225
 Transform:
@@ -4274,7 +4271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4053c307b341144be8d197a41cf8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 5df6b8ea16e89fb4fa46387fa95db33d, type: 2}
+  config: {fileID: 11400000, guid: 5053d078375d1c04fa9d2d9977cd231c, type: 2}
   invisibleQuests: []
   avalaibleQuests: []
   inProgressQuests: []

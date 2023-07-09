@@ -45,7 +45,10 @@ namespace GitIntegration.ShopSystems
         private void OnShopListRenderComplete()
         {
             ShopListRenderer.Instance.OnRenderComplete -= OnShopListRenderComplete;
-            HeroBehPatternExecutor.Instance.Resume();
+            if (HeroBehPatternExecutor.IsEnabled)
+            {
+                HeroBehPatternExecutor.Instance.Resume();
+            }
         }
     }
 }
