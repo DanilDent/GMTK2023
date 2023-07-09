@@ -40,4 +40,6 @@ public class EventService
 
     public Action CityDestroyed;
     public Action<float> CityHealthChanged;
+    public Action<ButtonType> DiagButtonClicked;
+    public Action<ButtonType> DiagButtonClickedByBot;
 }

@@ -10,10 +10,14 @@ public class Command
 
 public enum ButtonType
 {
+    Skip,
     Next,
     Shop,
     Talk,
     GetQuest,
+    Exit,
+    AnsA,
+    AnsB,
     Back
 }
 

@@ -36,6 +36,16 @@ public class HeroBehPatternRecorder : MonoBehaviour
         _recording = new Recording { Data = new List<Command>() };
     }
 
+    private void Start()
+    {
+        EventService.Instance.DiagButtonClicked += HandleDialogueButtonClick;
+    }
+
+    private void OnDestroy()
+    {
+        EventService.Instance.DiagButtonClicked -= HandleDialogueButtonClick;
+    }
+
     private void Update()
     {
         if (!_isRecording)

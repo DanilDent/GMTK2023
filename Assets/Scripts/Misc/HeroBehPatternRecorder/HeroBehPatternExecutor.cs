@@ -52,6 +52,11 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
             {
                 _heroCursorRect.position += absoluteVec3ScreenSpace;
             }
+            else if (command.CmdType == CommandType.ClickButtonCommand)
+            {
+                DialogManager diagManager = DialogManager.Instance;
+                EventService.Instance.DiagButtonClickedByBot?.Invoke(command.BtnType);
+            }
 
             _currentIndex++;
         }
