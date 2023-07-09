@@ -22,7 +22,7 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
         _isPlaying = true;
         _currentIndex = 0;
     }
-    public void Pause ()
+    public void Pause()
     {
         _isPlaying = false;
     }

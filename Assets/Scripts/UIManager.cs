@@ -17,6 +17,15 @@ public class UIManager : MonoSingleton<UIManager>
     private HeroManager _heroManager;
     private EventService _eventService;
     private Vector3 _defaultHeroAvatarPosition;
+    [SerializeField] private Image _cityBackgrouImg;
+    [SerializeField] private Image _cityBackgroundNpcImg;
+
+    [SerializeField] private Sprite BaseCity;
+    [SerializeField] private Sprite HappyCity;
+    [SerializeField] private Sprite SadCity;
+
+    [SerializeField] private Sprite BaseCityNpc;
+    [SerializeField] private Sprite HappyCityNpc;
 
     private void Start()
     {
@@ -30,6 +39,28 @@ public class UIManager : MonoSingleton<UIManager>
         _eventService.HeroMoodChanged += HandleHeroMoodChanged;
         _eventService.HeroLeaving += HandleHeroLeaving;
         _eventService.HeroLeftFromScreen += HandleHeroLeftFromScreen;
+        _eventService.CityStatusChange += HandleCityStatusChange;
+    }
+
+    private void HandleCityStatusChange(int status)
+    {
+        if (status == 0)
+        {
+            _cityBackgrouImg.sprite = BaseCity;
+            _cityBackgroundNpcImg.sprite = BaseCityNpc;
+            _cityBackgroundNpcImg.gameObject.SetActive(true);
+        }
+        else if (status == 1)
+        {
+            _cityBackgrouImg.sprite = HappyCity;
+            _cityBackgroundNpcImg.sprite = HappyCityNpc;
+            _cityBackgroundNpcImg.gameObject.SetActive(true);
+        }
+        else if (status == -1)
+        {
+            _cityBackgrouImg.sprite = SadCity;
+            _cityBackgroundNpcImg.gameObject.SetActive(false);
+        }
     }
 
     private void HandleHeroMoodChanged(OnHeroMoodChangedEventArgs obj)
@@ -92,5 +123,6 @@ public class UIManager : MonoSingleton<UIManager>
         _eventService.GameTimeUpdated -= HandleGameTimeUpdated;
         _eventService.HeroMoodChanged -= HandleHeroMoodChanged;
         _eventService.HeroLeaving -= HandleHeroLeaving;
+        _eventService.CityStatusChange -= HandleCityStatusChange;
     }
 }
