@@ -83,7 +83,7 @@ MonoBehaviour:
     - QuestName: Slay the Dragon with companion
       AvatarOnQuestAssigned: {fileID: 21300000, guid: b7ef219ed16ff1d43b06bccc6b508e1c, type: 3}
     CurrentAvatarParts:
-    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: b7ef219ed16ff1d43b06bccc6b508e1c, type: 3}
   - _heroBehPatternName: ImInUrMom
     _shopLists: []
     _nickname: ImInUrMom
