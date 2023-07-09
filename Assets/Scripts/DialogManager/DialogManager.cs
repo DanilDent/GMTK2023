@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
+using Random = UnityEngine.Random;
 
 public class DialogManager : MonoSingleton<DialogManager>
 {
@@ -19,16 +22,25 @@ public class DialogManager : MonoSingleton<DialogManager>
     //[SerializeField] private Button _backBtn; // 8
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private Button[] _btns;
+    [SerializeField] private RectTransform _envelope;
 
 
     private string[] helloPhrases;
     private float allDurationMessage;
     private IEnumerator _dispDiagCoroutine;
+    private IEnumerator _displayNextButtonWithDelay;
 
     void Start()
     {
         helloPhrases = helloPhrasesConfig.Data;
         allDurationMessage = dialogConfig.AllDurationMessage;
+
+        EventService.Instance.DiagButtonClicked += HandleDiagBbtnClicked;
+    }
+
+    protected override void OnDestroy()
+    {
+        EventService.Instance.DiagButtonClicked -= HandleDiagBbtnClicked;
     }
 
     void Update()
@@ -48,10 +60,25 @@ public class DialogManager : MonoSingleton<DialogManager>
         StartCoroutine(_dispDiagCoroutine);
     }
 
+    public void DisplayBlank()
+    {
+        UpdateDialogueText(String.Empty);
+        Display();
+    }
+
     public void DisplayHello()
     {
         UpdateDialogueText(helloPhrases[Random.Range(0, helloPhrases.Length)]);
-        Display(0, 1);
+        Display(0);
+        _displayNextButtonWithDelay = InvokeWithDelay(() => { Display(1); }, allDurationMessage + .5f);
+        StartCoroutine(_displayNextButtonWithDelay);
+    }
+
+    public void DisplayDropEnvelope()
+    {
+        Display();
+        _dialogueText.gameObject.SetActive(false);
+        _envelope.gameObject.SetActive(true);
     }
 
     public void DisplayMain()
@@ -74,6 +101,9 @@ public class DialogManager : MonoSingleton<DialogManager>
 
     private void Display(params int[] btnIndecies)
     {
+        _dialogueText.gameObject.SetActive(true);
+        _envelope.gameObject.SetActive(false);
+
         for (int i = 0; i < _btns.Length; ++i)
         {
             _btns[i].gameObject.SetActive(false);
@@ -96,6 +126,47 @@ public class DialogManager : MonoSingleton<DialogManager>
             float waitFor = (float)allDurationMessage / message.Length;
             yield return new WaitForSeconds(waitFor);
         }
+    }
+
+    private void HandleDiagBbtnClicked(ButtonType btnType)
+    {
+        switch (btnType)
+        {
+            case ButtonType.Skip:
+                StopCoroutine(_displayNextButtonWithDelay);
+                _displayNextButtonWithDelay = null;
+                DisplayMain();
+                break;
+            case ButtonType.Next:
+                DisplayMain();
+                break;
+            case ButtonType.Shop:
+                DisplayShop();
+                break;
+            case ButtonType.Talk:
+                DisplayTalk();
+                break;
+            case ButtonType.GetQuest:
+                DisplayDropEnvelope();
+                break;
+            case ButtonType.Exit:
+                EventService.Instance.HeroLeaving?.Invoke();
+                break;
+            case ButtonType.AnsA:
+                DisplayMain();
+                break;
+            case ButtonType.AnsB:
+                DisplayMain();
+                break;
+            case ButtonType.Back:
+                break;
+        }
+    }
+
+    private IEnumerator InvokeWithDelay(Action action, float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        action?.Invoke();
     }
 }
 
