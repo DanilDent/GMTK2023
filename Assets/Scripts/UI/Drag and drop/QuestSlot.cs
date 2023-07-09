@@ -12,6 +12,8 @@ public class QuestSlot : MonoBehaviour, IDropHandler
         {
             questPiece.TryGetComponent(out QuestInformation questInformation);
             EventService.Instance.QuestAssigned.Invoke(questInformation.Quest);
+            questPiece.GetComponent<RectTransform>().SetParent(questPiece.parent);
+            questPiece.GetComponent<RectTransform>().localPosition = questPiece.lastPosition;
             questPiece.gameObject.SetActive(false);
         }
     }

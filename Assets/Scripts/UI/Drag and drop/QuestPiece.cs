@@ -15,8 +15,8 @@ public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
     private RectTransform _rectTransform;
     private CanvasGroup _canvasGroup;
 
-    private Vector3 lastPosition;
-    private Transform parent;
+    public Vector3 lastPosition;
+    public Transform parent;
 
     public void Initialize(QuestPiecesContainer parentContainer, int index)
     {

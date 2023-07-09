@@ -343,6 +343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _listText: {fileID: 6889966141734578291}
   _moneyText: {fileID: 6470221934408472552}
+  _heroMoneyLabel: {fileID: 783316518944709371}
 --- !u!114 &8509300791421576997
 MonoBehaviour:
   m_ObjectHideFlags: 0

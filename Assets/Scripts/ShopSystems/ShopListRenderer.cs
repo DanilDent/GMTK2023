@@ -9,6 +9,7 @@ public class ShopListRenderer : MonoSingleton<ShopListRenderer>
 	private RectTransform _rectTransform;
 	[SerializeField] private TextMeshProUGUI _listText;
 	[SerializeField] private TextMeshProUGUI _moneyText;
+	[SerializeField] private RectTransform _heroMoneyLabel;
 	
 	
 	public event Action OnRenderComplete;
@@ -43,7 +44,8 @@ public class ShopListRenderer : MonoSingleton<ShopListRenderer>
 	{
 		Reset();
 		_rendering = true;
-		_rectTransform.anchoredPosition = _startPosition;
+        _heroMoneyLabel.gameObject.SetActive(true);
+        _rectTransform.anchoredPosition = _startPosition;
 		_currentShopList = shopList;
 		_listText.text = string.Join("\n", shopList.Entries);
 		_listText.color = new Color(1f, 1f, 1f, 0f);
@@ -59,8 +61,8 @@ public class ShopListRenderer : MonoSingleton<ShopListRenderer>
 	{
 		if(_rendering)
 		{
-			//Debug.Log("Rendering");
-			_timer += Time.deltaTime * 1000f;
+            //Debug.Log("Rendering");
+            _timer += Time.deltaTime * 1000f;
 			var progress = Mathf.Clamp01( _timer / _currentShopList.AnimationTimeMilliSeconds);
 			var easedProgress = EaseOut(progress);
 			_currentOpacity = easedProgress;
@@ -72,7 +74,9 @@ public class ShopListRenderer : MonoSingleton<ShopListRenderer>
 				Reset();
 				OnRenderComplete?.Invoke();
 				_rendering = false;
-			}
+				_heroMoneyLabel.gameObject.SetActive(false);
+
+            }
 		}
 	}
 
