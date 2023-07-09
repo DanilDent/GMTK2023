@@ -27,6 +27,12 @@ public class UIManager : MonoSingleton<UIManager>
     [SerializeField] private Sprite BaseCityNpc;
     [SerializeField] private Sprite HappyCityNpc;
 
+    [SerializeField]
+    private float _animationPercentForComing = 0.2f;
+
+    [SerializeField]
+    private float _animationPercentForLeaving = 0.2f;
+
     private void Start()
     {
         _heroManager = HeroManager.Instance;
@@ -78,8 +84,9 @@ public class UIManager : MonoSingleton<UIManager>
         _heroNicknameText.text = hero.Nickname;
         // Put hero comming animation here
 
+        Debug.Log("Появление");
         _heroAvatarRect.position = _defaultHeroAvatarPosition;
-        _heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x - 700f, 1f).From();
+        _heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x - _animationPercentForComing * Screen.width, 1f).From();
         _heroAvatarImg.DOFade(1, 1);
         _heroAvatarImg.sprite = hero.CurrentAvatarParts[0].Value;
     }
@@ -89,8 +96,9 @@ public class UIManager : MonoSingleton<UIManager>
         var diagManager = DialogManager.Instance;
 
         Sequence seq = DOTween.Sequence();
+
         diagManager.DisplayBlank();
-        seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x + 800f, 1f));
+        seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x + _animationPercentForLeaving * Screen.width, 1f));
 
         _heroAvatarImg.DOFade(0, 1);
         seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x, 1f)).OnComplete(() =>
@@ -102,9 +110,10 @@ public class UIManager : MonoSingleton<UIManager>
 
     private void HandleHeroLeftFromScreen()
     {
+        Debug.Log("Исчезновение");
         Sequence seq = DOTween.Sequence();
         _heroAvatarImg.DOFade(0, 1);
-        seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x + 800, 1f)).OnComplete(() =>
+        seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x + _animationPercentForLeaving * Screen.width, 1f)).OnComplete(() =>
         {
             GameManager.Instance.CurrentHeroNickname = string.Empty;
         });

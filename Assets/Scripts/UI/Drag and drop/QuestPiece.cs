@@ -3,29 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    private QuestPiecesContainer _container;
-    private int _index;
+    public QuestPiecesContainer Container;
+    private int Index;
 
     private Vector3 _offset;
 
-    private bool isGiven = false;
     private RectTransform _rectTransform;
     private CanvasGroup _canvasGroup;
-    
+
+    private Vector3 lastPosition;
+    private Transform parent;
 
     public void Initialize(QuestPiecesContainer parentContainer, int index)
     {
-        _container = parentContainer;
-        _index = index;
-
-        _canvasGroup = GetComponent<CanvasGroup>();
+        Container = parentContainer;
+        Index = index;
     }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
+        lastPosition = transform.localPosition;
+        parent = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         _offset = Input.mousePosition - _rectTransform.position;
@@ -41,27 +43,25 @@ public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)
     {
         _canvasGroup.blocksRaycasts = true;
-        if (!isGiven)
-        {
-            transform.SetParent(_container.transform);
-            transform.SetSiblingIndex(_index);
-        }
+        transform.SetParent(parent);
+        transform.localPosition = lastPosition;
     }
 
     // Start is called before the first frame update
     private void Start()
     {
         _rectTransform = GetComponent<RectTransform>();
+        _canvasGroup = GetComponent<CanvasGroup>();
     }
 
     public void Destroy()
     {
-        _container.DeleteQuestFromList(this);
+        //Container.DeleteQuestFromList(this);
         Destroy(gameObject);
     }
 
     public void SetPieceIndex(int index)
     {
-        _index = index;
+        Index = index;
     }
 }
