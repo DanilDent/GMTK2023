@@ -72,89 +72,115 @@ MonoBehaviour:
       description: Thanks to Big Foxes discounts our village gets big profits.
       timeToNews:
         _day: 0
-        _hours: 20
-        _minutes: 0
+        _hours: 0
+        _minutes: 30
     failureNews:
       description: No one trades with our village anymore
       timeToNews:
         _day: 0
-        _hours: 6
-        _minutes: 0
+        _hours: 0
+        _minutes: 30
     maxLifetime:
       _day: 0
       _hours: 2
       _minutes: 0
     successfulHPChange: 3
     failureHPChange: -4
-  - name: 4
-    description: 
+  - name: Dance on the Kniaz's Banquet
+    description: Available to donate players
     minStartTime:
-      _day: 1
-      _hours: 9
-      _minutes: 5
+      _day: 2
+      _hours: 18
+      _minutes: 0
     successfulNews:
-      description: "\u0423\u0440\u0430 4"
+      description: The Kniaz's Banquet hosted the most amazing dance party
       timeToNews:
         _day: 0
-        _hours: 0
-        _minutes: 5
+        _hours: 1
+        _minutes: 0
     failureNews:
-      description: "\u041F\u0440\u043E\u0435\u0431\u0430\u043B\u0438 4"
+      description: No one came to the party at the Kniaz's Banquet
       timeToNews:
         _day: 0
-        _hours: 0
-        _minutes: 5
+        _hours: 1
+        _minutes: 0
     maxLifetime:
       _day: 0
       _hours: 0
       _minutes: 5
     successfulHPChange: 1
-    failureHPChange: -100
-  - name: 5
-    description: 
+    failureHPChange: -2
+  - name: Slay the Damned Idolische.
+    description: An incredible trial for those who challenge themselves.
     minStartTime:
-      _day: 1
-      _hours: 9
-      _minutes: 5
+      _day: 2
+      _hours: 18
+      _minutes: 0
     successfulNews:
-      description: "\u0423\u0440\u0430 5"
+      description: 'Unbelievable: the Damned Idolische has been slayed'
       timeToNews:
         _day: 0
-        _hours: 0
-        _minutes: 5
+        _hours: 1
+        _minutes: 30
     failureNews:
-      description: "\u041F\u0440\u043E\u0435\u0431\u0430\u043B\u0438 5"
+      description: Damned Idolische is already close
       timeToNews:
         _day: 0
-        _hours: 0
-        _minutes: 5
+        _hours: 1
+        _minutes: 10
     maxLifetime:
       _day: 0
       _hours: 0
       _minutes: 5
-    successfulHPChange: 1
-    failureHPChange: -100
-  - name: 1
-    description: 
+    successfulHPChange: 2
+    failureHPChange: -3
+  - name: Find a koshchei needle
+    description: This quest allows to fully complete the game
     minStartTime:
-      _day: 1
-      _hours: 19
+      _day: 2
+      _hours: 18
       _minutes: 0
     successfulNews:
-      description: 
+      description: The Koshchey has been defeated - the residents can breathe a sigh
+        of relief
       timeToNews:
         _day: 0
         _hours: 0
-        _minutes: 0
+        _minutes: 20
     failureNews:
-      description: 
+      description: Koshchey with his army is advancing towards the village
       timeToNews:
         _day: 0
-        _hours: 0
+        _hours: 3
         _minutes: 0
     maxLifetime:
       _day: 1
       _hours: 0
       _minutes: 0
-    successfulHPChange: 50
-    failureHPChange: -10
+    successfulHPChange: 2
+    failureHPChange: -4
+  - name: Bring the Red Flover
+    description: Thoughtful players who perfectly know rules of this world can complete
+      this quest
+    minStartTime:
+      _day: 2
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: 'Incredible: someone returned a little red flower to us.'
+      timeToNews:
+        _day: 0
+        _hours: 3
+        _minutes: 0
+    failureNews:
+      description: The little red flower is forever lost
+      timeToNews:
+        _day: 0
+        _hours: 3
+        _minutes: 0
+    maxLifetime:
+      _day: 1
+      _hours: 0
+      _minutes: 0
+    successfulHPChange: 1
+    failureHPChange: -2
