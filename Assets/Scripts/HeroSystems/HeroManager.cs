@@ -42,7 +42,10 @@ public class HeroManager : MonoBehaviour
 		EventService.Instance.QuestAssigned += OnQuestAssigned;
 	}
 
-
+	public Hero GetCurrentHero()
+	{
+		return GetHeroByName(GameManager.Instance.CurrentHeroNickname);
+	}
 
 	private void UnsubscribeFromEvents()
 	{
@@ -67,36 +70,26 @@ public class HeroManager : MonoBehaviour
 
 	public void OnQuestCompleted(Quest quest, Hero hero)
 	{
-		if(hero.Bonuses.TryGetValue(quest.Name, out var bonus))
+		if(hero.CompletableQuests.Contains(quest.Name))
 		{
-			hero.CurrentMoodScore += bonus;
 			UpdateHeroMood(hero);
 		}
 	}
 
 	public bool IsQuestCompletable(Quest quest, Hero hero)
 	{
-		if(hero.Bonuses.TryGetValue(quest.Name, out var bonus))
-		{
-			return bonus > 0;
-		}
-		return false;
+		return hero.CompletableQuests.Contains(quest.Name);
 	}
 
 	public void OnQuestCompleted(Quest quest, string heroName)
 	{
 		Hero hero = GetHeroByName(heroName);
 		int bonus;
-		if(hero.Bonuses.TryGetValue(quest.Name, out bonus))
+		if(!hero.CompletableQuests.Contains(quest.Name))
 		{
-			hero.CurrentMoodScore += bonus;
-			UpdateHeroMood(hero);
+			return;
 		}
-		else
-		{
-			hero.CurrentMoodScore -= 10;
-			UpdateHeroMood(hero);
-		}
+		
 	}
 
 	public Hero GetHeroByName(string heroName)

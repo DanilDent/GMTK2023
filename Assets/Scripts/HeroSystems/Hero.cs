@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 [Serializable]
@@ -8,7 +10,9 @@ public struct Hero
 {
 	public string HeroBehPatternName => _heroBehPatternName;
 
+
 	[SerializeField] private string _heroBehPatternName;
+	[SerializeField] private List<ShopList> _shopLists;
 
 	[Serializable]
 	public struct Avatar
@@ -16,10 +20,9 @@ public struct Hero
 		[SerializeField] public Sprite Value;
 	}
 	[Serializable]
-	public struct QuestMoodBonus
+	public struct CompletableQuest
 	{
 		[SerializeField] public string QuestName;
-		[SerializeField] public int MoodBonus;
 		[SerializeField] public Sprite AvatarOnQuestAssigned;
 	}
 	[Serializable]
@@ -28,22 +31,43 @@ public struct Hero
 		[SerializeField] public HeroMood HeroMood;
 	}
 	[SerializeField] private string _nickname;
-	[SerializeField] private QuestMoodBonus[] _questMoodBonuses;
+	[FormerlySerializedAs("_questMoodBonuses")]
+	[SerializeField] private CompletableQuest[] _completableQuestsSO;
 	[SerializeField] private List<HeroMood> _heroMoods;
-	private Dictionary<string, int> _bonuses;
+	private HashSet<string> _completableQuests;
 	private Dictionary<string, Sprite> _avatarOnQuestAssigned;
+	private Queue<ShopList> _shopListsQueue;
 
-	public Dictionary<string, int> Bonuses
+	public Queue<ShopList> ShopLists
 	{
 		get
 		{
-			if(_bonuses != null) return _bonuses;
-			_bonuses = new Dictionary<string, int>();
-			foreach(var bonus in _questMoodBonuses)
+			if(_shopListsQueue != null) return _shopListsQueue;
+			_shopListsQueue = new Queue<ShopList>();
+			if(_shopLists == null || _shopLists.Count == 0)
 			{
-				_bonuses[bonus.QuestName] = bonus.MoodBonus;
+				_shopListsQueue.Enqueue(ShopList.GetDefault());
+				return _shopListsQueue;
 			}
-			return _bonuses;
+			foreach(var shopList in _shopLists)
+			{
+				_shopListsQueue.Enqueue(shopList);
+			}
+			return _shopListsQueue;
+		}
+	}
+
+	public HashSet<string> CompletableQuests
+	{
+		get
+		{
+			if(_completableQuests != null) return _completableQuests;
+			_completableQuests = new HashSet<string>();
+			foreach(var bonus in _completableQuestsSO)
+			{
+				_completableQuests.Add(bonus.QuestName);
+			}
+			return _completableQuests;
 		}
 
 	}
@@ -54,7 +78,7 @@ public struct Hero
 		{
 			if(_avatarOnQuestAssigned != null) return _avatarOnQuestAssigned;
 			_avatarOnQuestAssigned = new Dictionary<string, Sprite>();
-			foreach(var bonus in _questMoodBonuses)
+			foreach(var bonus in _completableQuestsSO)
 			{
 				if(bonus.AvatarOnQuestAssigned != null)
 				{
