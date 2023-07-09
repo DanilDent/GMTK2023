@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour
             TimelineEventData eventData = _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex];
             if (eventData.EventType == TimelineEventType.NewHero)
             {
-                //IsPaused = true;
+                IsPaused = true;
                 _eventService.NewHeroComing?.Invoke(eventData.Name);
                 //Debug.Log($"New hero came to our village: {eventData.Name}");
                 SetGameState(GameState.NewHero);
