@@ -66,8 +66,8 @@ MonoBehaviour:
     description: Contains erotic content
     minStartTime:
       _day: 1
-      _hours: 20
-      _minutes: 0
+      _hours: 18
+      _minutes: 15
     successfulNews:
       description: Thanks to Big Foxes discounts our village gets big profits.
       timeToNews:

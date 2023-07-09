@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hero Main
   m_EditorClassIdentifier: 
   data:
-  - _heroBehPatternName: 
+  - _heroBehPatternName: Pattern1
     _shopLists: []
     _nickname: LuckyAlex18962
     _completableQuestsSO:
@@ -32,7 +32,7 @@ MonoBehaviour:
         _cursorConfidence: 0
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: 216eb4294f6c8704fa7302f12e9c61a9, type: 3}
-  - _heroBehPatternName: Pattern1
+  - _heroBehPatternName: Pattern2
     _shopLists: []
     _nickname: 4Gr@ynd
     _completableQuestsSO:
@@ -89,33 +89,6 @@ MonoBehaviour:
   - _heroBehPatternName: 
     _shopLists: []
     _nickname: Nagibator777
-    _completableQuestsSO:
-    - QuestName: Seduce merchant's wife from Far Foxes village
-      AvatarOnQuestAssigned: {fileID: 0}
-    _heroMoods:
-    - FromScore: 10
-      ToScore: 20
-      MoodName: genius
-      AvatarParts:
-      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 100
-        _cursorConfidence: 100
-    CurrentMoodScore: 0
-    CurrentHeroMood:
-      FromScore: 0
-      ToScore: 10
-      MoodName: Idiot
-      AvatarParts:
-      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 0
-        _cursorConfidence: 0
-    CurrentAvatarParts:
-    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
-  - _heroBehPatternName: 
-    _shopLists: []
-    _nickname: GloriousNimfa
     _completableQuestsSO:
     - QuestName: Seduce merchant's wife from Far Foxes village
       AvatarOnQuestAssigned: {fileID: 0}
