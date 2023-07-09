@@ -11,13 +11,13 @@ public class DiagButton : MonoBehaviour
     private void Start()
     {
         _btn.onClick.AddListener(HandleOnClick);
-        EventService.Instance.DiagBtnClickedByBot += HandleDiagButtonClickedByBot;
+        EventService.Instance.DiagButtonClickedByBot += HandleDiagButtonClickedByBot;
     }
 
     private void OnDestroy()
     {
         _btn.onClick.RemoveListener(HandleOnClick);
-        EventService.Instance.DiagBtnClickedByBot -= HandleDiagButtonClickedByBot;
+        EventService.Instance.DiagButtonClickedByBot -= HandleDiagButtonClickedByBot;
     }
 
     private void HandleOnClick()

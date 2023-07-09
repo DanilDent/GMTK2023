@@ -77,6 +77,16 @@ public class DialogManager : MonoSingleton<DialogManager>
     public void DisplayDropEnvelope()
     {
         Display();
+        if (_dispDiagCoroutine != null)
+        {
+            StopCoroutine(_dispDiagCoroutine);
+            _dispDiagCoroutine = null;
+        }
+        if (_displayNextButtonWithDelay != null)
+        {
+            StopCoroutine(_displayNextButtonWithDelay);
+            _displayNextButtonWithDelay = null;
+        }
         _dialogueText.gameObject.SetActive(false);
         _envelope.gameObject.SetActive(true);
     }
