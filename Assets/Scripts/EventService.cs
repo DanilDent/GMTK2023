@@ -23,7 +23,9 @@ public class EventService
 
     // Events
     public Action<string> NewHeroComing;
+
     public Action HeroLeaving;
+    public Action HeroLeftFromScreen;
 
     public Action<Quest> NewQuestBecomeAvailable;
 
