@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4bfc45bac6aaa4e43961a269e15fc52d
+guid: aca3bb0464870b547ab7b3f57d860904
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -134,91 +134,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: diolog_button_sheet_0
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 0
-        width: 750
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b0182b8f0abd03c4b8841e31a1acad29
-      internalID: -1503423022
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: diolog_button_sheet_1
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 750
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 355e24106c8b0d6458dbd5b0a67afa97
-      internalID: 2079225138
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: diolog_button_sheet_2
-      rect:
-        serializedVersion: 2
-        x: 1537
-        y: 0
-        width: 750
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 31f1926d45a281947be1c752558550f1
-      internalID: 946227813
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: diolog_button_sheet_3
-      rect:
-        serializedVersion: 2
-        x: 2289
-        y: 0
-        width: 750
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4135db94ef5995940b204329f7c3a562
-      internalID: 1656780645
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -229,11 +145,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      diolog_button_sheet_0: -1503423022
-      diolog_button_sheet_1: 2079225138
-      diolog_button_sheet_2: 946227813
-      diolog_button_sheet_3: 1656780645
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
