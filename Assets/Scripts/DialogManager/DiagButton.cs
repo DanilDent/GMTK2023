@@ -7,6 +7,7 @@ public class DiagButton : MonoBehaviour
     public ButtonType BtnType;
 
     [SerializeField] private Button _btn;
+    IEnumerator curCoroutine;
 
     private void Start()
     {
@@ -29,13 +30,22 @@ public class DiagButton : MonoBehaviour
     {
         if (btnType == BtnType)
         {
-            StartCoroutine(DiagBtnClickedByBotCoroutine());
+            if (gameObject.activeInHierarchy)
+            {
+                curCoroutine = DiagBtnClickedByBotCoroutine();
+                StartCoroutine(curCoroutine);
+            }
         }
     }
 
     private void OnDisable()
     {
         _btn.interactable = true;
+        if (curCoroutine != null)
+        {
+            StopCoroutine(curCoroutine);
+            curCoroutine = null;
+        }
     }
 
     private IEnumerator DiagBtnClickedByBotCoroutine()
