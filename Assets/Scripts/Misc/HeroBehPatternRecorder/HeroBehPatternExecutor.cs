@@ -22,6 +22,18 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
         _isPlaying = true;
         _currentIndex = 0;
     }
+    public void Pause ()
+    {
+        _isPlaying = false;
+    }
+    public void Resume()
+    {
+        _isPlaying = true;
+    }
+    public bool IsPaused()
+    {
+        return !_isPlaying;
+    }
 
     [SerializeField] private RectTransform _heroCursorRect;
     private bool _isPlaying;

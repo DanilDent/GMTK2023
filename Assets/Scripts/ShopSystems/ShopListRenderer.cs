@@ -9,6 +9,10 @@ public class ShopListRenderer : MonoSingleton<ShopListRenderer>
 	private RectTransform _rectTransform;
 	[SerializeField] private TextMeshProUGUI _listText;
 	[SerializeField] private TextMeshProUGUI _moneyText;
+	
+	
+	public event Action OnRenderComplete;
+	
 	private float _maxTime;
 	private float _timer;
 	private float _currentOpacity;
@@ -18,14 +22,20 @@ public class ShopListRenderer : MonoSingleton<ShopListRenderer>
 	private void Start()
 	{
 		_rectTransform = GetComponent<RectTransform>();
-		_startPosition = new Vector2(_rectTransform.anchoredPosition.x, Screen.height);
+		var anchoredPosition = _rectTransform.anchoredPosition;
+		_startPosition = new Vector2(anchoredPosition.x, anchoredPosition.y);
 		Reset();
+	}
+	public bool IsRendering()
+	{
+		return _rendering;
 	}
 	public void Reset()
 	{
 		_rectTransform.anchoredPosition = _startPosition;
 		_timer = 0f;
 		_currentOpacity = 0f;
+		_rendering = false;
 		_listText.color = new Color(1f, 1f, 1f, 0f);
 		_moneyText.color = new Color(1f, 1f, 1f, 0f);
 	}
@@ -51,7 +61,7 @@ public class ShopListRenderer : MonoSingleton<ShopListRenderer>
 		{
 			//Debug.Log("Rendering");
 			_timer += Time.deltaTime * 1000f;
-			var progress = Mathf.Clamp01(_timer / _currentShopList.AnimationTimeMilliSeconds);
+			var progress = Mathf.Clamp01( _timer / _currentShopList.AnimationTimeMilliSeconds);
 			var easedProgress = EaseOut(progress);
 			_currentOpacity = easedProgress;
 			_rectTransform.anchoredPosition = Vector2.Lerp(_startPosition, Vector2.zero, easedProgress);
@@ -60,6 +70,7 @@ public class ShopListRenderer : MonoSingleton<ShopListRenderer>
 			if(_timer > _currentShopList.AnimationTimeMilliSeconds + _currentShopList.TimeToDisappearMilliSeconds)
 			{
 				Reset();
+				OnRenderComplete?.Invoke();
 				_rendering = false;
 			}
 		}

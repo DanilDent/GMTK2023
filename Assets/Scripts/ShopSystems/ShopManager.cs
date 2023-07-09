@@ -8,15 +8,14 @@ namespace GitIntegration.ShopSystems
 		{
 			SubscribeToEvents();
 		}
-		
+
 		protected override void OnDestroy()
 		{
 			if(Instance == this)
 			{
-				UnsubscribeFromEvents();	
+				UnsubscribeFromEvents();
 			}
 			base.OnDestroy();
-			
 		}
 		private void SubscribeToEvents()
 		{
@@ -35,7 +34,15 @@ namespace GitIntegration.ShopSystems
 				var shopList = hero.ShopLists.Dequeue();
 				hero.ShopLists.Enqueue(shopList);
 				ShopListRenderer.Instance.Render(shopList);
+				HeroBehPatternExecutor.Instance.Pause();
+				ShopListRenderer.Instance.OnRenderComplete += OnShopListRenderComplete;
 			}
+		}
+
+		private void OnShopListRenderComplete()
+		{
+			ShopListRenderer.Instance.OnRenderComplete -= OnShopListRenderComplete;
+			HeroBehPatternExecutor.Instance.Resume();
 		}
 	}
 }
