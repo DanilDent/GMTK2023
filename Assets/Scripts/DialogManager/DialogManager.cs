@@ -27,11 +27,19 @@ public class DialogManager : MonoSingleton<DialogManager>
     private string[] helloPhrases;
     private float allDurationMessage;
     private IEnumerator _dispDiagCoroutine;
+    private IEnumerator _displayNextButtonWithDelay;
 
     void Start()
     {
         helloPhrases = helloPhrasesConfig.Data;
         allDurationMessage = dialogConfig.AllDurationMessage;
+
+        EventService.Instance.DiagButtonClicked += HandleDiagBbtnClicked;
+    }
+
+    protected override void OnDestroy()
+    {
+        EventService.Instance.DiagButtonClicked -= HandleDiagBbtnClicked;
     }
 
     void Update()
@@ -51,11 +59,18 @@ public class DialogManager : MonoSingleton<DialogManager>
         StartCoroutine(_dispDiagCoroutine);
     }
 
+    public void DisplayBlank()
+    {
+        UpdateDialogueText(String.Empty);
+        Display();
+    }
+
     public void DisplayHello()
     {
         UpdateDialogueText(helloPhrases[Random.Range(0, helloPhrases.Length)]);
         Display(0);
-        StartCoroutine(InvokeWithDelay(() => { Display(1); }, allDurationMessage + .5f));
+        _displayNextButtonWithDelay = InvokeWithDelay(() => { Display(1); }, allDurationMessage + .5f);
+        StartCoroutine(_displayNextButtonWithDelay);
     }
 
     public void DisplayMain()
@@ -99,6 +114,41 @@ public class DialogManager : MonoSingleton<DialogManager>
             ++charIndex;
             float waitFor = (float)allDurationMessage / message.Length;
             yield return new WaitForSeconds(waitFor);
+        }
+    }
+
+    private void HandleDiagBbtnClicked(ButtonType btnType)
+    {
+        switch (btnType)
+        {
+            case ButtonType.Skip:
+                StopCoroutine(_displayNextButtonWithDelay);
+                _displayNextButtonWithDelay = null;
+                DisplayMain();
+                break;
+            case ButtonType.Next:
+                DisplayMain();
+                break;
+            case ButtonType.Shop:
+                DisplayShop();
+                break;
+            case ButtonType.Talk:
+                DisplayTalk();
+                break;
+            case ButtonType.GetQuest:
+                EventService.Instance.GetQuesDiagBtnClicked?.Invoke();
+                break;
+            case ButtonType.Exit:
+                EventService.Instance.HeroLeaving?.Invoke();
+                break;
+            case ButtonType.AnsA:
+                DisplayMain();
+                break;
+            case ButtonType.AnsB:
+                DisplayMain();
+                break;
+            case ButtonType.Back:
+                break;
         }
     }
 

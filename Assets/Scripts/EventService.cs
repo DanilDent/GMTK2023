@@ -23,6 +23,7 @@ public class EventService
 
     // Events
     public Action<string> NewHeroComing;
+    public Action HeroLeaving;
 
     public Action<Quest> NewQuestBecomeAvailable;
 
@@ -41,7 +42,7 @@ public class EventService
     public Action CityDestroyed;
     public Action<float> CityHealthChanged;
     public Action<ButtonType> DiagButtonClicked;
-    public Action<ButtonType> DiagButtonClickedByBot;
+    public Action<ButtonType> DiagBtnClickedByBot;
     public Action<int> CityStatusChange;
     public Action GetQuesDiagBtnClicked;
     public Action ExitDiagBtnClicked;

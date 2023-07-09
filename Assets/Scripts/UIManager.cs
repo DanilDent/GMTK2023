@@ -27,6 +27,7 @@ public class UIManager : MonoSingleton<UIManager>
         _eventService.NewHeroComing += HandleNewHeroComing;
         _eventService.GameTimeUpdated += HandleGameTimeUpdated;
         _eventService.HeroMoodChanged += HandleHeroMoodChanged;
+        _eventService.HeroLeaving += HandleHeroLeaving;
     }
 
     private void HandleHeroMoodChanged(OnHeroMoodChangedEventArgs obj)
@@ -49,6 +50,20 @@ public class UIManager : MonoSingleton<UIManager>
 
     }
 
+    private void HandleHeroLeaving()
+    {
+        var diagManager = DialogManager.Instance;
+
+        Sequence seq = DOTween.Sequence();
+
+        diagManager.DisplayBlank();
+        seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x + 700f, 1f));
+        seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x, 1f)).OnComplete(() =>
+        {
+            diagManager.DisplayHello();
+        });
+    }
+
     private void HandleGameTimeUpdated()
     {
         GameTime currentGameTime = GameManager.Instance.CurrentTime;
@@ -60,5 +75,8 @@ public class UIManager : MonoSingleton<UIManager>
         base.OnDestroy();
         _eventService.NewHeroComing -= HandleNewHeroComing;
         _eventService.GameTimeUpdated -= HandleGameTimeUpdated;
+        _eventService.HeroMoodChanged -= HandleHeroMoodChanged;
+        _eventService.HeroLeaving -= HandleHeroLeaving;
+
     }
 }

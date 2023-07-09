@@ -57,7 +57,7 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
             else if (command.CmdType == CommandType.ClickButtonCommand)
             {
                 DialogManager diagManager = DialogManager.Instance;
-                EventService.Instance.DiagButtonClickedByBot?.Invoke(command.BtnType);
+                EventService.Instance.DiagBtnClickedByBot?.Invoke(command.BtnType);
             }
 
             _currentIndex++;
