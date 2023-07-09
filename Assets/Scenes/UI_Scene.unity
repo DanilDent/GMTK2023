@@ -1541,7 +1541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4675433544458744051, guid: 82105b6e3bad2d24fa6561bc88a12957, type: 3}
       propertyPath: m_text
-      value: Answer B
+      value: I should go.
       objectReference: {fileID: 0}
     - target: {fileID: 4675433544458744051, guid: 82105b6e3bad2d24fa6561bc88a12957, type: 3}
       propertyPath: m_fontAsset
@@ -2617,10 +2617,10 @@ RectTransform:
   m_Father: {fileID: 856402414}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -125}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.6}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -40, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1006076901
 MonoBehaviour:
@@ -2642,7 +2642,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welcome Back, stranger!
+  m_text: Greetings, Bogatyr. dark times these are indeed. It's good to have you, 
+    Bogatyrs. You will protect us from evil, wouldn't you?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 394a4282d303a4f419429dae3abb9b44, type: 2}
   m_sharedMaterial: {fileID: 2323445326913669211, guid: 394a4282d303a4f419429dae3abb9b44, type: 2}
@@ -2685,7 +2686,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -4727,7 +4728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4675433544458744051, guid: 82105b6e3bad2d24fa6561bc88a12957, type: 3}
       propertyPath: m_text
-      value: Answer A
+      value: Of course I will.
       objectReference: {fileID: 0}
     - target: {fileID: 4675433544458744051, guid: 82105b6e3bad2d24fa6561bc88a12957, type: 3}
       propertyPath: m_fontAsset
