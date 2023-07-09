@@ -151,7 +151,9 @@ public class DialogManager : MonoSingleton<DialogManager>
                 DisplayMain();
                 break;
             case ButtonType.Shop:
-                DisplayShop();
+                DisplayBlank();
+                //sorry for this
+                ShopListRenderer.Instance.OnRenderComplete += OnShopRenderComplete;
                 break;
             case ButtonType.Talk:
                 DisplayTalk();
@@ -171,8 +173,13 @@ public class DialogManager : MonoSingleton<DialogManager>
             case ButtonType.Back:
                 break;
         }
+        
     }
-
+    private void OnShopRenderComplete()
+    {
+        ShopListRenderer.Instance.OnRenderComplete -= OnShopRenderComplete;
+        DisplayShop();
+    }
     private IEnumerator InvokeWithDelay(Action action, float sec)
     {
         yield return new WaitForSeconds(sec);
