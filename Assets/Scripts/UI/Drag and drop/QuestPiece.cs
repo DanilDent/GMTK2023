@@ -21,7 +21,7 @@ public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
     public void Initialize(QuestPiecesContainer parentContainer, int index)
     {
         Container = parentContainer;
-        Index = index;        
+        Index = index;
     }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
@@ -45,7 +45,6 @@ public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
         _canvasGroup.blocksRaycasts = true;
         transform.SetParent(parent);
         transform.localPosition = lastPosition;
-        gameObject.SetActive(false);
     }
 
     // Start is called before the first frame update

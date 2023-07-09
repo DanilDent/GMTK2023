@@ -53,6 +53,7 @@ public class UIManager : MonoSingleton<UIManager>
         _heroNicknameText.text = hero.Nickname;
         // Put hero comming animation here
 
+        Debug.Log("Появление");
         _heroAvatarRect.position = _defaultHeroAvatarPosition;
         _heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x - _animationPercentForComing * Screen.width, 1f).From();
         _heroAvatarImg.DOFade(1, 1);
@@ -64,6 +65,7 @@ public class UIManager : MonoSingleton<UIManager>
         var diagManager = DialogManager.Instance;
 
         Sequence seq = DOTween.Sequence();
+
         diagManager.DisplayBlank();
         seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x + _animationPercentForLeaving * Screen.width, 1f));
 
@@ -77,6 +79,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     private void HandleHeroLeftFromScreen()
     {
+        Debug.Log("Исчезновение");
         Sequence seq = DOTween.Sequence();
         _heroAvatarImg.DOFade(0, 1);
         seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x + _animationPercentForLeaving * Screen.width, 1f)).OnComplete(() =>
