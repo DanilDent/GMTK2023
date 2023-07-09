@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: realtimeline
   m_EditorClassIdentifier: 
   _secRealTimeToMinsGameTime: 1
-  _gameTimeStepChange: 100
+  _gameTimeStepChange: 10
   _days:
   - {fileID: 11400000, guid: 2e6b408bc4f667f4a885c82b225bcd32, type: 2}
   - {fileID: 11400000, guid: 5687a8e05adbbb34795376947743ab11, type: 2}

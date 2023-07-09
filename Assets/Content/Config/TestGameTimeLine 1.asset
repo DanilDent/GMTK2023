@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c14997c318e5c95439402632899bed51, type: 3}
   m_Name: TestGameTimeLine 1
   m_EditorClassIdentifier: 
-  _timeline: []
-  _secRealTimeToMinsGameTime: 3
+  _secRealTimeToMinsGameTime: 1
   _gameTimeStepChange: 10
   _days: []

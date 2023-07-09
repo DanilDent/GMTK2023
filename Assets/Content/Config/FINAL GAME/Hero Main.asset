@@ -21,24 +21,24 @@ MonoBehaviour:
       AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: 07bb510d3ea0c8348b481cd21cb5a83e, type: 3}
-  - _heroBehPatternName: Pattern2
+  - _heroBehPatternName: PVPKi11Twitch
     _shopLists:
     - {fileID: 11400000, guid: 2ab8e5432f5499145be235ea23c34af7, type: 2}
-    _nickname: 4Gr@ynd
+    _nickname: 4Graynd
     _completableQuestsSO:
     - QuestName: Destroy the camp of dangerous bandits
       AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: 7ee85e382c6f81a419c59e07795d71df, type: 3}
-  - _heroBehPatternName: GloriousNimfa
+  - _heroBehPatternName: ImInUrMom
     _shopLists: []
-    _nickname: GloriousNimfa
+    _nickname: GloriousNymph
     _completableQuestsSO:
     - QuestName: Seduce merchant's wife from Far Foxes village
       AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: d71b02f0a8ab4ea4286513eac6dc24f3, type: 3}
-  - _heroBehPatternName: 
+  - _heroBehPatternName: Nagibator777
     _shopLists:
     - {fileID: 11400000, guid: 42622fe84fd1285428947cb45f31f7be, type: 2}
     _nickname: Nagibator777
@@ -47,7 +47,7 @@ MonoBehaviour:
       AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: 9e058bd9558d4754b9a825749476ca3f, type: 3}
-  - _heroBehPatternName: 
+  - _heroBehPatternName: WoodGoblinGuild
     _shopLists:
     - {fileID: 11400000, guid: 1db48a840750403438ff43a5a6dce52d, type: 2}
     _nickname: WoodGoblinGuild
@@ -56,7 +56,7 @@ MonoBehaviour:
       AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: c94fdc09ce480f04ab149ed16eb9ea6f, type: 3}
-  - _heroBehPatternName: 
+  - _heroBehPatternName: PVPKi11Twitch
     _shopLists:
     - {fileID: 11400000, guid: ddde35bbf09589240bd8f1e406c8e93e, type: 2}
     _nickname: NOdamage11Twitch
@@ -89,7 +89,7 @@ MonoBehaviour:
       AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: 5a8c70ac99d6c664483208dd1418c9c4, type: 3}
-  - _heroBehPatternName: 
+  - _heroBehPatternName: Magnus Hammerbonk
     _shopLists:
     - {fileID: 11400000, guid: a5d63a120a9b64a44872e0b17df9b426, type: 2}
     _nickname: Magnus Hammerbonk
@@ -98,9 +98,9 @@ MonoBehaviour:
       AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: 008faf192bbea4b47ae53ae482938c4e, type: 3}
-  - _heroBehPatternName: 
+  - _heroBehPatternName: ' AbsolutlyEvilGenius'
     _shopLists:
-    - {fileID: 0}
+    - {fileID: 11400000, guid: 27bdab830b02bff48aea2102eebc780d, type: 2}
     _nickname: ' AbsolutlyEvilGenius'
     _completableQuestsSO:
     - QuestName: Find an artefact "Apple of Youth".
