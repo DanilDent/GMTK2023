@@ -104,6 +104,7 @@ public class QuestManager : MonoBehaviour
             var timeToNews = (_quest.Result ? _quest.SuccessfulNews.timeToNews : _quest.FailureNews.timeToNews)/* + new GameTime(1, Vector2Int.zero)*/;
             if (_quest.AssignedTime + timeToNews <= GameManager.Instance.CurrentTime)
             {
+                Debug.Log("Quest result: " + _quest.Result);
                 inProgressQuests.Remove(_quest);
                 EventService.Instance.QuestCompleted?.Invoke(_quest, _quest.Result);
             }
