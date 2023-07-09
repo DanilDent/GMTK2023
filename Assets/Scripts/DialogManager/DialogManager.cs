@@ -1,9 +1,9 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
 using Random = UnityEngine.Random;
 
 public class DialogManager : MonoSingleton<DialogManager>
@@ -146,7 +146,7 @@ public class DialogManager : MonoSingleton<DialogManager>
 
     public void DisplayTalk()
     {
-        UpdateDialogueText("Some question here");
+        UpdateDialogueText("Greetings, Bogatyr. dark times these are indeed. It's good to have you,  Bogatyrs. You will protect us from evil, wouldn't you?");
         Display(6, 7);
     }
 
