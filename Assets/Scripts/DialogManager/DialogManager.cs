@@ -36,6 +36,12 @@ public class DialogManager : MonoSingleton<DialogManager>
     private IEnumerator _dispDiagCoroutine;
     private IEnumerator _displayNextButtonWithDelay;
 
+    [SerializeField]
+    private float _animationHeightPercent;
+
+    [SerializeField]
+    private float _animationWidthPercent;
+
     private void Start()
     {
         helloPhrases = helloPhrasesConfig.Data;
@@ -102,7 +108,7 @@ public class DialogManager : MonoSingleton<DialogManager>
         _envelope.TryGetComponent(out Image image);
         image.sprite = _openEnvelope;
 
-        _envelope.DOMoveX(_envelope.position.x + 950, 1f).OnComplete(() =>
+        _envelope.DOMoveX(_envelope.position.x + _animationWidthPercent * Screen.width, 1f).OnComplete(() =>
         {
             _envelope.gameObject.TryGetComponent(out QuestSlot slot);
             slot.enabled = true;
@@ -115,9 +121,9 @@ public class DialogManager : MonoSingleton<DialogManager>
         image.sprite = _closedEnvelope;
 
         image.DOFade(0, 1f);
-        _envelope.DOMoveY(_envelope.position.y + 380, 1f).OnComplete(() =>
+        _envelope.DOMoveY(_envelope.position.y + _animationHeightPercent * Screen.height, 1f).OnComplete(() =>
         {
-            _envelope.DOMove(new Vector3(_envelope.position.x - 950, _envelope.position.y - 380), 0);
+            _envelope.DOMove(new Vector3(_envelope.position.x - _animationWidthPercent * Screen.width, _envelope.position.y - _animationHeightPercent * Screen.height), 0);
             image.DOFade(1, 0f);
             EventService.Instance.HeroLeftFromScreen.Invoke();
             DisplayBlank();
