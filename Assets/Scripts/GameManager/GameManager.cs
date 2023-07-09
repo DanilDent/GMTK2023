@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     private bool _isPaused;
     private int _eventIndex;
     private GameState _currentState;
+    [SerializeField] private RectTransform _diagRect;
 
     public void SetCurrentTime(GameTime time) => _currentGameTime = time;
 
@@ -71,6 +72,19 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         Tick();
+        HideCursor();
+    }
+
+    private void HideCursor()
+    {
+        if (RectTransformUtility.RectangleContainsScreenPoint(_diagRect, Input.mousePosition))
+        {
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.visible = true;
+        }
     }
 
     private void Tick()
