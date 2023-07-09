@@ -14,16 +14,21 @@ public class GameManager : MonoBehaviour
     }
 
     // Public interface
-    public bool IsPaused { get => _isPaused; set { _isPaused = value; } }
+    public bool IsPaused
+    { get => _isPaused; set { _isPaused = value; } }
+
     public GameTime CurrentTime => _currentGameTime;
     public GameState CurrentState => _currentState;
     public string CurrentHeroNickname { get => _currentHeroNickname; set => _currentHeroNickname = value; }
 
     // Singleton impl
     public static GameManager Instance => _instance;
+
     private static GameManager _instance;
+
     // From inspector
     [SerializeField] private GameTimelineConfig _timelineConfig;
+
     // Other dependencies
     private EventService _eventService;
 

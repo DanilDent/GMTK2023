@@ -36,6 +36,8 @@ public class EventService
 
     public Action<Quest> QuestBecomeAvailableToGiveHero;
 
+    public Action<Quest> QuestLifetimeEnded;
+
     public Action CityDestroyed;
     public Action<float> CityHealthChanged;
 }
