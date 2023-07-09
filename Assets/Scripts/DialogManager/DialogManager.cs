@@ -22,6 +22,7 @@ public class DialogManager : MonoSingleton<DialogManager>
     //[SerializeField] private Button _backBtn; // 8
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private Button[] _btns;
+    [SerializeField] private RectTransform _envelope;
 
 
     private string[] helloPhrases;
@@ -73,6 +74,13 @@ public class DialogManager : MonoSingleton<DialogManager>
         StartCoroutine(_displayNextButtonWithDelay);
     }
 
+    public void DisplayDropEnvelope()
+    {
+        Display();
+        _dialogueText.gameObject.SetActive(false);
+        _envelope.gameObject.SetActive(true);
+    }
+
     public void DisplayMain()
     {
         UpdateDialogueText("What do you want to do?");
@@ -93,6 +101,9 @@ public class DialogManager : MonoSingleton<DialogManager>
 
     private void Display(params int[] btnIndecies)
     {
+        _dialogueText.gameObject.SetActive(true);
+        _envelope.gameObject.SetActive(false);
+
         for (int i = 0; i < _btns.Length; ++i)
         {
             _btns[i].gameObject.SetActive(false);
@@ -136,7 +147,7 @@ public class DialogManager : MonoSingleton<DialogManager>
                 DisplayTalk();
                 break;
             case ButtonType.GetQuest:
-                EventService.Instance.GetQuesDiagBtnClicked?.Invoke();
+                DisplayDropEnvelope();
                 break;
             case ButtonType.Exit:
                 EventService.Instance.HeroLeaving?.Invoke();
