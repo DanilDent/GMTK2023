@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class QuestPacker : MonoBehaviour
 {
-    [SerializeField] private QuestInformation _questInformation;
+    [SerializeField] private QuestInformation _questInformationPrefab;
     [SerializeField] private QuestPiecesContainer questPiecesContainer;
 
     private void Start()
@@ -15,7 +15,7 @@ public class QuestPacker : MonoBehaviour
     private void CreateNewQuestOnScreen(Quest quest)
     {
         //Debug.Log(quest.Name);
-        var questInformation = Instantiate(_questInformation, transform.position, Quaternion.identity);
+        var questInformation = Instantiate(_questInformationPrefab, transform.position, Quaternion.identity);
         if (questInformation.TryGetComponent(out QuestPiece piece))
         {
             questPiecesContainer.AddQuestToPool(piece);

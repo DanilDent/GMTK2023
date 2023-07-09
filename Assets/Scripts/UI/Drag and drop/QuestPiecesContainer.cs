@@ -20,11 +20,30 @@ public class QuestPiecesContainer : MonoBehaviour
         }
 
         _questPieces = GetChildren();
+        EventService.Instance.QuestLifetimeEnded += DeleteQuestInformation;
     }
 
     private List<QuestPiece> GetChildren()
     {
         return (from Transform child in transform select child.GetComponent<QuestPiece>()).ToList();
+    }
+
+    public void DeleteQuestInformation(Quest quest)
+    {
+        List<QuestInformation> questInformation = new List<QuestInformation>();
+        foreach (var piece in _questPieces)
+        {
+            if (piece.TryGetComponent(out QuestInformation information))
+            {
+                questInformation.Add(information);
+            }
+        }
+
+        QuestInformation deletedQuestInformation = questInformation.FirstOrDefault(x => x.Quest.Name == quest.Name);
+        if (deletedQuestInformation.TryGetComponent(out QuestPiece deletedQuestPiece))
+        {
+            deletedQuestPiece.Destroy();
+        }
     }
 
     public void AddQuestToPool(QuestPiece quest)

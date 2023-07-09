@@ -17,7 +17,15 @@ MonoBehaviour:
     _appearanceTimes: []
     _questMoodBonuses:
     - QuestName: 1
+      MoodBonus: -1
+    - QuestName: 2
       MoodBonus: 10
+    - QuestName: 3
+      MoodBonus: -1
+    - QuestName: 4
+      MoodBonus: 10
+    - QuestName: 5
+      MoodBonus: -1
     _heroMoods:
     - FromScore: 10
       ToScore: 20
@@ -47,7 +55,15 @@ MonoBehaviour:
     _appearanceTimes: []
     _questMoodBonuses:
     - QuestName: 1
+      MoodBonus: -1
+    - QuestName: 2
       MoodBonus: 10
+    - QuestName: 3
+      MoodBonus: -1
+    - QuestName: 4
+      MoodBonus: 10
+    - QuestName: 5
+      MoodBonus: -1
     _heroMoods:
     - FromScore: 10
       ToScore: 20
@@ -77,6 +93,14 @@ MonoBehaviour:
     _appearanceTimes: []
     _questMoodBonuses:
     - QuestName: 1
+      MoodBonus: 10
+    - QuestName: 2
+      MoodBonus: -2
+    - QuestName: 3
+      MoodBonus: 10
+    - QuestName: 4
+      MoodBonus: -2
+    - QuestName: 5
       MoodBonus: 10
     _heroMoods:
     - FromScore: 10

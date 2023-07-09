@@ -16,48 +16,120 @@ MonoBehaviour:
   - name: 1
     description: 
     minStartTime:
+      _day: 1
+      _hours: 9
+      _minutes: 50
+    successfulNews:
+      description: "\u0423\u0440\u0430 1"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 3
+    failureNews:
+      description: "\u041F\u0440\u043E\u0435\u0431\u0430\u043B\u0438 1"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 5
+    maxLifetime:
       _day: 0
       _hours: 0
-      _minutes: 1
-    successfulNews:
-      description: 
-      timeToNews:
-        _day: 0
-        _hours: 0
-        _minutes: 0
-    failureNews:
-      description: 
-      timeToNews:
-        _day: 0
-        _hours: 0
-        _minutes: 0
-    maxLifetime:
-      _day: 1
-      _hours: 0
-      _minutes: 0
+      _minutes: 15
     successfulHPChange: 50
     failureHPChange: -10
   - name: 2
     description: 
     minStartTime:
+      _day: 1
+      _hours: 9
+      _minutes: 10
+    successfulNews:
+      description: "\u0423\u0440\u0430 2"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 50
+    failureNews:
+      description: "\u041F\u0440\u043E\u0435\u0431\u0430\u043B\u0438 2"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 50
+    maxLifetime:
       _day: 0
       _hours: 0
-      _minutes: 2
-    successfulNews:
-      description: 
-      timeToNews:
-        _day: 0
-        _hours: 0
-        _minutes: 0
-    failureNews:
-      description: 
-      timeToNews:
-        _day: 0
-        _hours: 0
-        _minutes: 0
-    maxLifetime:
+      _minutes: 100
+    successfulHPChange: 1
+    failureHPChange: -100
+  - name: 3
+    description: 
+    minStartTime:
       _day: 1
+      _hours: 10
+      _minutes: 20
+    successfulNews:
+      description: "\u0423\u0440\u0430 3"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 5
+    failureNews:
+      description: "\u041F\u0440\u043E\u0435\u0431\u0430\u043B\u0438 3"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 5
+    maxLifetime:
+      _day: 0
       _hours: 0
-      _minutes: 0
+      _minutes: 5
+    successfulHPChange: 1
+    failureHPChange: -100
+  - name: 4
+    description: 
+    minStartTime:
+      _day: 1
+      _hours: 9
+      _minutes: 5
+    successfulNews:
+      description: "\u0423\u0440\u0430 4"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 5
+    failureNews:
+      description: "\u041F\u0440\u043E\u0435\u0431\u0430\u043B\u0438 4"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 5
+    maxLifetime:
+      _day: 0
+      _hours: 0
+      _minutes: 5
+    successfulHPChange: 1
+    failureHPChange: -100
+  - name: 5
+    description: 
+    minStartTime:
+      _day: 1
+      _hours: 9
+      _minutes: 5
+    successfulNews:
+      description: "\u0423\u0440\u0430 5"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 5
+    failureNews:
+      description: "\u041F\u0440\u043E\u0435\u0431\u0430\u043B\u0438 5"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 5
+    maxLifetime:
+      _day: 0
+      _hours: 0
+      _minutes: 5
     successfulHPChange: 1
     failureHPChange: -100
