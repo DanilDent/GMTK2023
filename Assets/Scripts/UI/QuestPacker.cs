@@ -20,6 +20,10 @@ public class QuestPacker : MonoBehaviour
         {
             questPiecesContainer.AddQuestToPool(piece);
         }
+        if(questInformation.TryGetComponent(out TooltipComponent tooltip))
+        {
+            tooltip.Text = quest.Description;
+        }
         questInformation.Initialize(quest);
     }
 

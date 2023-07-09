@@ -1,4 +1,5 @@
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -15,8 +16,7 @@ public class GameManager : MonoBehaviour
 
     // Public interface
     public bool ShouldHideCursor = false;
-    public bool IsPaused
-    { get => _isPaused; set { _isPaused = value; } }
+    public bool IsPaused { get => _isPaused; set { _isPaused = value; } }
 
     public GameTime CurrentTime => _currentGameTime;
     public GameState CurrentState => _currentState;
@@ -68,6 +68,14 @@ public class GameManager : MonoBehaviour
 
         _currentGameTime = _timelineConfig.Days.FirstOrDefault().StartOfDay;
         SetGameState(GameState.AwaitingQuests);
+
+        EventService.Instance.QuestAssigned += OnQuestAssined;
+    }
+
+    private void OnDestroy()
+    {
+        _instance = null;
+        EventService.Instance.QuestAssigned -= OnQuestAssined;
     }
 
     private void Update()
@@ -125,6 +133,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void OnQuestAssined(Quest _)
+    {
+        IsPaused = false;
+    }
+
     private void HandleEvents()
     {
         while (_currentGameTime.Day < _timelineConfig.Days.Length &&
@@ -134,6 +147,7 @@ public class GameManager : MonoBehaviour
             TimelineEventData eventData = _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex];
             if (eventData.EventType == TimelineEventType.NewHero)
             {
+                IsPaused = true;
                 _eventService.NewHeroComing?.Invoke(eventData.Name);
                 //Debug.Log($"New hero came to our village: {eventData.Name}");
                 SetGameState(GameState.NewHero);
@@ -147,10 +161,5 @@ public class GameManager : MonoBehaviour
             }
             _eventIndex++;
         }
-    }
-
-    private void OnDestroy()
-    {
-        _instance = null;
     }
 }
