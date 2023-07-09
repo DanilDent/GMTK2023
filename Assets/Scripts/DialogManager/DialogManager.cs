@@ -178,7 +178,7 @@ public class DialogManager : MonoSingleton<DialogManager>
     private void OnShopRenderComplete()
     {
         ShopListRenderer.Instance.OnRenderComplete -= OnShopRenderComplete;
-        DisplayShop();
+        DisplayMain();
     }
     private IEnumerator InvokeWithDelay(Action action, float sec)
     {
