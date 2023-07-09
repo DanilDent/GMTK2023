@@ -7,11 +7,16 @@ public class City : MonoBehaviour
     [SerializeField] private CityConfig config;
     [SerializeField] private int currentHealth;
     private int maxHealth;
+    private int lowerThresholdWellBeingCity;
+    private int upperThresholdDeclineCity;
+    private int cityStatus = 0;
 
     public int CurrentHealth => currentHealth;
     private void Start()
     {
         maxHealth = config.CityHealth;
+        lowerThresholdWellBeingCity = config.LowerThresholdWellBeingCity;
+        upperThresholdDeclineCity = config.UpperThresholdDeclineCity;
         currentHealth = maxHealth;
         EventService.Instance.QuestCompleted += OnQuestComleted;
     }
@@ -43,6 +48,31 @@ public class City : MonoBehaviour
         {
             currentHealth = res;
             EventService.Instance.CityHealthChanged?.Invoke((float)currentHealth / maxHealth);
+        }
+
+        if (currentHealth > upperThresholdDeclineCity)
+        {
+            if (cityStatus != 1)
+            {
+                cityStatus = 1;
+                EventService.Instance.CityStatusChange?.Invoke(cityStatus);
+            }
+        }
+        else if (currentHealth < lowerThresholdWellBeingCity)
+        {
+            if (cityStatus != -1)
+            {
+                cityStatus = -1;
+                EventService.Instance.CityStatusChange?.Invoke(cityStatus);
+            }
+        }
+        else
+        {
+            if (cityStatus != 0)
+            {
+                cityStatus = 0;
+                EventService.Instance.CityStatusChange?.Invoke(cityStatus);
+            }
         }
     }
 }

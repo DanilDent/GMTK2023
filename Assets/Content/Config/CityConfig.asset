@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a137a2d8ce72121439632b917560766f, type: 3}
   m_Name: CityConfig
   m_EditorClassIdentifier: 
-  cityHealth: 30
+  cityHealth: 100
+  lowerThresholdWellBeingCity: 30
+  upperThresholdDeclineCity: 70
