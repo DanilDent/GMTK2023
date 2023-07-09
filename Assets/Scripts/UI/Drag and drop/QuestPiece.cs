@@ -14,6 +14,7 @@ public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
     private bool isGiven = false;
     private RectTransform _rectTransform;
     private CanvasGroup _canvasGroup;
+    
 
     public void Initialize(QuestPiecesContainer parentContainer, int index)
     {

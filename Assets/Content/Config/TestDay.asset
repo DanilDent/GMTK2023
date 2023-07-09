@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startOfDay:
     _day: 1
-    _hours: 9
-    _minutes: 0
+    _hours: 8
+    _minutes: 55
   _endOfDay:
     _day: 1
     _hours: 20
