@@ -19,11 +19,13 @@ namespace GitIntegration.ShopSystems
 		}
 		private void SubscribeToEvents()
 		{
-			EventService.Instance.DiagButtonClickedByBot += OnDiagButtonClickedByBot;
+			//EventService.Instance.DiagButtonClickedByBot += OnDiagButtonClickedByBot;
+			EventService.Instance.DiagButtonClicked += OnDiagButtonClickedByBot;
 		}
 		private void UnsubscribeFromEvents()
 		{
-			EventService.Instance.DiagButtonClickedByBot -= OnDiagButtonClickedByBot;
+			//EventService.Instance.DiagButtonClickedByBot -= OnDiagButtonClickedByBot;
+			EventService.Instance.DiagButtonClicked -= OnDiagButtonClickedByBot;
 		}
 
 		public void OnDiagButtonClickedByBot(ButtonType buttonType)
