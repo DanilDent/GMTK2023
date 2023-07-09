@@ -18,24 +18,24 @@ MonoBehaviour:
     _minutes: 0
   _endOfDay:
     _day: 1
-    _hours: 20
-    _minutes: 0
+    _hours: 19
+    _minutes: 40
   _timeline:
   - EventType: 0
     GameTime:
       _day: 1
       _hours: 18
-      _minutes: 5
+      _minutes: 0
     Name: LuckyAlex18962
   - EventType: 0
     GameTime:
       _day: 1
       _hours: 18
-      _minutes: 45
+      _minutes: 40
     Name: 4Graynd
   - EventType: 0
     GameTime:
       _day: 1
       _hours: 19
-      _minutes: 20
+      _minutes: 10
     Name: GloriousNymph

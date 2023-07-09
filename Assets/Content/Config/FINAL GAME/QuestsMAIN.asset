@@ -106,7 +106,7 @@ MonoBehaviour:
         _minutes: 0
     maxLifetime:
       _day: 0
-      _hours: 0
+      _hours: 3
       _minutes: 5
     successfulHPChange: 1
     failureHPChange: -2
@@ -115,7 +115,7 @@ MonoBehaviour:
     minStartTime:
       _day: 2
       _hours: 18
-      _minutes: 0
+      _minutes: 30
     successfulNews:
       description: 'Unbelievable: the Damned Idolische has been slayed'
       timeToNews:
@@ -130,7 +130,7 @@ MonoBehaviour:
         _minutes: 10
     maxLifetime:
       _day: 0
-      _hours: 0
+      _hours: 5
       _minutes: 5
     successfulHPChange: 2
     failureHPChange: -3
@@ -323,7 +323,7 @@ MonoBehaviour:
         _hours: 0
         _minutes: 30
     maxLifetime:
-      _day: 0
+      _day: 1
       _hours: 5
       _minutes: 0
     successfulHPChange: 0
