@@ -61,19 +61,11 @@ public class HeroManager : MonoBehaviour
 		}
 		var avatarObj = new Hero.Avatar { Value = avatar };
 		hero.CurrentAvatarParts = new List<Hero.Avatar> { avatarObj };
-		UpdateHeroMood(hero);
+		EventService.Instance.HeroMoodChanged?.Invoke(new OnHeroMoodChangedEventArgs(hero));
 	}
 	private void OnQuestCompleted(Quest quest, bool success)
 	{
 		OnQuestCompleted(quest, quest.HeroName);
-	}
-
-	public void OnQuestCompleted(Quest quest, Hero hero)
-	{
-		if(hero.CompletableQuests.Contains(quest.Name))
-		{
-			UpdateHeroMood(hero);
-		}
 	}
 
 	public bool IsQuestCompletable(Quest quest, Hero hero)
@@ -89,7 +81,6 @@ public class HeroManager : MonoBehaviour
 		{
 			return;
 		}
-		
 	}
 
 	public Hero GetHeroByName(string heroName)
@@ -103,23 +94,4 @@ public class HeroManager : MonoBehaviour
 		return heroes[0];
 	}
 
-	private void ChangeHeroMood(Hero hero, HeroMood mood)
-	{
-		hero.CurrentHeroMood = mood;
-		hero.CurrentAvatarParts = mood.AvatarParts;
-		var moodChangedEventArgs = new OnHeroMoodChangedEventArgs(hero, mood);
-		EventService.Instance.HeroMoodChanged?.Invoke(moodChangedEventArgs);
-	}
-
-	public void UpdateHeroMood(Hero hero)
-	{
-		var behaviour = hero.CurrentHeroMood;
-		var moods = hero.HeroMoods;
-		foreach(var mood in moods.Where(range => hero.CurrentMoodScore >= range.FromScore && hero.CurrentMoodScore <= range.ToScore))
-		{
-			behaviour = mood;
-			break;
-		}
-		ChangeHeroMood(hero, behaviour);
-	}
 }

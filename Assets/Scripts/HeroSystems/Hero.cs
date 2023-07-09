@@ -23,7 +23,7 @@ public struct Hero
 	public struct CompletableQuest
 	{
 		[SerializeField] public string QuestName;
-		[SerializeField] public Sprite AvatarOnQuestAssigned;
+		[SerializeField, InspectorName("New Avatar")] public Sprite AvatarOnQuestAssigned;
 	}
 	[Serializable]
 	public struct HeroMoodRange
@@ -33,10 +33,16 @@ public struct Hero
 	[SerializeField] private string _nickname;
 	[FormerlySerializedAs("_questMoodBonuses")]
 	[SerializeField] private CompletableQuest[] _completableQuestsSO;
-	[SerializeField] private List<HeroMood> _heroMoods;
+	//[SerializeField] private List<HeroMood> _heroMoods;
 	private HashSet<string> _completableQuests;
 	private Dictionary<string, Sprite> _avatarOnQuestAssigned;
 	private Queue<ShopList> _shopListsQueue;
+	public string Nickname => _nickname;
+
+	//public int CurrentMoodScore;
+	//public HeroMood CurrentHeroMood;
+	
+	public List<Avatar> CurrentAvatarParts;
 
 	public Queue<ShopList> ShopLists
 	{
@@ -90,11 +96,6 @@ public struct Hero
 	}
 
 
-	public string Nickname => _nickname;
-
-	public int CurrentMoodScore;
-	public HeroMood CurrentHeroMood;
-	public List<HeroMood> HeroMoods => _heroMoods;
-	public List<Avatar> CurrentAvatarParts;
+	
 
 }
