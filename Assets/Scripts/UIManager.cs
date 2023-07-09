@@ -8,10 +8,11 @@ public class UIManager : MonoSingleton<UIManager>
 {
     [SerializeField] private Image _heroAvatarImg;
     [SerializeField] private RectTransform _heroAvatarRect;
+
     //
     [SerializeField] private TextMeshProUGUI _heroNicknameText;
-    [SerializeField] private TextMeshProUGUI _timeText;
 
+    [SerializeField] private TextMeshProUGUI _timeText;
 
     private HeroManager _heroManager;
     private EventService _eventService;
@@ -23,11 +24,12 @@ public class UIManager : MonoSingleton<UIManager>
         _eventService = EventService.Instance;
         HandleGameTimeUpdated();
         _defaultHeroAvatarPosition = _heroAvatarRect.position;
-        // Events 
+        // Events
         _eventService.NewHeroComing += HandleNewHeroComing;
         _eventService.GameTimeUpdated += HandleGameTimeUpdated;
         _eventService.HeroMoodChanged += HandleHeroMoodChanged;
         _eventService.HeroLeaving += HandleHeroLeaving;
+        _eventService.HeroLeftFromScreen += HandleHeroLeftFromScreen;
     }
 
     private void HandleHeroMoodChanged(OnHeroMoodChangedEventArgs obj)
@@ -44,10 +46,11 @@ public class UIManager : MonoSingleton<UIManager>
         GameManager.Instance.CurrentHeroNickname = hero.Nickname;
         _heroNicknameText.text = hero.Nickname;
         // Put hero comming animation here
+
+        _heroAvatarRect.position = _defaultHeroAvatarPosition;
         _heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x - 700f, 1f).From();
-
+        _heroAvatarImg.DOFade(1, 1);
         _heroAvatarImg.sprite = hero.CurrentAvatarParts[0].Value;
-
     }
 
     private void HandleHeroLeaving()
@@ -55,12 +58,24 @@ public class UIManager : MonoSingleton<UIManager>
         var diagManager = DialogManager.Instance;
 
         Sequence seq = DOTween.Sequence();
-
         diagManager.DisplayBlank();
-        seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x + 700f, 1f));
+        seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x + 800f, 1f));
+
+        _heroAvatarImg.DOFade(0, 1);
         seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x, 1f)).OnComplete(() =>
         {
             diagManager.DisplayHello();
+        });
+        _heroAvatarImg.DOFade(1, 1);
+    }
+
+    private void HandleHeroLeftFromScreen()
+    {
+        Sequence seq = DOTween.Sequence();
+        _heroAvatarImg.DOFade(0, 1);
+        seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x + 800, 1f)).OnComplete(() =>
+        {
+            GameManager.Instance.CurrentHeroNickname = string.Empty;
         });
     }
 
@@ -77,6 +92,5 @@ public class UIManager : MonoSingleton<UIManager>
         _eventService.GameTimeUpdated -= HandleGameTimeUpdated;
         _eventService.HeroMoodChanged -= HandleHeroMoodChanged;
         _eventService.HeroLeaving -= HandleHeroLeaving;
-
     }
 }

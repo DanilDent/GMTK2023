@@ -2,51 +2,50 @@ using System;
 
 public class EventService
 {
-	// Singleton Impl
-	protected EventService()
-	{
-	}
+    // Singleton Impl
+    protected EventService()
+    { }
 
-	private static EventService _instance;
+    private static EventService _instance;
 
-	public static EventService Instance
-	{
-		get
-		{
-			if(_instance == null)
-			{
-				_instance = new EventService();
-			}
+    public static EventService Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = new EventService();
+            }
 
-			return _instance;
-		}
-	}
+            return _instance;
+        }
+    }
 
-	// Events
-	public Action<string> NewHeroComing;
-	public Action HeroLeaving;
+    // Events
+    public Action<string> NewHeroComing;
 
-	public Action<Quest> NewQuestBecomeAvailable;
+    public Action HeroLeaving;
+    public Action HeroLeftFromScreen;
 
-	public Action GameTimeUpdated;
+    public Action<Quest> NewQuestBecomeAvailable;
 
-	public Action<OnHeroMoodChangedEventArgs> HeroMoodChanged;
+    public Action GameTimeUpdated;
 
-	public Action<Quest> QuestAssigned;
+    public Action<OnHeroMoodChangedEventArgs> HeroMoodChanged;
 
-	public Action<Quest, bool> QuestCompleted;
+    public Action<Quest> QuestAssigned;
 
-	public Action<Quest> QuestBecomeAvailableToGiveHero;
+    public Action<Quest, bool> QuestCompleted;
 
-	public Action<Quest> QuestLifetimeEnded;
+    public Action<Quest> QuestBecomeAvailableToGiveHero;
 
-	public Action CityDestroyed;
-	public Action<float> CityHealthChanged;
-	public Action<ButtonType> DiagButtonClicked;
-	public Action<ButtonType> DiagButtonClickedByBot;
-	public Action<int> CityStatusChange;
-	public Action GetQuesDiagBtnClicked;
-	public Action ExitDiagBtnClicked;
-	public Action Victory;
-	public Action Defeat;
+    public Action<Quest> QuestLifetimeEnded;
+
+    public Action CityDestroyed;
+    public Action<float> CityHealthChanged;
+    public Action<ButtonType> DiagButtonClicked;
+    public Action<ButtonType> DiagButtonClickedByBot;
+    public Action<int> CityStatusChange;
+    public Action GetQuesDiagBtnClicked;
+    public Action ExitDiagBtnClicked;
 }
