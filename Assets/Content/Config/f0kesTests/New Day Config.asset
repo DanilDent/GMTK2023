@@ -13,35 +13,35 @@ MonoBehaviour:
   m_Name: New Day Config
   m_EditorClassIdentifier: 
   _startOfDay:
-    Day: 0
-    Hours: 0
-    Minutes: 0
+    _day: 1
+    _hours: 0
+    _minutes: 0
   _endOfDay:
-    Day: 0
-    Hours: 0
-    Minutes: 90
+    _day: 1
+    _hours: 0
+    _minutes: 90
   _timeline:
   - EventType: 1
     GameTime:
-      Day: 0
-      Hours: 0
-      Minutes: 10
+      _day: 1
+      _hours: 0
+      _minutes: 1
     Name: 1
   - EventType: 0
     GameTime:
-      Day: 0
-      Hours: 0
-      Minutes: 20
+      _day: 1
+      _hours: 0
+      _minutes: 0
     Name: f0kes
   - EventType: 0
     GameTime:
-      Day: 0
-      Hours: 0
-      Minutes: 30
+      _day: 2
+      _hours: 0
+      _minutes: 0
     Name: f0kes
   - EventType: 1
     GameTime:
-      Day: 0
-      Hours: 0
-      Minutes: 40
-    Name: 2
+      _day: 1
+      _hours: 0
+      _minutes: 0
+    Name: 1

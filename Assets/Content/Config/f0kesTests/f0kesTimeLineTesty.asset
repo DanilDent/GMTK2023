@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c14997c318e5c95439402632899bed51, type: 3}
   m_Name: f0kesTimeLineTesty
   m_EditorClassIdentifier: 
-  _secRealTimeToMinsGameTime: 3
+  _secRealTimeToMinsGameTime: 1
   _gameTimeStepChange: 10
   _days:
+  - {fileID: 11400000, guid: 068cafd7f0c3c17469b312979db78005, type: 2}
+  - {fileID: 11400000, guid: 068cafd7f0c3c17469b312979db78005, type: 2}
+  - {fileID: 11400000, guid: 068cafd7f0c3c17469b312979db78005, type: 2}
   - {fileID: 11400000, guid: 068cafd7f0c3c17469b312979db78005, type: 2}

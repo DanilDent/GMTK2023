@@ -4,164 +4,172 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameState
-    {
-        AwaitingQuests,
-        NewHero,
-        BehaviourAnalysis,
-        QuestGiving,
-        NewsReading,
-        GameOver
-    }
+	public enum GameState
+	{
+		AwaitingQuests,
+		NewHero,
+		BehaviourAnalysis,
+		QuestGiving,
+		NewsReading,
+		GameOver
+	}
 
-    // Public interface
-    public bool ShouldHideCursor = false;
+	// Public interface
+	public bool ShouldHideCursor = false;
 
-    public bool IsPaused
-    { get => _isPaused; set { _isPaused = value; } }
+	public bool IsPaused
+	{
+		get => _isPaused;
+		set {_isPaused = value;}
+	}
 
-    public GameTime CurrentTime => _currentGameTime;
-    public GameState CurrentState => _currentState;
-    public string CurrentHeroNickname { get => _currentHeroNickname; set => _currentHeroNickname = value; }
+	public GameTime CurrentTime => _currentGameTime;
+	public GameState CurrentState => _currentState;
 
-    // Singleton impl
-    public static GameManager Instance => _instance;
+	public string CurrentHeroNickname
+	{
+		get => _currentHeroNickname;
+		set => _currentHeroNickname = value;
+	}
 
-    private static GameManager _instance;
+	// Singleton impl
+	public static GameManager Instance => _instance;
 
-    // From inspector
-    [SerializeField] private GameTimelineConfig _timelineConfig;
+	private static GameManager _instance;
 
-    // Other dependencies
-    private EventService _eventService;
+	// From inspector
+	[SerializeField] private GameTimelineConfig _timelineConfig;
 
-    private GameTime _currentGameTime;
-    private GameTime _lastGameTimeTick;
-    private string _currentHeroNickname;
-    private float _timer;
-    private bool _isPaused;
-    private int _eventIndex;
-    private GameState _currentState;
-    [SerializeField] private RectTransform _diagRect;
+	// Other dependencies
+	private EventService _eventService;
 
-    public void SetCurrentTime(GameTime time) => _currentGameTime = time;
+	private GameTime _currentGameTime;
+	private GameTime _lastGameTimeTick;
+	private string _currentHeroNickname;
+	private float _timer;
+	private bool _isPaused;
+	private int _eventIndex;
+	private GameState _currentState;
+	[SerializeField] private RectTransform _diagRect;
 
-    public void SetGameState(GameState state)
-    {
-        _currentState = state;
-    }
+	public void SetCurrentTime(GameTime time) => _currentGameTime = time;
 
-    private void Awake()
-    {
-        if (_instance == null)
-        {
-            _instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+	public void SetGameState(GameState state)
+	{
+		_currentState = state;
+	}
 
-    private void Start()
-    {
-        _timer = (float)_timelineConfig.SecRealTimeToMinsGameTime / _timelineConfig.GameTimeStepChange;
-        _eventService = EventService.Instance;
+	private void Awake()
+	{
+		if(_instance == null)
+		{
+			_instance = this;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
 
-        _currentGameTime = _timelineConfig.Days.FirstOrDefault().StartOfDay;
-        SetGameState(GameState.AwaitingQuests);
+	private void Start()
+	{
+		_timer = (float)_timelineConfig.SecRealTimeToMinsGameTime / _timelineConfig.GameTimeStepChange;
+		_eventService = EventService.Instance;
 
-        EventService.Instance.QuestAssigned += OnQuestAssined;
-    }
+		_currentGameTime = _timelineConfig.Days.FirstOrDefault().StartOfDay;
+		SetGameState(GameState.AwaitingQuests);
 
-    private void OnDestroy()
-    {
-        _instance = null;
-        EventService.Instance.QuestAssigned -= OnQuestAssined;
-    }
+		EventService.Instance.QuestAssigned += OnQuestAssined;
+	}
 
-    private void Update()
-    {
-        Tick();
-        if (ShouldHideCursor)
-        {
-            HideCursor();
-        }
-    }
+	private void OnDestroy()
+	{
+		_instance = null;
+		EventService.Instance.QuestAssigned -= OnQuestAssined;
+	}
 
-    private void HideCursor()
-    {
-        if (RectTransformUtility.RectangleContainsScreenPoint(_diagRect, Input.mousePosition))
-        {
-            Cursor.visible = false;
-        }
-        else
-        {
-            Cursor.visible = true;
-        }
-    }
+	private void Update()
+	{
+		Tick();
+		if(ShouldHideCursor)
+		{
+			HideCursor();
+		}
+	}
 
-    private void Tick()
-    {
-        if (!_isPaused)
-        {
-            _timer -= Time.deltaTime;
-            if (_timer < 0f)
-            {
-                _timer = (float)_timelineConfig.SecRealTimeToMinsGameTime / _timelineConfig.GameTimeStepChange;
-                _lastGameTimeTick = _currentGameTime;
-                _currentGameTime += new GameTime(0, 0, minutes: 1);
-                HandleEvents();
+	private void HideCursor()
+	{
+		if(RectTransformUtility.RectangleContainsScreenPoint(_diagRect, Input.mousePosition))
+		{
+			Cursor.visible = false;
+		}
+		else
+		{
+			Cursor.visible = true;
+		}
+	}
 
-                if (_currentGameTime.Day >= _timelineConfig.Days.Length ||
-                    _currentGameTime >= _timelineConfig.Days[_currentGameTime.Day].EndOfDay)
-                {
-                    _eventIndex = 0;
-                    if (_currentGameTime.Day+1 >= _timelineConfig.Days.Length)
-                    {
-                        /// GAME OVER
-                        SetGameState(GameState.GameOver);
-                    }
-                    else
-                    {
-                        _currentGameTime = _timelineConfig.Days[_currentGameTime.Day+1].StartOfDay;
-                    }
-                }
+	private void Tick()
+	{
+		if(!_isPaused)
+		{
+			_timer -= Time.deltaTime;
+			if(_timer < 0f)
+			{
+				_timer = (float)_timelineConfig.SecRealTimeToMinsGameTime / _timelineConfig.GameTimeStepChange;
+				_lastGameTimeTick = _currentGameTime;
+				_currentGameTime += new GameTime(0, 0, minutes: 1);
+				HandleEvents();
 
-                GameTime deltaTime = _currentGameTime - _lastGameTimeTick;
-                _eventService.GameTimeUpdated?.Invoke();
-                //Debug.Log($"CurrentGameTime: {_currentGameTime}");
-            }
-        }
-    }
+				if(_currentGameTime.Day >= _timelineConfig.Days.Length ||
+				   _currentGameTime >= _timelineConfig.Days[_currentGameTime.Day].EndOfDay)
+				{
+					_eventIndex = 0;
+					if(_currentGameTime.Day + 1 >= _timelineConfig.Days.Length)
+					{
+						EventService.Instance.Victory?.Invoke();
+						SetGameState(GameState.GameOver);
+					}
+					else
+					{
+						_currentGameTime = _timelineConfig.Days[_currentGameTime.Day + 1].StartOfDay;
+					}
+				}
 
-    private void OnQuestAssined(Quest _)
-    {
-        IsPaused = false;
-    }
+				GameTime deltaTime = _currentGameTime - _lastGameTimeTick;
+				_eventService.GameTimeUpdated?.Invoke();
+				//Debug.Log($"CurrentGameTime: {_currentGameTime}");
+			}
+		}
+	}
 
-    private void HandleEvents()
-    {
-        while (_currentGameTime.Day < _timelineConfig.Days.Length &&
-            _eventIndex < _timelineConfig.Days[_currentGameTime.Day].Timeline.Length &&
-            _currentGameTime >= _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex].GameTime)
-        {
-            TimelineEventData eventData = _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex];
-            if (eventData.EventType == TimelineEventType.NewHero)
-            {
-                IsPaused = true;
-                _eventService.NewHeroComing?.Invoke(eventData.Name);
-                //Debug.Log($"New hero came to our village: {eventData.Name}");
-                SetGameState(GameState.NewHero);
-                DialogManager.Instance.DisplayHello();
-                Hero hero = HeroManager.Instance.Heroes.FirstOrDefault(_ => _.Nickname == eventData.Name);
-                if (HeroBehPatternExecutor.IsEnabled)
-                {
-                    HeroBehPatternExecutor.Instance.SetRecording(hero.HeroBehPatternName);
-                    HeroBehPatternExecutor.Instance.StartPlay();
-                }
-            }
-            _eventIndex++;
-        }
-    }
+	private void OnQuestAssined(Quest _)
+	{
+		IsPaused = false;
+	}
+
+	private void HandleEvents()
+	{
+		while (_currentGameTime.Day < _timelineConfig.Days.Length &&
+		       _eventIndex < _timelineConfig.Days[_currentGameTime.Day].Timeline.Length &&
+		       _currentGameTime >= _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex].GameTime)
+		{
+			TimelineEventData eventData = _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex];
+			if(eventData.EventType == TimelineEventType.NewHero)
+			{
+				IsPaused = true;
+				_eventService.NewHeroComing?.Invoke(eventData.Name);
+				//Debug.Log($"New hero came to our village: {eventData.Name}");
+				SetGameState(GameState.NewHero);
+				DialogManager.Instance.DisplayHello();
+				Hero hero = HeroManager.Instance.Heroes.FirstOrDefault(_ => _.Nickname == eventData.Name);
+				if(HeroBehPatternExecutor.IsEnabled)
+				{
+					HeroBehPatternExecutor.Instance.SetRecording(hero.HeroBehPatternName);
+					HeroBehPatternExecutor.Instance.StartPlay();
+				}
+			}
+			_eventIndex++;
+		}
+	}
 }
