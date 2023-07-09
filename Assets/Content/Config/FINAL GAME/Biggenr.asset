@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RemainingMoney: 30
   Entries: []
-  AnimationTimeMilliSeconds: 2000
-  TimeToDisappearMilliSeconds: 2000
+  AnimationTimeMilliSeconds: 500
+  TimeToDisappearMilliSeconds: 500
