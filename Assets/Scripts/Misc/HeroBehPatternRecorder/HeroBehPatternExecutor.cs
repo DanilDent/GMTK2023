@@ -1,16 +1,23 @@
 ﻿using Newtonsoft.Json;
-using System.IO;
 using UnityEngine;
 
 public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
 {
     public static bool IsEnabled => _instance != null ? _instance.gameObject.activeInHierarchy : false;
     private string RECORDINGS_PATH => Application.dataPath + "\\Content\\Config\\_HeroBehPatterns\\_jsons";
+    private string RECORDINGS_PATH_PERS => Application.persistentDataPath + "\\APP_DATA";
+    [SerializeField] private PatternsConfig _patterns;
+
+    private void Start()
+    {
+
+    }
 
     public void SetRecording(string patternName)
     {
-        string path = Path.Combine(RECORDINGS_PATH, $"{patternName}.json");
-        string json = File.ReadAllText(path);
+        //string path = Path.Combine(RECORDINGS_PATH, $"{patternName}.json");
+        //string json = _patterns.patterns.FirstOrDefault(_ => _.Name == patternName).Value;\
+        string json = PatternsStatic.Pattern_1;
         _recording = JsonConvert.DeserializeObject<Recording>(json);
         Debug.Log($"Recording: {_recording}");
         _currentIndex = 0;
