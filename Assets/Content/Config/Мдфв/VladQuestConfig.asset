@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f4161882c3d734fa8c0ddd74fc8ab7, type: 3}
+  m_Name: VladQuestConfig
+  m_EditorClassIdentifier: 
+  data:
+  - name: 1
+    description: 
+    minStartTime:
+      _day: 1
+      _hours: 8
+      _minutes: 59
+    successfulNews:
+      description: "\u0423\u0440\u0430 1"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 3
+    failureNews:
+      description: "\u041F\u0440\u043E\u0435\u0431\u0430\u043B\u0438 1"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 5
+    maxLifetime:
+      _day: 0
+      _hours: 2
+      _minutes: 15
+    successfulHPChange: 50
+    failureHPChange: -10
+  - name: 2
+    description: 
+    minStartTime:
+      _day: 1
+      _hours: 9
+      _minutes: 10
+    successfulNews:
+      description: "\u0423\u0440\u0430 2"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 50
+    failureNews:
+      description: "\u041F\u0440\u043E\u0435\u0431\u0430\u043B\u0438 2"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 50
+    maxLifetime:
+      _day: 0
+      _hours: 0
+      _minutes: 100
+    successfulHPChange: 1
+    failureHPChange: -100
+  - name: 3
+    description: 
+    minStartTime:
+      _day: 1
+      _hours: 10
+      _minutes: 20
+    successfulNews:
+      description: "\u0423\u0440\u0430 3"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 5
+    failureNews:
+      description: "\u041F\u0440\u043E\u0435\u0431\u0430\u043B\u0438 3"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 5
+    maxLifetime:
+      _day: 0
+      _hours: 0
+      _minutes: 5
+    successfulHPChange: 1
+    failureHPChange: -100
+  - name: 4
+    description: 
+    minStartTime:
+      _day: 1
+      _hours: 9
+      _minutes: 5
+    successfulNews:
+      description: "\u0423\u0440\u0430 4"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 5
+    failureNews:
+      description: "\u041F\u0440\u043E\u0435\u0431\u0430\u043B\u0438 4"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 5
+    maxLifetime:
+      _day: 0
+      _hours: 0
+      _minutes: 5
+    successfulHPChange: 1
+    failureHPChange: -100
+  - name: 5
+    description: 
+    minStartTime:
+      _day: 1
+      _hours: 9
+      _minutes: 5
+    successfulNews:
+      description: "\u0423\u0440\u0430 5"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 5
+    failureNews:
+      description: "\u041F\u0440\u043E\u0435\u0431\u0430\u043B\u0438 5"
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 5
+    maxLifetime:
+      _day: 0
+      _hours: 0
+      _minutes: 5
+    successfulHPChange: 1
+    failureHPChange: -100
+  - name: 1
+    description: 
+    minStartTime:
+      _day: 1
+      _hours: 19
+      _minutes: 0
+    successfulNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 0
+    failureNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 0
+    maxLifetime:
+      _day: 1
+      _hours: 0
+      _minutes: 0
+    successfulHPChange: 50
+    failureHPChange: -10
