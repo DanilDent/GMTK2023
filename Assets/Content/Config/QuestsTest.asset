@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: QuestsTest
   m_EditorClassIdentifier: 
   data:
-  - name: 
-    description: 
+  - name: Clear the merchant's basement of rats
+    description: Quest for beginner players
     minStartTime:
-      _day: 5
+      _day: 1
       _hours: 0
       _minutes: 0
     successfulNews:

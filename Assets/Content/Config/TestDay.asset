@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startOfDay:
     _day: 1
-    _hours: 9
+    _hours: 18
     _minutes: 0
   _endOfDay:
     _day: 1
-    _hours: 20
+    _hours: 22
     _minutes: 0
   _timeline:
   - EventType: 0

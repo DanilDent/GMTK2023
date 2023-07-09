@@ -1,0 +1,222 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de275a9e594439e9281aa5cc2e3ffa6, type: 3}
+  m_Name: Hero Main
+  m_EditorClassIdentifier: 
+  data:
+  - _heroBehPatternName: Pattern1
+    _nickname: f0kes
+    _appearanceTimes: []
+    _questMoodBonuses:
+    - QuestName: 1
+      MoodBonus: -1
+    - QuestName: 2
+      MoodBonus: 10
+    - QuestName: 3
+      MoodBonus: -1
+    - QuestName: 4
+      MoodBonus: 10
+    - QuestName: 5
+      MoodBonus: -1
+    _heroMoods:
+    - FromScore: 10
+      ToScore: 20
+      MoodName: genius
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 100
+        _cursorConfidence: 100
+    IsPresent: 0
+    CurrentMoodScore: 0
+    CurrentHeroMood:
+      FromScore: 0
+      ToScore: 10
+      MoodName: Idiot
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 0
+        _cursorConfidence: 0
+    CurrentAvatarParts:
+    - Key: 0
+      Value: {fileID: 21300000, guid: 5a8c70ac99d6c664483208dd1418c9c4, type: 3}
+  - _heroBehPatternName: Pattern2
+    _nickname: drawing_dead
+    _appearanceTimes: []
+    _questMoodBonuses:
+    - QuestName: 1
+      MoodBonus: -1
+    - QuestName: 2
+      MoodBonus: 10
+    - QuestName: 3
+      MoodBonus: -1
+    - QuestName: 4
+      MoodBonus: 10
+    - QuestName: 5
+      MoodBonus: -1
+    _heroMoods:
+    - FromScore: 10
+      ToScore: 20
+      MoodName: genius
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 100
+        _cursorConfidence: 100
+    IsPresent: 0
+    CurrentMoodScore: 0
+    CurrentHeroMood:
+      FromScore: 0
+      ToScore: 10
+      MoodName: Idiot
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 0
+        _cursorConfidence: 0
+    CurrentAvatarParts:
+    - Key: 0
+      Value: {fileID: 21300000, guid: 3ef762f011018fe4598e6cd4aa6b5a21, type: 3}
+  - _heroBehPatternName: Pattern2
+    _nickname: Kr0lik
+    _appearanceTimes: []
+    _questMoodBonuses:
+    - QuestName: 1
+      MoodBonus: 10
+    - QuestName: 2
+      MoodBonus: -2
+    - QuestName: 3
+      MoodBonus: 10
+    - QuestName: 4
+      MoodBonus: -2
+    - QuestName: 5
+      MoodBonus: 10
+    _heroMoods:
+    - FromScore: 10
+      ToScore: 20
+      MoodName: genius
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 100
+        _cursorConfidence: 100
+    IsPresent: 0
+    CurrentMoodScore: 0
+    CurrentHeroMood:
+      FromScore: 0
+      ToScore: 10
+      MoodName: Idiot
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 0
+        _cursorConfidence: 0
+    CurrentAvatarParts:
+    - Key: 0
+      Value: {fileID: 21300000, guid: 7ee85e382c6f81a419c59e07795d71df, type: 3}
+  - _heroBehPatternName: Pattern3
+    _nickname: f0kes
+    _appearanceTimes: []
+    _questMoodBonuses:
+    - QuestName: 1
+      MoodBonus: 10
+    _heroMoods:
+    - FromScore: 10
+      ToScore: 20
+      MoodName: genius
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 100
+        _cursorConfidence: 100
+    IsPresent: 0
+    CurrentMoodScore: 0
+    CurrentHeroMood:
+      FromScore: 0
+      ToScore: 10
+      MoodName: Idiot
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 0
+        _cursorConfidence: 0
+    CurrentAvatarParts:
+    - Key: 0
+      Value: {fileID: 21300000, guid: 216eb4294f6c8704fa7302f12e9c61a9, type: 3}
+  - _heroBehPatternName: 
+    _nickname: LuckyAlex18962
+    _appearanceTimes:
+    - _day: 1
+      _hours: 18
+      _minutes: 20
+    _questMoodBonuses:
+    - QuestName: Clear the innkeeper's basement of rats
+      MoodBonus: 10
+    _heroMoods: []
+    IsPresent: 0
+    CurrentMoodScore: 0
+    CurrentHeroMood:
+      FromScore: 0
+      ToScore: 10
+      MoodName: Idiot
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 0
+        _cursorConfidence: 0
+    CurrentAvatarParts:
+    - Key: 0
+      Value: {fileID: 21300000, guid: a443e8cefb01d9946b3df0e0ee31e397, type: 3}
+  - _heroBehPatternName: 
+    _nickname: 4Gr@ynd
+    _appearanceTimes:
+    - _day: 1
+      _hours: 19
+      _minutes: 0
+    _questMoodBonuses:
+    - QuestName: Destroy the camp of dangerous bandits
+      MoodBonus: 10
+    _heroMoods:
+    - FromScore: 10
+      ToScore: 20
+      MoodName: genius
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 100
+        _cursorConfidence: 100
+    IsPresent: 0
+    CurrentMoodScore: 0
+    CurrentHeroMood:
+      FromScore: 0
+      ToScore: 10
+      MoodName: Idiot
+      AvatarParts:
+      - Key: 0
+        Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      HeroBehaviour:
+        _cursorSpeed: 0
+        _cursorConfidence: 0
+    CurrentAvatarParts:
+    - Key: 0
+      Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
