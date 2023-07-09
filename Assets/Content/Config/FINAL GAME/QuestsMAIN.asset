@@ -67,7 +67,7 @@ MonoBehaviour:
     minStartTime:
       _day: 1
       _hours: 18
-      _minutes: 15
+      _minutes: 40
     successfulNews:
       description: Thanks to Big Foxes discounts our village gets big profits.
       timeToNews:
@@ -304,3 +304,27 @@ MonoBehaviour:
       _minutes: 0
     successfulHPChange: 1
     failureHPChange: -3
+  - name: Collect herbs in the forest.
+    description: The quest is suitable for people who don't like violence
+    minStartTime:
+      _day: 1
+      _hours: 18
+      _minutes: 15
+    successfulNews:
+      description: Someone saw a man in the forest
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 10
+    failureNews:
+      description: Someone saw a man in the forest
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 5
+      _minutes: 0
+    successfulHPChange: 0
+    failureHPChange: 0

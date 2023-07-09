@@ -19,206 +19,62 @@ MonoBehaviour:
     _completableQuestsSO:
     - QuestName: Clear the innkeeper's basement of rats
       AvatarOnQuestAssigned: {fileID: 0}
-    _heroMoods: []
-    CurrentMoodScore: 0
-    CurrentHeroMood:
-      FromScore: 0
-      ToScore: 10
-      MoodName: Idiot
-      AvatarParts:
-      - Value: {fileID: 21300000, guid: 216eb4294f6c8704fa7302f12e9c61a9, type: 3}
-      HeroBehaviour:
-        _cursorSpeed: 0
-        _cursorConfidence: 0
     CurrentAvatarParts:
-    - Value: {fileID: 21300000, guid: 216eb4294f6c8704fa7302f12e9c61a9, type: 3}
+    - Value: {fileID: 21300000, guid: 07bb510d3ea0c8348b481cd21cb5a83e, type: 3}
   - _heroBehPatternName: Pattern2
     _shopLists: []
     _nickname: 4Gr@ynd
     _completableQuestsSO:
     - QuestName: Destroy the camp of dangerous bandits
       AvatarOnQuestAssigned: {fileID: 0}
-    _heroMoods:
-    - FromScore: 10
-      ToScore: 20
-      MoodName: genius
-      AvatarParts:
-      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 100
-        _cursorConfidence: 100
-    CurrentMoodScore: 0
-    CurrentHeroMood:
-      FromScore: 0
-      ToScore: 10
-      MoodName: Idiot
-      AvatarParts:
-      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 0
-        _cursorConfidence: 0
     CurrentAvatarParts:
-    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: 7ee85e382c6f81a419c59e07795d71df, type: 3}
   - _heroBehPatternName: 
     _shopLists: []
     _nickname: GloriousNimfa
     _completableQuestsSO:
     - QuestName: Seduce merchant's wife from Far Foxes village
       AvatarOnQuestAssigned: {fileID: 0}
-    _heroMoods:
-    - FromScore: 10
-      ToScore: 20
-      MoodName: genius
-      AvatarParts:
-      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 100
-        _cursorConfidence: 100
-    CurrentMoodScore: 0
-    CurrentHeroMood:
-      FromScore: 0
-      ToScore: 10
-      MoodName: Idiot
-      AvatarParts:
-      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 0
-        _cursorConfidence: 0
     CurrentAvatarParts:
-    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: d71b02f0a8ab4ea4286513eac6dc24f3, type: 3}
   - _heroBehPatternName: 
     _shopLists: []
     _nickname: Nagibator777
     _completableQuestsSO:
     - QuestName: Dance on the Kniaz's Banquet
       AvatarOnQuestAssigned: {fileID: 0}
-    _heroMoods:
-    - FromScore: 10
-      ToScore: 20
-      MoodName: genius
-      AvatarParts:
-      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 100
-        _cursorConfidence: 100
-    CurrentMoodScore: 0
-    CurrentHeroMood:
-      FromScore: 0
-      ToScore: 10
-      MoodName: Idiot
-      AvatarParts:
-      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 0
-        _cursorConfidence: 0
     CurrentAvatarParts:
-    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: 9e058bd9558d4754b9a825749476ca3f, type: 3}
   - _heroBehPatternName: 
     _shopLists: []
     _nickname: WoodGoblinGuild
     _completableQuestsSO:
     - QuestName: Bring the Red Flover
       AvatarOnQuestAssigned: {fileID: 0}
-    _heroMoods:
-    - FromScore: 10
-      ToScore: 20
-      MoodName: genius
-      AvatarParts:
-      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 100
-        _cursorConfidence: 100
-    CurrentMoodScore: 0
-    CurrentHeroMood:
-      FromScore: 0
-      ToScore: 10
-      MoodName: Idiot
-      AvatarParts:
-      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 0
-        _cursorConfidence: 0
     CurrentAvatarParts:
-    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: b7ef219ed16ff1d43b06bccc6b508e1c, type: 3}
   - _heroBehPatternName: 
     _shopLists: []
     _nickname: PVPKi11Twitch
     _completableQuestsSO:
     - QuestName: Slay the Damned Idolische
       AvatarOnQuestAssigned: {fileID: 0}
-    _heroMoods:
-    - FromScore: 10
-      ToScore: 20
-      MoodName: genius
-      AvatarParts:
-      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 100
-        _cursorConfidence: 100
-    CurrentMoodScore: 0
-    CurrentHeroMood:
-      FromScore: 0
-      ToScore: 10
-      MoodName: Idiot
-      AvatarParts:
-      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 0
-        _cursorConfidence: 0
     CurrentAvatarParts:
-    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: 38ad4ecbeb5f95540ac9423a4f56d857, type: 3}
   - _heroBehPatternName: 
     _shopLists: []
     _nickname: Hgdfgkke
     _completableQuestsSO:
     - QuestName: Find a koshchei needle
       AvatarOnQuestAssigned: {fileID: 0}
-    _heroMoods:
-    - FromScore: 10
-      ToScore: 20
-      MoodName: genius
-      AvatarParts:
-      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 100
-        _cursorConfidence: 100
-    CurrentMoodScore: 0
-    CurrentHeroMood:
-      FromScore: 0
-      ToScore: 10
-      MoodName: Idiot
-      AvatarParts:
-      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 0
-        _cursorConfidence: 0
     CurrentAvatarParts:
-    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: ff84a9dca9f8dd341b742c109b498434, type: 3}
   - _heroBehPatternName: 
     _shopLists: []
     _nickname: Ben1276
     _completableQuestsSO:
     - QuestName: Slay the Dragon with companion
-      AvatarOnQuestAssigned: {fileID: 0}
-    _heroMoods:
-    - FromScore: 10
-      ToScore: 20
-      MoodName: genius
-      AvatarParts:
-      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 100
-        _cursorConfidence: 100
-    CurrentMoodScore: 0
-    CurrentHeroMood:
-      FromScore: 0
-      ToScore: 10
-      MoodName: Idiot
-      AvatarParts:
-      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 0
-        _cursorConfidence: 0
+      AvatarOnQuestAssigned: {fileID: 21300000, guid: b7ef219ed16ff1d43b06bccc6b508e1c, type: 3}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
   - _heroBehPatternName: 
@@ -227,52 +83,14 @@ MonoBehaviour:
     _completableQuestsSO:
     - QuestName: Go through fire, water, and copper pipes.
       AvatarOnQuestAssigned: {fileID: 0}
-    _heroMoods:
-    - FromScore: 10
-      ToScore: 20
-      MoodName: genius
-      AvatarParts:
-      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 100
-        _cursorConfidence: 100
-    CurrentMoodScore: 0
-    CurrentHeroMood:
-      FromScore: 0
-      ToScore: 10
-      MoodName: Idiot
-      AvatarParts:
-      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 0
-        _cursorConfidence: 0
     CurrentAvatarParts:
-    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: 5a8c70ac99d6c664483208dd1418c9c4, type: 3}
   - _heroBehPatternName: 
     _shopLists: []
     _nickname: Magnus Hammerbonk
     _completableQuestsSO:
     - QuestName: Kill new bandits in a forest camp
       AvatarOnQuestAssigned: {fileID: 0}
-    _heroMoods:
-    - FromScore: 10
-      ToScore: 20
-      MoodName: genius
-      AvatarParts:
-      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 100
-        _cursorConfidence: 100
-    CurrentMoodScore: 0
-    CurrentHeroMood:
-      FromScore: 0
-      ToScore: 10
-      MoodName: Idiot
-      AvatarParts:
-      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 0
-        _cursorConfidence: 0
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
   - _heroBehPatternName: 
@@ -281,24 +99,5 @@ MonoBehaviour:
     _completableQuestsSO:
     - QuestName: Find an artefact "Apple of Youth".
       AvatarOnQuestAssigned: {fileID: 0}
-    _heroMoods:
-    - FromScore: 10
-      ToScore: 20
-      MoodName: genius
-      AvatarParts:
-      - Value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 100
-        _cursorConfidence: 100
-    CurrentMoodScore: 0
-    CurrentHeroMood:
-      FromScore: 0
-      ToScore: 10
-      MoodName: Idiot
-      AvatarParts:
-      - Value: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      HeroBehaviour:
-        _cursorSpeed: 0
-        _cursorConfidence: 0
     CurrentAvatarParts:
-    - Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
+    - Value: {fileID: 21300000, guid: 807dd73126631e74e9253867ec922092, type: 3}

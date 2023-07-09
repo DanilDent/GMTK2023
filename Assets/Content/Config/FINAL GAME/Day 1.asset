@@ -18,8 +18,8 @@ MonoBehaviour:
     _minutes: 0
   _endOfDay:
     _day: 1
-    _hours: 20
-    _minutes: 0
+    _hours: 19
+    _minutes: 30
   _timeline:
   - EventType: 0
     GameTime:
