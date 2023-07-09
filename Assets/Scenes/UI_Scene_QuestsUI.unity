@@ -4540,7 +4540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895024734fd906b4f869beed39820380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShouldHideCursor: 0
+  ShouldHideCursor: 1
   _timelineConfig: {fileID: 11400000, guid: 47ed835e504ee6442bd9e1f36a038f3d, type: 2}
   _diagRect: {fileID: 856402414}
 --- !u!4 &1427590225
@@ -6347,6 +6347,7 @@ MonoBehaviour:
   SadCity: {fileID: 21300000, guid: 41a2c386104fabe489027d1af6c60ade, type: 3}
   BaseCityNpc: {fileID: 21300000, guid: a492fcc46cf492546a205081af70b108, type: 3}
   HappyCityNpc: {fileID: 21300000, guid: c54d335051251bf428645c349d616cf9, type: 3}
+  _heroAvatarRect: {fileID: 655692979}
   _animationPercentForComing: 0.3
   _animationPercentForLeaving: 0.4
 --- !u!1001 &2095031193
