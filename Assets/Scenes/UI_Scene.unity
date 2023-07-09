@@ -1388,8 +1388,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 605629222}
+  - component: {fileID: 605629223}
   m_Layer: 0
-  m_Name: NewsStore
+  m_Name: NewsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1410,6 +1411,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &605629223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605629221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88b37de5c0127b45bfc7762a316bf8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _BadNews:
+  - description: "\u041F\u043B\u043E\u0445\u0430\u044F  \u043D\u043E\u0432\u043E\u0441\u0442\u044C
+      1"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  - description: "\u041F\u043B\u043E\u0445\u0430\u044F \u043D\u043E\u0432\u043E\u0441\u0442\u044C
+      2"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  - description: "\u041F\u043B\u043E\u0445\u0430\u044F \u043D\u043E\u0432\u043E\u0441\u0442\u044C
+      3"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  _NeuralNews:
+  - description: "\u041D\u0435\u0439\u0442\u0440\u0430\u043B\u044C\u043D\u0430\u044F
+      \u043D\u043E\u0432\u043E\u0441\u0442\u044C 1"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  - description: "\u041D\u0435\u0439\u0442\u0440\u0430\u043B\u044C\u043D\u0430\u044F
+      \u043D\u043E\u0432\u043E\u0441\u0442\u044C 2"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  - description: "\u041D\u0435\u0439\u0442\u0440\u0430\u043B\u044C\u043D\u0430\u044F
+      \u043D\u043E\u0432\u043E\u0441\u0442\u044C 3"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  _GoodNews:
+  - description: "\u0425\u043E\u0440\u043E\u0448\u0430\u044F \u043D\u043E\u0432\u043E\u0441\u0442\u044C
+      1"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  - description: "\u0425\u043E\u0440\u043E\u0448\u0430\u044F \u043D\u043E\u0432\u043E\u0441\u0442\u044C
+      2"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  - description: "\u0425\u043E\u0440\u043E\u0448\u0430\u044F \u043D\u043E\u0432\u043E\u0441\u0442\u044C
+      3"
+    timeToNews:
+      _day: 0
+      _hours: 0
+      _minutes: 0
+  _cityNewsTime:
+  - _day: 1
+    _hours: 9
+    _minutes: 40
+  _newsContainer: {fileID: 1956289631}
 --- !u!1001 &644754710
 PrefabInstance:
   m_ObjectHideFlags: 0
