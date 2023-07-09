@@ -13,41 +13,35 @@ MonoBehaviour:
   m_Name: Day 3
   m_EditorClassIdentifier: 
   _startOfDay:
-    _day: 2
+    _day: 3
     _hours: 18
     _minutes: 0
   _endOfDay:
     _day: 2
-    _hours: 22
-    _minutes: 0
+    _hours: 20
+    _minutes: 15
   _timeline:
   - EventType: 0
     GameTime:
       _day: 2
       _hours: 18
       _minutes: 5
-    Name: Nagibator777
+    Name: Ben1276
   - EventType: 0
     GameTime:
-      _day: 2
+      _day: 3
       _hours: 18
       _minutes: 45
-    Name: WoodGoblinGuild
+    Name: ImInUrMom
   - EventType: 0
     GameTime:
       _day: 2
-      _hours: 20
+      _hours: 19
       _minutes: 10
-    Name: PVPKi11Twitch
+    Name: ' AbsolutlyEvilGenius'
   - EventType: 0
     GameTime:
       _day: 2
-      _hours: 20
-      _minutes: 10
-    Name: Hgdfgkke
-  - EventType: 0
-    GameTime:
-      _day: 2
-      _hours: 20
-      _minutes: 10
-    Name: Ben1276
+      _hours: 19
+      _minutes: 38
+    Name: Magnus Hammerbonk
