@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c641d000cfbda7f4dbec89aed018565e, type: 3}
-  m_Name: HelloPhrasesConfig
+  m_Script: {fileID: 11500000, guid: 24d5040644c442ed8e1024fce9eda1d3, type: 3}
+  m_Name: ShopList Grinder
   m_EditorClassIdentifier: 
-  phrases:
-  - Hello, Stranger!
-  - Greetings, valiant seeker of glory
-  - Welcome, brave adventurer!
+  RemainingMoney: 604
+  Entries:
+  - bought 5 healing potion
+  - bought 3 antitoxin
+  - Sold 6 scalp
+  AnimationTimeMilliSeconds: 1500
+  TimeToDisappearMilliSeconds: 1500
