@@ -9,30 +9,43 @@ public class NewsInfo : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _questName;
     private News _news;
-    private bool _isSuccessed;
+    private NewsType _newsType;
     private Image _selfImage;
 
     // Start is called before the first frame update
     public News News { get => _news; }
 
-    public void Initialize(News news, bool isNewsSuccessed)
+    public enum NewsType
+    {
+        City,
+        Bad,
+        Good
+    }
+
+    public void Initialize(News news, NewsType newsType)
     {
         _news = news;
         _selfImage = GetComponent<Image>();
-        _isSuccessed = isNewsSuccessed;
+        _newsType = newsType;
         UpdateUIElement();
     }
 
     private void UpdateUIElement()
     {
         _questName.text = _news.description;
-        if (_isSuccessed)
+        switch (_newsType)
         {
-            _selfImage.color = Color.green;
-        }
-        else
-        {
-            _selfImage.color = Color.red;
+            case NewsType.City:
+                _selfImage.color = Color.cyan;
+                break;
+
+            case NewsType.Bad:
+                _selfImage.color = Color.red;
+                break;
+
+            case NewsType.Good:
+                _selfImage.color = Color.green;
+                break;
         }
     }
 

@@ -71,8 +71,6 @@ public class QuestManager : MonoBehaviour
         for (int i = invisibleQuests.Count - 1; i >= 0; i--)
         {
             var _quest = invisibleQuests[i];
-            Debug.Log(GameManager.Instance.CurrentTime);
-            Debug.Log(_quest.StartTime);
             if (GameManager.Instance.CurrentTime < _quest.StartTime)
             {
                 continue;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,20 @@ public class NewsContainer : MonoBehaviour
         EventService.Instance.QuestCompleted += AddNewsToDisplay;
     }
 
+    public void AddCityNewsToDisplay(News news)
+    {
+        NewsInfo createdNews = Instantiate(_newsPrefab, transform.position, Quaternion.identity);
+        createdNews.transform.parent = transform;
+        createdNews.transform.SetAsFirstSibling();
+        createdNews.Initialize(news, NewsInfo.NewsType.City);
+        _news.Enqueue(createdNews);
+        if (_news.Count > _maxDisplayedNewsCount)
+        {
+            NewsInfo deletedNews = _news.Dequeue();
+            deletedNews.DestoyNewsInfo();
+        }
+    }
+
     private void AddNewsToDisplay(Quest quest, bool isQuestSuccesed)
     {
         NewsInfo createdNews = Instantiate(_newsPrefab, transform.position, Quaternion.identity);
@@ -23,11 +38,11 @@ public class NewsContainer : MonoBehaviour
         createdNews.transform.SetAsFirstSibling();
         if (isQuestSuccesed)
         {
-            createdNews.Initialize(quest.SuccessfulNews, isQuestSuccesed);
+            createdNews.Initialize(quest.SuccessfulNews, NewsInfo.NewsType.Good);
         }
         else
         {
-            createdNews.Initialize(quest.FailureNews, isQuestSuccesed);
+            createdNews.Initialize(quest.FailureNews, NewsInfo.NewsType.Bad);
         }
 
         _news.Enqueue(createdNews);
