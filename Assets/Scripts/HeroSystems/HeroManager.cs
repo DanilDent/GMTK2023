@@ -56,7 +56,6 @@ public class HeroManager : MonoBehaviour
 		{
 			return;
 		}
-		hero.CurrentAvatarParts = new List<Hero.Avatar>();
 		var avatarObj = new Hero.Avatar { Value = avatar };
 		hero.CurrentAvatarParts = new List<Hero.Avatar> { avatarObj };
 		UpdateHeroMood(hero);
