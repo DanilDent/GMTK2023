@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9bf1595741ea14d9498339e9f2120b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _patternName: PatternZero
+  _patternName: Pattern3
   _isRecording: 0
 --- !u!224 &140540661 stripped
 RectTransform:
@@ -913,14 +913,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.20803669, g: 0.64406705, b: 0.8018868, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b2e9829991fbfde43b36e2717e2a8177, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2183,7 +2183,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -130}
+  m_AnchoredPosition: {x: 0, y: -125}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1006076901
@@ -2654,6 +2654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895024734fd906b4f869beed39820380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShouldHideCursor: 0
   _timelineConfig: {fileID: 11400000, guid: ea34c06f8217fa74d99aeabcabfb6f5c, type: 2}
   _diagRect: {fileID: 856402414}
 --- !u!4 &1427590225

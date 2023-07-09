@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Public interface
+    public bool ShouldHideCursor = false;
     public bool IsPaused
     { get => _isPaused; set { _isPaused = value; } }
 
@@ -72,7 +73,10 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         Tick();
-        HideCursor();
+        if (ShouldHideCursor)
+        {
+            HideCursor();
+        }
     }
 
     private void HideCursor()

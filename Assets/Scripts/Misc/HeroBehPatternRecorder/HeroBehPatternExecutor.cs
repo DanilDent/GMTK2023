@@ -13,12 +13,14 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
         string json = File.ReadAllText(path);
         _recording = JsonConvert.DeserializeObject<Recording>(json);
         Debug.Log($"Recording: {_recording}");
+        _currentIndex = 0;
     }
 
     public void StartPlay()
     {
         _heroCursorRect.gameObject.SetActive(true);
         _isPlaying = true;
+        _currentIndex = 0;
     }
 
     [SerializeField] private RectTransform _heroCursorRect;

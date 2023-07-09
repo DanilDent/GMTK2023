@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HeroTest
   m_EditorClassIdentifier: 
   data:
-  - _heroBehPatternName: PatternZero
+  - _heroBehPatternName: Pattern1
     _nickname: f0kes
     _appearanceTimes: []
     _questMoodBonuses:
@@ -51,8 +51,8 @@ MonoBehaviour:
         _cursorConfidence: 0
     CurrentAvatarParts:
     - Key: 0
-      Value: {fileID: 21300000, guid: 216eb4294f6c8704fa7302f12e9c61a9, type: 3}
-  - _heroBehPatternName: 
+      Value: {fileID: 21300000, guid: 5a8c70ac99d6c664483208dd1418c9c4, type: 3}
+  - _heroBehPatternName: Pattern2
     _nickname: drawing_dead
     _appearanceTimes: []
     _questMoodBonuses:
@@ -90,8 +90,8 @@ MonoBehaviour:
         _cursorConfidence: 0
     CurrentAvatarParts:
     - Key: 0
-      Value: {fileID: 21300000, guid: a443e8cefb01d9946b3df0e0ee31e397, type: 3}
-  - _heroBehPatternName: 
+      Value: {fileID: 21300000, guid: 3ef762f011018fe4598e6cd4aa6b5a21, type: 3}
+  - _heroBehPatternName: Pattern2
     _nickname: Kr0lik
     _appearanceTimes: []
     _questMoodBonuses:
@@ -129,8 +129,8 @@ MonoBehaviour:
         _cursorConfidence: 0
     CurrentAvatarParts:
     - Key: 0
-      Value: {fileID: 21300000, guid: 8adfbb58c4206ac4fa1e120238b15ebd, type: 3}
-  - _heroBehPatternName: PatternZero
+      Value: {fileID: 21300000, guid: 7ee85e382c6f81a419c59e07795d71df, type: 3}
+  - _heroBehPatternName: Pattern3
     _nickname: f0kes
     _appearanceTimes: []
     _questMoodBonuses:
