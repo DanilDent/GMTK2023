@@ -26,15 +26,16 @@ public class CityTests : MonoBehaviour
             return;
         }
         isStart = false;
-        EventService.Instance.QuestCompleted?.Invoke(QuestManager.Instance.invisibleQuests[0], false);
-        Debug.Log(city.CurrentHealth);
-        EventService.Instance.QuestCompleted?.Invoke(QuestManager.Instance.invisibleQuests[0], true);
-        Debug.Log(city.CurrentHealth);
-        EventService.Instance.QuestCompleted?.Invoke(QuestManager.Instance.invisibleQuests[0], false);
-        EventService.Instance.QuestCompleted?.Invoke(QuestManager.Instance.invisibleQuests[0], false);
-        EventService.Instance.QuestCompleted?.Invoke(QuestManager.Instance.invisibleQuests[0], false);
-        EventService.Instance.QuestCompleted?.Invoke(QuestManager.Instance.invisibleQuests[0], false);
-        EventService.Instance.QuestCompleted?.Invoke(QuestManager.Instance.invisibleQuests[0], false);
+        //EventService.Instance.QuestCompleted?.Invoke(QuestManager.Instance.invisibleQuests[0], false);
+        //Debug.Log(city.CurrentHealth);
+        ////EventService.Instance.QuestCompleted?.Invoke(QuestManager.Instance.invisibleQuests[0], true);
+        //Debug.Log(city.CurrentHealth);
+        //EventService.Instance.QuestCompleted?.Invoke(QuestManager.Instance.invisibleQuests[0], false);
+        //EventService.Instance.QuestCompleted?.Invoke(QuestManager.Instance.invisibleQuests[0], false);
+        //EventService.Instance.QuestCompleted?.Invoke(QuestManager.Instance.invisibleQuests[0], false);
+        //EventService.Instance.QuestCompleted?.Invoke(QuestManager.Instance.invisibleQuests[0], false);
+        //EventService.Instance.QuestCompleted?.Invoke(QuestManager.Instance.invisibleQuests[0], false);
+        city.ApplyChange(-100000);
         Debug.Log(city.CurrentHealth);
         city.ApplyChange(50);
         Debug.Log(city.CurrentHealth);
