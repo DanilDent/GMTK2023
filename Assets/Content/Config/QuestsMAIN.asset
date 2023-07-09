@@ -38,7 +38,7 @@ MonoBehaviour:
     successfulHPChange: 1
     failureHPChange: -1
   - name: Destroy the camp of dangerous bandits
-    description: 
+    description: Large number of serious rivals
     minStartTime:
       _day: 1
       _hours: 18
@@ -63,7 +63,7 @@ MonoBehaviour:
     successfulHPChange: 2
     failureHPChange: -2
   - name: Seduce merchant's wife from Far Foxes village
-    description: 
+    description: Contains erotic content
     minStartTime:
       _day: 1
       _hours: 20

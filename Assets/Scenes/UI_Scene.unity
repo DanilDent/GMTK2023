@@ -3473,7 +3473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4053c307b341144be8d197a41cf8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 67d10749c95c6ca448e33fb1e40a0b0c, type: 2}
+  config: {fileID: 11400000, guid: 5053d078375d1c04fa9d2d9977cd231c, type: 2}
   invisibleQuests: []
   avalaibleQuests: []
   inProgressQuests: []
