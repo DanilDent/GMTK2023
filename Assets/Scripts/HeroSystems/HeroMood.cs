@@ -7,6 +7,6 @@ public struct HeroMood
 	public int FromScore;
 	public int ToScore;
 	public string MoodName;
-	public List<Hero.AvatarPart> AvatarParts;
+	public List<Hero.Avatar> AvatarParts;
 	public HeroBehaviour HeroBehaviour;
 }

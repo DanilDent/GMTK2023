@@ -11,9 +11,8 @@ public struct Hero
     [SerializeField] private string _heroBehPatternName;
 
     [Serializable]
-    public struct AvatarPart
+    public struct Avatar
     {
-        [SerializeField] public AvatarPartType Key;
         [SerializeField] public Sprite Value;
     }
     [Serializable]
@@ -25,17 +24,13 @@ public struct Hero
     [Serializable]
     public struct HeroMoodRange
     {
-        [SerializeField] public int From;
-        [SerializeField] public int To;
         [SerializeField] public HeroMood HeroMood;
     }
     [SerializeField] private string _nickname;
-    [SerializeField] private GameTime[] _appearanceTimes;
     [SerializeField] private QuestMoodBonus[] _questMoodBonuses;
     [SerializeField] private List<HeroMood> _heroMoods;
     private Dictionary<string, int> _bonuses;
 
-    [HideInInspector] public bool IsPresent;
 
     public Dictionary<string, int> Bonuses
     {
@@ -57,6 +52,6 @@ public struct Hero
     public int CurrentMoodScore;
     public HeroMood CurrentHeroMood;
     public List<HeroMood> HeroMoods => _heroMoods;
-    public List<AvatarPart> CurrentAvatarParts;
+    public List<Avatar> CurrentAvatarParts;
 
 }
