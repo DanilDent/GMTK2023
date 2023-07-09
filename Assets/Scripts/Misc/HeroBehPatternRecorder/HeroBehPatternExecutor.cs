@@ -6,6 +6,12 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
 {
     public static bool IsEnabled => _instance != null ? _instance.gameObject.activeInHierarchy : false;
     private string RECORDINGS_PATH => Application.dataPath + "\\Content\\Config\\_HeroBehPatterns\\_jsons";
+    private string RECORDINGS_PATH_PERS => Application.persistentDataPath + "\\APP_DATA";
+
+    private void Start()
+    {
+
+    }
 
     public void SetRecording(string patternName)
     {
