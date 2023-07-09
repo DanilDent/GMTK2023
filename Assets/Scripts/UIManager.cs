@@ -86,8 +86,8 @@ public class UIManager : MonoSingleton<UIManager>
 
         Debug.Log("Появление");
         _heroAvatarRect.position = _defaultHeroAvatarPosition;
-        _heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x - _animationPercentForComing * Screen.width, 1f).From();
-        _heroAvatarImg.DOFade(1, 1);
+        //_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x - _animationPercentForComing * Screen.width, 1f).From();
+        //_heroAvatarImg.DOFade(1, 1);
         _heroAvatarImg.sprite = hero.CurrentAvatarParts[0].Value;
     }
 
