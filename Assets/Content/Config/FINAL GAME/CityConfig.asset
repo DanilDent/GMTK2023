@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CityConfig
   m_EditorClassIdentifier: 
   cityHealth: 12
-  lowerThresholdWellBeingCity: 6
-  upperThresholdDeclineCity: 22
+  lowerThresholdWellBeingCity: 5
+  upperThresholdDeclineCity: 17

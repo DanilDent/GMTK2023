@@ -549,7 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9bf1595741ea14d9498339e9f2120b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _patternName: GD
+  _patternName: Hgdfgkke
   _isRecording: 0
 --- !u!1 &130048750
 GameObject:
@@ -1812,7 +1812,16 @@ MonoBehaviour:
   _cityNewsTime:
   - _day: 1
     _hours: 18
-    _minutes: 30
+    _minutes: 45
+  - _day: 2
+    _hours: 18
+    _minutes: 45
+  - _day: 3
+    _hours: 18
+    _minutes: 45
+  - _day: 4
+    _hours: 18
+    _minutes: 45
   _newsContainer: {fileID: 1956289631}
 --- !u!1001 &644754710
 PrefabInstance:
@@ -5309,7 +5318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895024734fd906b4f869beed39820380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LockDiagArea: 1
+  LockDiagArea: 0
   _timelineConfig: {fileID: 11400000, guid: 47ed835e504ee6442bd9e1f36a038f3d, type: 2}
   _diagRect: {fileID: 856402414}
 --- !u!4 &1427590225

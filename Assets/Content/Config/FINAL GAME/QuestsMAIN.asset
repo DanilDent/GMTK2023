@@ -158,165 +158,120 @@ MonoBehaviour:
       _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
-  - name: Bring the Red Flover
-    description: Thoughtful players who perfectly know rules of this world can complete
-      this quest
-    minStartTime:
-      _day: 2
-      _hours: 18
-      _minutes: 0
-    successfulNews:
-      description: 'Incredible: someone returned a little red flower to us.'
-      timeToNews:
-        _day: 0
-        _hours: 3
-        _minutes: 0
-    failureNews:
-      description: The little red flower is forever lost
-      timeToNews:
-        _day: 0
-        _hours: 3
-        _minutes: 0
-    maxLifetime:
-      _day: 1
-      _hours: 0
-      _minutes: 0
-    successfulHPChange: 1
-    failureHPChange: -2
-  - name: Slay the Dragon with companion
-    description: Cooperation with another player in a pair
-    minStartTime:
-      _day: 2
-      _hours: 19
-      _minutes: 0
-    successfulNews:
-      description: The fearless pair of warriors defeated the dragon
-      timeToNews:
-        _day: 0
-        _hours: 1
-        _minutes: 0
-    failureNews:
-      description: The dragon attacked and burned down half of our village
-      timeToNews:
-        _day: 0
-        _hours: 1
-        _minutes: 0
-    maxLifetime:
-      _day: 2
-      _hours: 0
-      _minutes: 0
-    successfulHPChange: 1
-    failureHPChange: -2
-  - name: Find an artefact "Apple of Youth".
-    description: Find an extremely rare and very expensive artifact
-    minStartTime:
-      _day: 2
-      _hours: 19
-      _minutes: 30
-    successfulNews:
-      description: Recently, the artifact Young Apples was sold
-      timeToNews:
-        _day: 0
-        _hours: 1
-        _minutes: 0
-    failureNews:
-      description: An enraged adventurer robbed a shop in search of rare artifacts
-      timeToNews:
-        _day: 0
-        _hours: 1
-        _minutes: 0
-    maxLifetime:
-      _day: 2
-      _hours: 0
-      _minutes: 0
-    successfulHPChange: 1
-    failureHPChange: -3
-  - name: 'Deliver a package '
-    description: The most boring quest in the game
+  - name: Find the Apple of Youth
+    description: For real adventure lovers
     minStartTime:
       _day: 3
       _hours: 18
       _minutes: 0
     successfulNews:
-      description: The most boring quest in the game
+      description: The Apple of Youth returned to our village - people are happy
       timeToNews:
         _day: 0
-        _hours: 0
-        _minutes: 20
+        _hours: 3
+        _minutes: 0
     failureNews:
-      description: Nothing important
+      description: People miss the Apple of Youth - they are depressed
       timeToNews:
-        _day: 1
-        _hours: 1
+        _day: 0
+        _hours: 3
         _minutes: 0
     maxLifetime:
       _day: 0
-      _hours: 5
-      _minutes: 0
-    successfulHPChange: 0
-    failureHPChange: 0
-  - name: Go through fire, water, and copper pipes.
-    description: Everyone who completed this quest have died
+      _hours: 1
+      _minutes: 30
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Fight with guard
+    description: Nobody can kill the guard
     minStartTime:
       _day: 3
       _hours: 18
       _minutes: 0
     successfulNews:
-      description: Villan died on his way through fire, water and copper pipes
+      description: Raging Adventurer Destroyed by Guardians
       timeToNews:
         _day: 0
         _hours: 0
         _minutes: 30
     failureNews:
-      description: An adventurer killed half of our village with his mace
+      description: An evil adventurer has been killing civilians in secret from the
+        guards
       timeToNews:
         _day: 0
         _hours: 0
         _minutes: 15
     maxLifetime:
       _day: 0
-      _hours: 5
-      _minutes: 0
-    successfulHPChange: 1
-    failureHPChange: -3
-  - name: Kill new bandits in a forest camp
-    description: Quest where player must destroy another bandit camp
+      _hours: 1
+      _minutes: 30
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Seduce the merchant's wife
+    description: Contains erotic content
     minStartTime:
       _day: 3
       _hours: 18
-      _minutes: 30
+      _minutes: 0
     successfulNews:
-      description: The bandits have been finally defeated
+      description: Our village has improved its trade thanks to the merchant's wife
       timeToNews:
         _day: 0
         _hours: 0
         _minutes: 30
     failureNews:
-      description: Unfortunately, the bandits looted some of our wagons
+      description: The merchant's wife refuses to trade with us - our village is
+        getting poorer
       timeToNews:
         _day: 0
-        _hours: 0
+        _hours: 1
         _minutes: 30
     maxLifetime:
       _day: 0
-      _hours: 5
+      _hours: 2
       _minutes: 0
-    successfulHPChange: 1
-    failureHPChange: -3
-  - name: Seduce merchant's wife from Far Foxes village
-    description: Contains erotic content
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Rescue a hostage with a partner
+    description: Cooperation with another real player
     minStartTime:
-      _day: 1
+      _day: 4
       _hours: 18
-      _minutes: 40
+      _minutes: 0
     successfulNews:
-      description: Thanks to Big Foxes discounts our village gets big profits.
+      description: Brave adventurers saved the doctor's son from the clutches of
+        robbers
+      timeToNews:
+        _day: 0
+        _hours: 1
+        _minutes: 0
+    failureNews:
+      description: The doctor's son, who was held hostage, died. The doctor is sad
+        and cannot heal
+      timeToNews:
+        _day: 0
+        _hours: 1
+        _minutes: 30
+    maxLifetime:
+      _day: 2
+      _hours: 0
+      _minutes: 0
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Destroy a thousand ghouls
+    description: Absolute hardcore
+    minStartTime:
+      _day: 4
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: Ghouls will never disturb us again
       timeToNews:
         _day: 0
         _hours: 0
         _minutes: 30
     failureNews:
-      description: No one trades with our village anymore
+      description: The villagers were attacked by ghouls
       timeToNews:
         _day: 0
         _hours: 0
@@ -325,8 +280,32 @@ MonoBehaviour:
       _day: 0
       _hours: 2
       _minutes: 0
-    successfulHPChange: 3
-    failureHPChange: -4
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Fishing
+    description: The most boring quest in the game
+    minStartTime:
+      _day: 4
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: Finally, in our game, fish began to be sold again
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: Residents of the city have not eaten fish for 2 years
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 2
+      _minutes: 0
+    successfulHPChange: 2
+    failureHPChange: -5
   - name: Talk to the old man
     description: For players, who love dialogue
     minStartTime:
