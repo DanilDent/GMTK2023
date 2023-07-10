@@ -25,7 +25,7 @@ MonoBehaviour:
     GameTime:
       _day: 4
       _hours: 18
-      _minutes: 20
+      _minutes: 15
     Name: JustBen
   - EventType: 0
     GameTime:
