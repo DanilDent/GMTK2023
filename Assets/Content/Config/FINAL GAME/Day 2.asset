@@ -25,13 +25,13 @@ MonoBehaviour:
     GameTime:
       _day: 2
       _hours: 18
-      _minutes: 5
+      _minutes: 0
     Name: Nagibator777
   - EventType: 0
     GameTime:
       _day: 2
       _hours: 18
-      _minutes: 45
+      _minutes: 40
     Name: NoDamageOnTwitch
   - EventType: 0
     GameTime:

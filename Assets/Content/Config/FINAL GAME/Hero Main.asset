@@ -57,29 +57,37 @@ MonoBehaviour:
       AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: ff84a9dca9f8dd341b742c109b498434, type: 3}
-  - _heroBehPatternName: Ben1276
+  - _heroBehPatternName: Indiana13
     _shopLists:
-    - {fileID: 11400000, guid: 5672d54a3a9d356448a22f475987d1b5, type: 2}
-    _nickname: Ben1276
+    - {fileID: 11400000, guid: 27bdab830b02bff48aea2102eebc780d, type: 2}
+    _nickname: Indiana13
     _completableQuestsSO:
-    - QuestName: Slay the Dragon with companion
-      AvatarOnQuestAssigned: {fileID: 21300000, guid: b7ef219ed16ff1d43b06bccc6b508e1c, type: 3}
+    - QuestName: Find the Apple of Youth
+      AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
-    - Value: {fileID: 21300000, guid: b7ef219ed16ff1d43b06bccc6b508e1c, type: 3}
+    - Value: {fileID: 21300000, guid: 807dd73126631e74e9253867ec922092, type: 3}
   - _heroBehPatternName: ImInUrMom
     _shopLists: []
     _nickname: ImInUrMom
     _completableQuestsSO:
-    - QuestName: Go through fire, water, and copper pipes.
+    - QuestName: Fight with guard
       AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: 5a8c70ac99d6c664483208dd1418c9c4, type: 3}
+  - _heroBehPatternName: GloriousNymph
+    _shopLists: []
+    _nickname: GloriousNymph
+    _completableQuestsSO:
+    - QuestName: Seduce the merchant's wife
+      AvatarOnQuestAssigned: {fileID: 0}
+    CurrentAvatarParts:
+    - Value: {fileID: 21300000, guid: d71b02f0a8ab4ea4286513eac6dc24f3, type: 3}
   - _heroBehPatternName: NoDamageOnTwitch
     _shopLists:
     - {fileID: 11400000, guid: a5d63a120a9b64a44872e0b17df9b426, type: 2}
     _nickname: NoDamageOnTwitch
     _completableQuestsSO:
-    - QuestName: Kill new bandits in a forest camp
+    - QuestName: Destroy a thousand ghouls
       AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: 008faf192bbea4b47ae53ae482938c4e, type: 3}
@@ -88,24 +96,16 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1db48a840750403438ff43a5a6dce52d, type: 2}
     _nickname: GameDesigner1
     _completableQuestsSO:
-    - QuestName: Bring the Red Flover
+    - QuestName: Fishing
       AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: c94fdc09ce480f04ab149ed16eb9ea6f, type: 3}
-  - _heroBehPatternName: GloriousNymph
-    _shopLists: []
-    _nickname: GloriousNymph
-    _completableQuestsSO:
-    - QuestName: Seduce merchant's wife from Far Foxes village
-      AvatarOnQuestAssigned: {fileID: 0}
-    CurrentAvatarParts:
-    - Value: {fileID: 21300000, guid: d71b02f0a8ab4ea4286513eac6dc24f3, type: 3}
-  - _heroBehPatternName: Indiana13
+  - _heroBehPatternName: JustBen
     _shopLists:
-    - {fileID: 11400000, guid: 27bdab830b02bff48aea2102eebc780d, type: 2}
-    _nickname: Indiana13
+    - {fileID: 11400000, guid: 5672d54a3a9d356448a22f475987d1b5, type: 2}
+    _nickname: JustBen
     _completableQuestsSO:
-    - QuestName: Find an artefact "Apple of Youth".
-      AvatarOnQuestAssigned: {fileID: 0}
+    - QuestName: Rescue a hostage with a partner
+      AvatarOnQuestAssigned: {fileID: 21300000, guid: b7ef219ed16ff1d43b06bccc6b508e1c, type: 3}
     CurrentAvatarParts:
-    - Value: {fileID: 21300000, guid: 807dd73126631e74e9253867ec922092, type: 3}
+    - Value: {fileID: 21300000, guid: b7ef219ed16ff1d43b06bccc6b508e1c, type: 3}
