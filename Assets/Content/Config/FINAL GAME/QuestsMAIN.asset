@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: QuestsMAIN
   m_EditorClassIdentifier: 
   data:
-  - name: Clear the innkeeper's basement of rats
+  - name: Kill 6 rats
     description: Quest for beginner players
     minStartTime:
       _day: 1
@@ -23,18 +23,18 @@ MonoBehaviour:
       description: Our village's Inn grand reopening
       timeToNews:
         _day: 0
-        _hours: 1
-        _minutes: 0
+        _hours: 0
+        _minutes: 1
     failureNews:
       description: The innkeeper had to close the tavern
       timeToNews:
         _day: 0
-        _hours: 1
-        _minutes: 0
+        _hours: 0
+        _minutes: 1
     maxLifetime:
       _day: 0
-      _hours: 6
-      _minutes: 0
+      _hours: 1
+      _minutes: 30
     successfulHPChange: 1
     failureHPChange: -1
   - name: Destroy the camp of dangerous bandits
@@ -46,19 +46,19 @@ MonoBehaviour:
     successfulNews:
       description: Road near the Great Forest is free from bandits again.
       timeToNews:
-        _day: 1
-        _hours: 3
-        _minutes: 0
+        _day: 0
+        _hours: 0
+        _minutes: 1
     failureNews:
       description: The residents of our village are constantly being robbed in the
         forest
       timeToNews:
         _day: 0
         _hours: 0
-        _minutes: 50
+        _minutes: 1
     maxLifetime:
       _day: 0
-      _hours: 6
+      _hours: 2
       _minutes: 0
     successfulHPChange: 2
     failureHPChange: -2
@@ -311,20 +311,20 @@ MonoBehaviour:
       _hours: 18
       _minutes: 15
     successfulNews:
-      description: Someone saw a man in the forest
+      description: 
       timeToNews:
-        _day: 0
+        _day: 5
         _hours: 0
         _minutes: 10
     failureNews:
-      description: Someone saw a man in the forest
+      description: 
       timeToNews:
-        _day: 0
+        _day: 5
         _hours: 0
         _minutes: 30
     maxLifetime:
-      _day: 1
-      _hours: 5
+      _day: 0
+      _hours: 1
       _minutes: 0
     successfulHPChange: 0
     failureHPChange: 0

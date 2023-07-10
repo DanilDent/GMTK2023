@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ShopList Biggenr
   m_EditorClassIdentifier: 
   RemainingMoney: 30
-  Entries: []
-  AnimationTimeMilliSeconds: 500
-  TimeToDisappearMilliSeconds: 500
+  Entries:
+  - Bought a sword
+  AnimationTimeMilliSeconds: 2000
+  TimeToDisappearMilliSeconds: 2000

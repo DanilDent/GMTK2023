@@ -535,7 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9bf1595741ea14d9498339e9f2120b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _patternName: TestPattern
+  _patternName: LuckyAlex18962
   _isRecording: 0
 --- !u!1 &130048750
 GameObject:
@@ -1908,7 +1908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &645017764
 Transform:
   m_ObjectHideFlags: 0

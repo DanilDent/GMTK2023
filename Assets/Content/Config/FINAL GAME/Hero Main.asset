@@ -13,24 +13,23 @@ MonoBehaviour:
   m_Name: Hero Main
   m_EditorClassIdentifier: 
   data:
-  - _heroBehPatternName: TestPattern
-    _shopLists:
-    - {fileID: 11400000, guid: aae1b27ef1ec8214389046faf8cca73b, type: 2}
-    _nickname: LuckyAlex18962
-    _completableQuestsSO:
-    - QuestName: Clear the innkeeper's basement of rats
-      AvatarOnQuestAssigned: {fileID: 0}
-    CurrentAvatarParts:
-    - Value: {fileID: 21300000, guid: 07bb510d3ea0c8348b481cd21cb5a83e, type: 3}
-  - _heroBehPatternName: 4Graynd
-    _shopLists:
-    - {fileID: 11400000, guid: 2ab8e5432f5499145be235ea23c34af7, type: 2}
+  - _heroBehPatternName: LuckyAlex18962
+    _shopLists: []
     _nickname: 4Graynd
     _completableQuestsSO:
     - QuestName: Destroy the camp of dangerous bandits
       AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: 7ee85e382c6f81a419c59e07795d71df, type: 3}
+  - _heroBehPatternName: TestPattern
+    _shopLists:
+    - {fileID: 11400000, guid: aae1b27ef1ec8214389046faf8cca73b, type: 2}
+    _nickname: LuckyAlex18962
+    _completableQuestsSO:
+    - QuestName: Kill 6 rats
+      AvatarOnQuestAssigned: {fileID: 0}
+    CurrentAvatarParts:
+    - Value: {fileID: 21300000, guid: 07bb510d3ea0c8348b481cd21cb5a83e, type: 3}
   - _heroBehPatternName: Magnus Hammerbonk
     _shopLists:
     - {fileID: 11400000, guid: 2a5cc857bf68e6f41a8bce8128ebcee4, type: 2}
