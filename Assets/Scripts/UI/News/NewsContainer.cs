@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,24 +31,32 @@ public class NewsContainer : MonoBehaviour
 
     private void AddNewsToDisplay(Quest quest, bool isQuestSuccesed)
     {
-        NewsInfo createdNews = Instantiate(_newsPrefab, transform.position, Quaternion.identity);
-        createdNews.transform.SetParent(transform, false);
-        createdNews.transform.SetAsFirstSibling();
-        if (isQuestSuccesed)
-        {
-            createdNews.Initialize(quest.SuccessfulNews, NewsInfo.NewsType.Good);
-        }
-        else
-        {
-            createdNews.Initialize(quest.FailureNews, NewsInfo.NewsType.Bad);
-        }
+        var news = isQuestSuccesed ? quest.SuccessfulNews : quest.FailureNews;
+        var newsType = isQuestSuccesed ? NewsInfo.NewsType.Good : NewsInfo.NewsType.Bad;
 
-        _news.Enqueue(createdNews);
+        NewDayManager.Instance.NewsCommands.Enqueue
+        (
+            new NewDayCommand { CmdType = NewDayCmdType.DisplayNews, News = new ImportantNews { News = news, NewsType = newsType } }
+         );
 
-        if (_news.Count > _maxDisplayedNewsCount)
-        {
-            NewsInfo deletedNews = _news.Dequeue();
-            deletedNews.DestoyNewsInfo();
-        }
+        //NewsInfo createdNews = Instantiate(_newsPrefab, transform.position, Quaternion.identity);
+        //createdNews.transform.SetParent(transform, false);
+        //createdNews.transform.SetAsFirstSibling();
+        //if (isQuestSuccesed)
+        //{
+        //    createdNews.Initialize(quest.SuccessfulNews, NewsInfo.NewsType.Good);
+        //}
+        //else
+        //{
+        //    createdNews.Initialize(quest.FailureNews, NewsInfo.NewsType.Bad);
+        //}
+
+        //_news.Enqueue(createdNews);
+
+        //if (_news.Count > _maxDisplayedNewsCount)
+        //{
+        //    NewsInfo deletedNews = _news.Dequeue();
+        //    deletedNews.DestoyNewsInfo();
+        //}
     }
 }

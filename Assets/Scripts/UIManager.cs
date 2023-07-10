@@ -56,45 +56,85 @@ public class UIManager : MonoSingleton<UIManager>
     {
         _newDayWindow.gameObject.SetActive(true);
 
+        Sequence seq = DOTween.Sequence();
+
         foreach (var img in _fadeableImgs)
         {
-            img.DOFade(0f, 0f);
+            seq.Insert(0, img.DOFade(0f, 0f));
         }
 
         foreach (var txt in _fadeableTexts)
         {
-            txt.DOFade(0f, 0f);
+            seq.Insert(0, txt.DOFade(0f, 0f));
         }
 
         foreach (var img in _fadeableImgs)
         {
-            img.DOFade(1f, 2f);
+            seq.Insert(0, img.DOFade(1f, 2f));
         }
 
         foreach (var txt in _fadeableTexts)
         {
-            txt.DOFade(1f, 2f);
+            seq.Insert(0, txt.DOFade(1f, 2f));
         }
+
+        seq.OnComplete(() =>
+        {
+            NewDayManager.Instance.ExecuteNewsCommands();
+            NewDayWindowUIView.Instance.ShowNews();
+        });
+    }
+
+    public void SetCityBackground(int status)
+    {
+
+    }
+
+    public void UpdateBackground(Sprite background, Sprite backgroundNpc)
+    {
+        _cityBackgrouImg.sprite = background;
+        if (backgroundNpc != null)
+        {
+            _cityBackgroundNpcImg.sprite = backgroundNpc;
+            _cityBackgroundNpcImg.gameObject.SetActive(true);
+        }
+        else
+        {
+            _cityBackgroundNpcImg.gameObject.SetActive(false);
+        }
+        _cityBackgrouImg.gameObject.SetActive(true);
     }
 
     private void HandleCityStatusChange(int status)
     {
+        var newDayManager = NewDayManager.Instance;
+
         if (status == 0)
         {
-            _cityBackgrouImg.sprite = BaseCity;
-            _cityBackgroundNpcImg.sprite = BaseCityNpc;
-            _cityBackgroundNpcImg.gameObject.SetActive(true);
+            newDayManager.NewDayCommands.Enqueue(new NewDayCommand
+            {
+                CmdType = NewDayCmdType.SwitchBackground,
+                Background = BaseCity,
+                BackgroundNpc = BaseCityNpc
+            });
         }
         else if (status == 1)
         {
-            _cityBackgrouImg.sprite = HappyCity;
-            _cityBackgroundNpcImg.sprite = HappyCityNpc;
-            _cityBackgroundNpcImg.gameObject.SetActive(true);
+            newDayManager.NewDayCommands.Enqueue(new NewDayCommand
+            {
+                CmdType = NewDayCmdType.SwitchBackground,
+                Background = HappyCity,
+                BackgroundNpc = HappyCityNpc
+            });
         }
         else if (status == -1)
         {
-            _cityBackgrouImg.sprite = SadCity;
-            _cityBackgroundNpcImg.gameObject.SetActive(false);
+            newDayManager.NewDayCommands.Enqueue(new NewDayCommand
+            {
+                CmdType = NewDayCmdType.SwitchBackground,
+                Background = SadCity,
+                BackgroundNpc = null
+            });
         }
     }
 

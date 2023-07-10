@@ -14,10 +14,17 @@ public class SoundService : MonoSingleton<SoundService>
     public AudioClip HAPPY;
     public AudioClip LOSE;
     public AudioClip SAD;
-    public void Play(AudioClip clip)
+
+    public void Play(float duration = 0f)
+    {
+        _audio.volume = 0;
+        _audio.Play();
+        DOTween.To(() => _audio.volume, x => _audio.volume = x, 0.1f, duration);
+    }
+
+    public void SetClip(AudioClip clip)
     {
         _audio.clip = clip;
-        _audio.Play();
     }
 
     public void Stop(float duration = 0f)
@@ -38,17 +45,30 @@ public class SoundService : MonoSingleton<SoundService>
 
     private void HandleCityStatusChange(int status)
     {
+        var newDayManager = NewDayManager.Instance;
         if (status == 0)
         {
-            Play(BASE);
+            newDayManager.NewDayCommands.Enqueue(new NewDayCommand
+            {
+                CmdType = NewDayCmdType.SwitchMusic,
+                Audio = BASE
+            });
         }
         else if (status == 1)
         {
-            Play(HAPPY);
+            newDayManager.NewDayCommands.Enqueue(new NewDayCommand
+            {
+                CmdType = NewDayCmdType.SwitchMusic,
+                Audio = HAPPY
+            });
         }
         else if (status == -1)
         {
-            Play(SAD);
+            newDayManager.NewDayCommands.Enqueue(new NewDayCommand
+            {
+                CmdType = NewDayCmdType.SwitchMusic,
+                Audio = SAD
+            });
         }
     }
 }

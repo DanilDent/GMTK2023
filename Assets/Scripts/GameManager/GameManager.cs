@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     private int _eventIndex;
     private GameState _currentState;
     [SerializeField] private RectTransform _diagRect;
+    private int _dayIndex;
 
     public void SetCurrentTime(GameTime time) => _currentGameTime = time;
 
@@ -61,7 +62,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = 60;
-
         if (_instance == null)
         {
             _instance = this;
@@ -81,7 +81,8 @@ public class GameManager : MonoBehaviour
         SetGameState(GameState.AwaitingQuests);
 
         EventService.Instance.QuestAssigned += OnQuestAssined;
-        SoundService.Instance.Play(SoundService.Instance.BASE);
+        SoundService.Instance.SetClip(SoundService.Instance.BASE);
+        SoundService.Instance.Play(2f);
 
     }
 
@@ -130,17 +131,18 @@ public class GameManager : MonoBehaviour
                 HandleEvents();
 
                 if (_currentGameTime.Day >= _timelineConfig.Days.Length ||
-                   _currentGameTime >= _timelineConfig.Days[_currentGameTime.Day].EndOfDay)
+                   _currentGameTime >= _timelineConfig.Days[_dayIndex].EndOfDay)
                 {
                     _eventIndex = 0;
-                    if (_currentGameTime.Day + 1 >= _timelineConfig.Days.Length)
+                    if (_dayIndex + 1 >= _timelineConfig.Days.Length)
                     {
                         EventService.Instance.Victory?.Invoke();
                         SetGameState(GameState.GameOver);
                     }
                     else
                     {
-                        _currentGameTime = _timelineConfig.Days[_currentGameTime.Day + 1].StartOfDay;
+                        _currentGameTime = _timelineConfig.Days[_dayIndex + 1].StartOfDay;
+                        ++_dayIndex;
                         IsPaused = true;
                         EventService.Instance.DayEnd?.Invoke();
                         SoundService.Instance.Stop(duration: 2f);
@@ -166,10 +168,10 @@ public class GameManager : MonoBehaviour
     private void HandleEvents()
     {
         while (_currentGameTime.Day < _timelineConfig.Days.Length &&
-               _eventIndex < _timelineConfig.Days[_currentGameTime.Day].Timeline.Length &&
-               _currentGameTime >= _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex].GameTime)
+               _eventIndex < _timelineConfig.Days[_dayIndex].Timeline.Length &&
+               _currentGameTime >= _timelineConfig.Days[_dayIndex].Timeline[_eventIndex].GameTime)
         {
-            TimelineEventData eventData = _timelineConfig.Days[_currentGameTime.Day].Timeline[_eventIndex];
+            TimelineEventData eventData = _timelineConfig.Days[_dayIndex].Timeline[_eventIndex];
             if (eventData.EventType == TimelineEventType.NewHero)
             {
                 IsPaused = true;

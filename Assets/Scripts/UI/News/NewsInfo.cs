@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class NewsInfo : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _questName;
-    private News _news;
-    private NewsType _newsType;
-    private Image _selfImage;
+    [SerializeField] protected TextMeshProUGUI _questName;
+    protected News _news;
+    protected NewsType _newsType;
+    protected Image _selfImage;
 
     // Start is called before the first frame update
     public News News { get => _news; }
@@ -21,7 +19,7 @@ public class NewsInfo : MonoBehaviour
         Good
     }
 
-    public void Initialize(News news, NewsType newsType)
+    public virtual void Initialize(News news, NewsType newsType)
     {
         _news = news;
         _selfImage = GetComponent<Image>();
@@ -29,7 +27,7 @@ public class NewsInfo : MonoBehaviour
         UpdateUIElement();
     }
 
-    private void UpdateUIElement()
+    protected virtual void UpdateUIElement()
     {
         _questName.text = _news.description;
         switch (_newsType)
