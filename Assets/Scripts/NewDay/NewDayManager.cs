@@ -12,6 +12,15 @@ public class NewDayManager : MonoSingleton<NewDayManager>
         NewDayCommands = new Queue<NewDayCommand>();
     }
 
+    private void Start()
+    {
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+    }
+
     public void ExecuteNewsCommands()
     {
         NewDayWindowUIView.Instance.ClearContainer();

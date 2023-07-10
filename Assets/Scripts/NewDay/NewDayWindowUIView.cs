@@ -43,12 +43,7 @@ public class NewDayWindowUIView : MonoSingleton<NewDayWindowUIView>
 
     private void OnOkBtnClick()
     {
-        GameManager.Instance.IsPaused = false;
-        if (HeroBehPatternExecutor.IsEnabled)
-        {
-            HeroBehPatternExecutor.Instance.Resume();
-        }
-        NewDayManager.Instance.ExecuteNewDayCommands();
+        EventService.Instance.NextDay?.Invoke();
         gameObject.SetActive(false);
     }
 }

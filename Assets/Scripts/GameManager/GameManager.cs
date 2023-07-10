@@ -77,6 +77,9 @@ public class GameManager : MonoBehaviour
         _timer = (float)_timelineConfig.SecRealTimeToMinsGameTime / _timelineConfig.GameTimeStepChange;
         _eventService = EventService.Instance;
 
+        // Events
+        _eventService.NextDay += HandleNextDay;
+
         _currentGameTime = _timelineConfig.Days.FirstOrDefault().StartOfDay;
         SetGameState(GameState.AwaitingQuests);
 
@@ -90,6 +93,7 @@ public class GameManager : MonoBehaviour
     {
         _instance = null;
         EventService.Instance.QuestAssigned -= OnQuestAssined;
+        _eventService.NextDay -= HandleNextDay;
     }
 
     private void Update()
@@ -130,33 +134,45 @@ public class GameManager : MonoBehaviour
                 _currentGameTime += new GameTime(0, 0, minutes: 1);
                 HandleEvents();
 
-                if (_currentGameTime.Day >= _timelineConfig.Days.Length ||
-                   _currentGameTime >= _timelineConfig.Days[_dayIndex].EndOfDay)
+                if (_dayIndex < _timelineConfig.Days.Length &&
+                    _currentGameTime >= _timelineConfig.Days[_dayIndex].EndOfDay)
                 {
-                    _eventIndex = 0;
-                    if (_dayIndex + 1 >= _timelineConfig.Days.Length)
+                    IsPaused = true;
+                    EventService.Instance.DayEnd?.Invoke();
+                    SoundService.Instance.Stop(duration: 2f);
+                    if (HeroBehPatternExecutor.IsEnabled)
                     {
-                        EventService.Instance.Victory?.Invoke();
-                        SetGameState(GameState.GameOver);
+                        HeroBehPatternExecutor.Instance.Pause();
                     }
-                    else
-                    {
-                        _currentGameTime = _timelineConfig.Days[_dayIndex + 1].StartOfDay;
-                        ++_dayIndex;
-                        IsPaused = true;
-                        EventService.Instance.DayEnd?.Invoke();
-                        SoundService.Instance.Stop(duration: 2f);
-                        if (HeroBehPatternExecutor.IsEnabled)
-                        {
-                            HeroBehPatternExecutor.Instance.Pause();
-                        }
-                    }
+
+
                 }
 
                 GameTime deltaTime = _currentGameTime - _lastGameTimeTick;
                 _eventService.GameTimeUpdated?.Invoke();
                 //Debug.Log($"CurrentGameTime: {_currentGameTime}");
             }
+        }
+    }
+
+    private void HandleNextDay()
+    {
+        _eventIndex = 0;
+        if (_dayIndex + 1 >= _timelineConfig.Days.Length)
+        {
+            EventService.Instance.Victory?.Invoke();
+            SetGameState(GameState.GameOver);
+        }
+        else
+        {
+            ++_dayIndex;
+            _currentGameTime = _timelineConfig.Days[_dayIndex].StartOfDay;
+            IsPaused = false;
+            if (HeroBehPatternExecutor.IsEnabled)
+            {
+                HeroBehPatternExecutor.Instance.Resume();
+            }
+            NewDayManager.Instance.ExecuteNewDayCommands();
         }
     }
 
