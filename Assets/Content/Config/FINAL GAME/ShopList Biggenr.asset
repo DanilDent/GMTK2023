@@ -15,5 +15,5 @@ MonoBehaviour:
   RemainingMoney: 30
   Entries:
   - Bought a sword
-  AnimationTimeMilliSeconds: 2000
-  TimeToDisappearMilliSeconds: 2000
+  AnimationTimeMilliSeconds: 1000
+  TimeToDisappearMilliSeconds: 1000

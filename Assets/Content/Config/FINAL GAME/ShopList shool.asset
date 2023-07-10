@@ -15,5 +15,5 @@ MonoBehaviour:
   RemainingMoney: 99999999
   Entries:
   - Bought ALL
-  AnimationTimeMilliSeconds: 1500
-  TimeToDisappearMilliSeconds: 1500
+  AnimationTimeMilliSeconds: 1000
+  TimeToDisappearMilliSeconds: 1000

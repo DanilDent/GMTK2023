@@ -25,17 +25,17 @@ MonoBehaviour:
     GameTime:
       _day: 3
       _hours: 18
-      _minutes: 0
+      _minutes: 20
     Name: GloriousNymph
   - EventType: 0
     GameTime:
       _day: 3
       _hours: 18
-      _minutes: 30
+      _minutes: 50
     Name: Indiana13
   - EventType: 0
     GameTime:
       _day: 3
       _hours: 19
-      _minutes: 0
+      _minutes: 15
     Name: ImInUrMom
