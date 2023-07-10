@@ -25,17 +25,11 @@ MonoBehaviour:
     GameTime:
       _day: 1
       _hours: 18
-      _minutes: 0
-    Name: LuckyAlex18962
-  - EventType: 0
-    GameTime:
-      _day: 1
-      _hours: 18
-      _minutes: 40
+      _minutes: 4
     Name: 4Graynd
   - EventType: 0
     GameTime:
       _day: 1
-      _hours: 19
-      _minutes: 10
-    Name: GloriousNymph
+      _hours: 18
+      _minutes: 30
+    Name: LuckyAlex18962
