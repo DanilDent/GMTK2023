@@ -23,6 +23,10 @@ public class DiagButton : MonoBehaviour
 
     private void HandleOnClick()
     {
+        if (BtnType == ButtonType.GetQuest)
+        {
+            PlayerCursorBehaviour.Instance.LockDiagArea = false;
+        }
         EventService.Instance.DiagButtonClicked?.Invoke(BtnType);
     }
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -12,6 +10,12 @@ public class QuestSlot : MonoBehaviour, IDropHandler
         {
             questPiece.TryGetComponent(out QuestInformation questInformation);
             EventService.Instance.QuestAssigned.Invoke(questInformation.Quest);
+            PlayerCursorBehaviour.Instance.LockDiagArea = true;
+            if (!UIManager.Instance.IsTutorComplete)
+            {
+                UIManager.Instance.IsTutorComplete = true;
+                UIManager.Instance.HideTint();
+            }
             questPiece.GetComponent<RectTransform>().SetParent(questPiece.parent);
             questPiece.GetComponent<RectTransform>().localPosition = questPiece.lastPosition;
             questPiece.gameObject.SetActive(false);
