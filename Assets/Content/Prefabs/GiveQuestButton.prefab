@@ -247,7 +247,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: f47cebc7209a8d242b2bcf71f76ac0e2, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 38b24d9c6d1db5c48aab1a68a34e017f, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 38b24d9c6d1db5c48aab1a68a34e017f, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: 61efd30d0b652b045b7e93a7c24df130, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: ab67ad9ea10bf724d82b2ac2a557f175, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -258,7 +258,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5209817529598355704}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DialogManager, Assembly-CSharp
+        m_MethodName: DisplayTalk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3489541120097304842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,4 +304,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BtnType: 0
+  _btnPressed: {fileID: 21300000, guid: 55dd5b6f8041f584e8b4d949e8c59fc3, type: 3}
+  _btnNormal: {fileID: 21300000, guid: 38b24d9c6d1db5c48aab1a68a34e017f, type: 3}
   _btn: {fileID: 1688894225360973303}

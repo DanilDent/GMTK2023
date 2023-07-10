@@ -5,12 +5,16 @@ using UnityEngine.UI;
 public class DiagButton : MonoBehaviour
 {
     public ButtonType BtnType;
+    [SerializeField] private Sprite _btnPressed;
+    [SerializeField] private Sprite _btnNormal;
 
     [SerializeField] private Button _btn;
+    private Image _btnImg;
     IEnumerator curCoroutine;
 
     private void Start()
     {
+        _btnImg = GetComponent<Image>();
         _btn.onClick.AddListener(HandleOnClick);
         EventService.Instance.DiagButtonClickedByBot += HandleDiagButtonClickedByBot;
     }
@@ -44,7 +48,6 @@ public class DiagButton : MonoBehaviour
 
     private void OnDisable()
     {
-        _btn.interactable = true;
         if (curCoroutine != null)
         {
             StopCoroutine(curCoroutine);
@@ -54,9 +57,9 @@ public class DiagButton : MonoBehaviour
 
     private IEnumerator DiagBtnClickedByBotCoroutine()
     {
-        _btn.interactable = false;
+        _btnImg.sprite = _btnPressed;
         yield return new WaitForSeconds(0.2f);
-        _btn.interactable = true;
+        _btnImg.sprite = _btnNormal;
         _btn.onClick?.Invoke();
         //switch (BtnType)
         //{

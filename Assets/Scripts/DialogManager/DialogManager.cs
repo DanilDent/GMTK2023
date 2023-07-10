@@ -51,6 +51,15 @@ public class DialogManager : MonoSingleton<DialogManager>
         EventService.Instance.QuestAssigned += OnQuestGivenToHero;
 
         _defaultPosition = _envelope;
+
+        if (GameManager.Instance.LockDiagArea)
+        {
+            foreach (var btn in _btns)
+            {
+                btn.interactable = false;
+                btn.gameObject.GetComponent<Image>().raycastTarget = false;
+            }
+        }
     }
 
     protected override void OnDestroy()

@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Public interface
-    public bool LockDiagArea = false;
+    public bool LockDiagArea;
 
     public bool IsPaused
     {
