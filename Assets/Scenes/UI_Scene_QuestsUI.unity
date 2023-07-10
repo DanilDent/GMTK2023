@@ -2272,7 +2272,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &655692979
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8491,7 +8491,7 @@ MonoBehaviour:
   - {fileID: 89636207}
   - {fileID: 4675433544943735011}
   _newDayWindow: {fileID: 1358570503}
-  _okBtn: {fileID: 0}
+  _okBtn: {fileID: 1688894225814441447}
 --- !u!1 &2053901715
 GameObject:
   m_ObjectHideFlags: 0
