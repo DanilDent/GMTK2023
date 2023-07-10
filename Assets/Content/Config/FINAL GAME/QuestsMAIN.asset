@@ -258,7 +258,7 @@ MonoBehaviour:
       _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
-  - name: Destroy a thousand ghouls
+  - name: Destroy a thousand of ghouls
     description: Absolute hardcore
     minStartTime:
       _day: 4
