@@ -5190,6 +5190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1427590225}
   - component: {fileID: 1427590224}
+  - component: {fileID: 1427590226}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5209,7 +5210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895024734fd906b4f869beed39820380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShouldHideCursor: 0
+  LockDiagArea: 1
   _timelineConfig: {fileID: 11400000, guid: 47ed835e504ee6442bd9e1f36a038f3d, type: 2}
   _diagRect: {fileID: 856402414}
 --- !u!4 &1427590225
@@ -5227,6 +5228,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1427590226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427590223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42ba5ced087d1447a93d886e06e0cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LockDiagArea: 1
+  _diagRect: {fileID: 856402414}
+  _duration: 0
 --- !u!1 &1463326926
 GameObject:
   m_ObjectHideFlags: 0

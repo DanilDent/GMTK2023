@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Public interface
-    public bool ShouldHideCursor = false;
+    public bool LockDiagArea = false;
 
     public bool IsPaused
     {
@@ -104,10 +104,6 @@ public class GameManager : MonoBehaviour
         }
 
         Tick();
-        if (ShouldHideCursor)
-        {
-            HideCursor();
-        }
     }
 
     private void HideCursor()
