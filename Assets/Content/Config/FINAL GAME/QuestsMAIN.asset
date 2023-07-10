@@ -13,6 +13,30 @@ MonoBehaviour:
   m_Name: QuestsMAIN
   m_EditorClassIdentifier: 
   data:
+  - name: Destroy the camp of bandits
+    description: Quest for those who like to fight
+    minStartTime:
+      _day: 1
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: Road near the Great Forest is free from bandits
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 1
+    failureNews:
+      description: Bandits are robbing honest peasants
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 1
+    maxLifetime:
+      _day: 0
+      _hours: 1
+      _minutes: 0
+    successfulHPChange: 2
+    failureHPChange: -5
   - name: Kill 6 rats
     description: Quest for beginner players
     minStartTime:
@@ -20,13 +44,14 @@ MonoBehaviour:
       _hours: 18
       _minutes: 0
     successfulNews:
-      description: Our village's Inn grand reopening
+      description: 'All rats have been destroyed in the tavern, now everybody can
+        eat there '
       timeToNews:
         _day: 0
         _hours: 0
         _minutes: 0
     failureNews:
-      description: The innkeeper had to close the tavern
+      description: The rats destroyed all food in the tavern, the village is starving
       timeToNews:
         _day: 0
         _hours: 0
@@ -34,131 +59,105 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 30
-    successfulHPChange: 1
-    failureHPChange: -1
-  - name: Destroy the camp of dangerous bandits
-    description: Large number of serious rivals
-    minStartTime:
-      _day: 1
-      _hours: 18
-      _minutes: 0
-    successfulNews:
-      description: Road near the Great Forest is free from bandits again.
-      timeToNews:
-        _day: 0
-        _hours: 0
-        _minutes: 1
-    failureNews:
-      description: The residents of our village are constantly being robbed in the
-        forest
-      timeToNews:
-        _day: 0
-        _hours: 0
-        _minutes: 1
-    maxLifetime:
-      _day: 0
-      _hours: 2
       _minutes: 0
     successfulHPChange: 2
-    failureHPChange: -2
-  - name: Seduce merchant's wife from Far Foxes village
-    description: Contains erotic content
+    failureHPChange: -5
+  - name: Collect herbs in the forest.
+    description: Quest for players who don't like violence
     minStartTime:
       _day: 1
       _hours: 18
-      _minutes: 40
+      _minutes: 0
     successfulNews:
-      description: Thanks to Big Foxes discounts our village gets big profits.
+      description: 
       timeToNews:
-        _day: 0
+        _day: 5
         _hours: 0
-        _minutes: 30
+        _minutes: 10
     failureNews:
-      description: No one trades with our village anymore
+      description: 
       timeToNews:
-        _day: 0
+        _day: 5
         _hours: 0
         _minutes: 30
     maxLifetime:
       _day: 0
-      _hours: 2
+      _hours: 1
       _minutes: 0
-    successfulHPChange: 3
-    failureHPChange: -4
-  - name: Dance on the Kniaz's Banquet
+    successfulHPChange: 0
+    failureHPChange: 0
+  - name: Reach the ends of the earth
+    description: Allows to fully complete the game
+    minStartTime:
+      _day: 2
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: Unknown adventurer finds the ends of the earth
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 20
+    failureNews:
+      description: The ends of the earth not yet found
+      timeToNews:
+        _day: 0
+        _hours: 3
+        _minutes: 0
+    maxLifetime:
+      _day: 0
+      _hours: 1
+      _minutes: 30
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Dance at the Kniaz's birthday
     description: Available to donate players
     minStartTime:
       _day: 2
       _hours: 18
       _minutes: 0
     successfulNews:
-      description: The Kniaz's Banquet hosted the most amazing dance party
+      description: The Kniaz's is pleased with how his birthday went
       timeToNews:
         _day: 0
         _hours: 1
         _minutes: 0
     failureNews:
-      description: No one came to the party at the Kniaz's Banquet
+      description: No one came to Kniaz's party, so he raises taxes
       timeToNews:
         _day: 0
         _hours: 1
         _minutes: 0
     maxLifetime:
       _day: 0
-      _hours: 3
-      _minutes: 5
-    successfulHPChange: 1
-    failureHPChange: -2
-  - name: Slay the Damned Idolische
-    description: An incredible trial for those who challenge themselves.
+      _hours: 1
+      _minutes: 30
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Destroy the dragon
+    description: The incredible challenge
     minStartTime:
       _day: 2
       _hours: 18
-      _minutes: 30
+      _minutes: 0
     successfulNews:
-      description: 'Unbelievable: the Damned Idolische has been slayed'
+      description: The dragon that the whole village was afraid of is defeated
       timeToNews:
         _day: 0
         _hours: 1
-        _minutes: 30
+        _minutes: 0
     failureNews:
-      description: Damned Idolische is already close
+      description: A terrible dragon attacked our village
       timeToNews:
         _day: 0
         _hours: 1
         _minutes: 10
     maxLifetime:
       _day: 0
-      _hours: 5
-      _minutes: 5
+      _hours: 1
+      _minutes: 30
     successfulHPChange: 2
-    failureHPChange: -3
-  - name: Find a koshchei needle
-    description: This quest allows to fully complete the game
-    minStartTime:
-      _day: 2
-      _hours: 18
-      _minutes: 0
-    successfulNews:
-      description: The Koshchey has been defeated - the residents can breathe a sigh
-        of relief
-      timeToNews:
-        _day: 0
-        _hours: 0
-        _minutes: 20
-    failureNews:
-      description: Koshchey with his army is advancing towards the village
-      timeToNews:
-        _day: 0
-        _hours: 3
-        _minutes: 0
-    maxLifetime:
-      _day: 1
-      _hours: 0
-      _minutes: 0
-    successfulHPChange: 2
-    failureHPChange: -4
+    failureHPChange: -5
   - name: Bring the Red Flover
     description: Thoughtful players who perfectly know rules of this world can complete
       this quest
@@ -304,27 +303,51 @@ MonoBehaviour:
       _minutes: 0
     successfulHPChange: 1
     failureHPChange: -3
-  - name: Collect herbs in the forest.
-    description: The quest is suitable for people who don't like violence
+  - name: Seduce merchant's wife from Far Foxes village
+    description: Contains erotic content
     minStartTime:
       _day: 1
       _hours: 18
-      _minutes: 15
+      _minutes: 40
     successfulNews:
-      description: 
+      description: Thanks to Big Foxes discounts our village gets big profits.
       timeToNews:
-        _day: 5
+        _day: 0
         _hours: 0
-        _minutes: 10
+        _minutes: 30
     failureNews:
-      description: 
+      description: No one trades with our village anymore
       timeToNews:
-        _day: 5
+        _day: 0
         _hours: 0
         _minutes: 30
     maxLifetime:
       _day: 0
-      _hours: 1
+      _hours: 2
+      _minutes: 0
+    successfulHPChange: 3
+    failureHPChange: -4
+  - name: Talk to the old man
+    description: For players, who love dialogue
+    minStartTime:
+      _day: 1
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 2
       _minutes: 0
     successfulHPChange: 0
     failureHPChange: 0

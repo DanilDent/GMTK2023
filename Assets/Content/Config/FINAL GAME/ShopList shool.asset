@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RemainingMoney: 99999999
   Entries:
-  - Sold the admiral's earring
-  - Sold baba yaga's broom
+  - Bought ALL
   AnimationTimeMilliSeconds: 1500
   TimeToDisappearMilliSeconds: 1500

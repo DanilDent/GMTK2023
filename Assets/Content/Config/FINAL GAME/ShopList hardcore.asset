@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RemainingMoney: 5431
   Entries:
-  - Sold 51 health point
-  AnimationTimeMilliSeconds: 1500
-  TimeToDisappearMilliSeconds: 1500
+  - Sold ALL
+  AnimationTimeMilliSeconds: 1000
+  TimeToDisappearMilliSeconds: 1000
