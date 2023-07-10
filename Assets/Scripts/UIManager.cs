@@ -183,6 +183,8 @@ public class UIManager : MonoSingleton<UIManager>
         Hero hero = _heroManager.Heroes.FirstOrDefault(_ => _.Nickname == heroNickname);
         GameManager.Instance.CurrentHeroNickname = hero.Nickname;
         _heroNicknameText.text = hero.Nickname;
+
+        _heroAvatarImg.gameObject.SetActive(true);
         // Put hero comming animation here
 
         Debug.Log("?????????");
