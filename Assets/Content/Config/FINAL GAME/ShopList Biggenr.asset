@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24d5040644c442ed8e1024fce9eda1d3, type: 3}
-  m_Name: Biggenr
+  m_Name: ShopList Biggenr
   m_EditorClassIdentifier: 
   RemainingMoney: 30
   Entries: []
