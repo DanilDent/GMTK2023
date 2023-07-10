@@ -1386,7 +1386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &526533866
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1680,6 +1680,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e84b65f6b68cbca4a9a9c63e390ea836, type: 3}
       propertyPath: m_Name
       value: Advanced FPS Counter
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e84b65f6b68cbca4a9a9c63e390ea836, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e84b65f6b68cbca4a9a9c63e390ea836, type: 3}
       propertyPath: m_RootOrder
@@ -2616,7 +2620,7 @@ MonoBehaviour:
     ullamcorper ligula nec mattis porttitor. Nullam consequat lectus vitae lacus
     interdum ultricies.
 
-    
+
 
     Proin eu erat tortor. Ut dignissim egestas dictum.
     Nullam orci metus, tincidunt ac massa sed, euismod maximus felis. Sed urna urna,
@@ -5103,7 +5107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 35}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1201759485
@@ -5874,7 +5878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895024734fd906b4f869beed39820380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LockDiagArea: 0
+  LockDiagArea: 1
   _timelineConfig: {fileID: 11400000, guid: 47ed835e504ee6442bd9e1f36a038f3d, type: 2}
   _diagRect: {fileID: 856402414}
 --- !u!4 &1427590225

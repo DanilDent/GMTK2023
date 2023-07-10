@@ -99,6 +99,10 @@ public class GameManager : MonoBehaviour
     private void HandleStartPlay()
     {
         IsPaused = false;
+        if (HeroBehPatternExecutor.IsEnabled)
+        {
+            HeroBehPatternExecutor.Instance.Resume();
+        }
         SoundService.Instance.SetClip(SoundService.Instance.BASE);
         SoundService.Instance.Play(2f);
         UIManager.Instance.HideGreeting();
