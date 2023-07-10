@@ -12,7 +12,7 @@ public struct Quest
     [SerializeField] private GameTime maxLifetime;
     [SerializeField] private int successfulHPChange;
     [SerializeField] private int failureHPChange;
-    
+
     private string heroName;
     private bool result;
     private GameTime timeBecomeAvalaible;
@@ -26,8 +26,8 @@ public struct Quest
         maxLifetime = _maxLifetime;
         successfulNews = _successfulNews;
         failureNews = _failureNews;
-        successfulHPChange = 0; 
-        failureHPChange=0;
+        successfulHPChange = 0;
+        failureHPChange = 0;
         heroName = "";
         result = _result;
         assignedTime = new GameTime();
@@ -60,7 +60,7 @@ public struct Quest
 
     public override bool Equals(object obj)
     {
-        if(obj is Quest quest)
+        if (obj is Quest quest)
         {
             return name == quest.name;
         }

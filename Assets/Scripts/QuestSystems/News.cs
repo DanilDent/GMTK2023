@@ -3,6 +3,7 @@
 [Serializable]
 public struct News
 {
+    public static News Empty = new();
     public string description;
     public GameTime timeToNews;
 
