@@ -36,7 +36,7 @@ namespace GitIntegration.ShopSystems
                 ShopListRenderer.Instance.Render(shopList);
                 if (HeroBehPatternExecutor.IsEnabled)
                 {
-                    HeroBehPatternExecutor.Instance.Pause();
+                    HeroBehPatternExecutor.Instance.HideBotCursor();
                 }
                 ShopListRenderer.Instance.OnRenderComplete += OnShopListRenderComplete;
             }
@@ -47,7 +47,7 @@ namespace GitIntegration.ShopSystems
             ShopListRenderer.Instance.OnRenderComplete -= OnShopListRenderComplete;
             if (HeroBehPatternExecutor.IsEnabled)
             {
-                HeroBehPatternExecutor.Instance.Resume();
+                HeroBehPatternExecutor.Instance.ShowBotCursor();
             }
         }
     }

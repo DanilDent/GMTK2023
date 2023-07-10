@@ -35,7 +35,15 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
         _timer = _timerMax;
     }
 
+    public void HideBotCursor()
+    {
+        _heroCursorRect.gameObject.SetActive(false);
+    }
 
+    public void ShowBotCursor()
+    {
+        _heroCursorRect.gameObject.SetActive(true);
+    }
 
     public void Pause()
     {
