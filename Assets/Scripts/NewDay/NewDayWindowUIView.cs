@@ -25,6 +25,7 @@ public class NewDayWindowUIView : MonoSingleton<NewDayWindowUIView>
     {
         PlayerCursorBehaviour.Instance.LockDiagArea = true;
         _newsContainer.gameObject.SetActive(false);
+        ClearContainer();
     }
 
     public void AddNews(ImportantNews news)
