@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class City : MonoBehaviour
+public class City : MonoSingleton<City>
 {
     [SerializeField] private CityConfig config;
     [SerializeField] private int currentHealth;

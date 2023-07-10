@@ -113,7 +113,7 @@ public class UIManager : MonoSingleton<UIManager>
         //{
         //    GameManager.Instance.CurrentHeroNickname = string.Empty;
         //});
-        GameManager.Instance.CurrentHeroNickname = string.Empty;
+        //GameManager.Instance.CurrentHeroNickname = string.Empty;
 
     }
 

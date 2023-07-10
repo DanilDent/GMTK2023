@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Day 3
   m_EditorClassIdentifier: 
   _startOfDay:
-    _day: 3
-    _hours: 18
-    _minutes: 0
-  _endOfDay:
     _day: 2
     _hours: 20
     _minutes: 15
+  _endOfDay:
+    _day: 3
+    _hours: 18
+    _minutes: 0
   _timeline:
   - EventType: 0
     GameTime:
