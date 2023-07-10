@@ -37,7 +37,6 @@ public class HeroManager : MonoBehaviour
 
     private void SubscribeToEvents()
     {
-        EventService.Instance.QuestCompleted += OnQuestCompleted;
         EventService.Instance.QuestAssigned += OnQuestAssigned;
     }
 
@@ -48,7 +47,6 @@ public class HeroManager : MonoBehaviour
 
     private void UnsubscribeFromEvents()
     {
-        EventService.Instance.QuestCompleted -= OnQuestCompleted;
         EventService.Instance.QuestAssigned -= OnQuestAssigned;
     }
     private void OnQuestAssigned(Quest quest)
@@ -62,29 +60,12 @@ public class HeroManager : MonoBehaviour
         hero.CurrentAvatarParts = new List<Hero.Avatar> { avatarObj };
         EventService.Instance.HeroMoodChanged?.Invoke(new OnHeroMoodChangedEventArgs(hero));
     }
-    private void OnQuestCompleted(Quest quest, bool success)
-    {
-        OnQuestCompleted(quest, quest.HeroName);
-    }
 
     public bool IsQuestCompletable(Quest quest, Hero hero)
     {
         return hero.CompletableQuests.Contains(quest.Name);
     }
 
-    public void OnQuestCompleted(Quest quest, string heroName)
-    {
-        if (heroName == string.Empty)
-        {
-            return;
-        }
-        Hero hero = GetHeroByName(heroName);
-        int bonus;
-        if (!hero.CompletableQuests.Contains(quest.Name))
-        {
-            return;
-        }
-    }
 
     public Hero GetHeroByName(string heroName)
     {

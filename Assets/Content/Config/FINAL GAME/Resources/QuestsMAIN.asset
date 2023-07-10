@@ -1,0 +1,428 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f4161882c3d734fa8c0ddd74fc8ab7, type: 3}
+  m_Name: QuestsMAIN
+  m_EditorClassIdentifier: 
+  data:
+  - name: Destroy the camp of bandits
+    description: Quest for those who like to fight
+    minStartTime:
+      _day: 1
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: Road near the Great Forest is free from bandits
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 1
+    failureNews:
+      description: Bandits are robbing honest peasants
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 1
+    maxLifetime:
+      _day: 0
+      _hours: 1
+      _minutes: 10
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Kill 6 rats
+    description: Quest for beginner players
+    minStartTime:
+      _day: 1
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: 'All rats have been destroyed in the tavern, now everybody can
+        eat there '
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 0
+    failureNews:
+      description: The rats destroyed all food in the tavern, the village is starving
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 0
+    maxLifetime:
+      _day: 0
+      _hours: 1
+      _minutes: 10
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Collect herbs in the forest.
+    description: Quest for players who don't like violence
+    minStartTime:
+      _day: 1
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: 
+      timeToNews:
+        _day: 5
+        _hours: 0
+        _minutes: 10
+    failureNews:
+      description: 
+      timeToNews:
+        _day: 5
+        _hours: 0
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 1
+      _minutes: 20
+    successfulHPChange: 0
+    failureHPChange: 0
+  - name: Reach the ends of the world
+    description: Allows to complete the game
+    minStartTime:
+      _day: 2
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: Unknown adventurer finds the ends of the world
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 20
+    failureNews:
+      description: The ends of the world not yet found
+      timeToNews:
+        _day: 0
+        _hours: 3
+        _minutes: 0
+    maxLifetime:
+      _day: 0
+      _hours: 1
+      _minutes: 20
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Dance at the Kniaz's birthday
+    description: Available only for donate players
+    minStartTime:
+      _day: 2
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: The Kniaz's is pleased with how his birthday went
+      timeToNews:
+        _day: 0
+        _hours: 1
+        _minutes: 0
+    failureNews:
+      description: No one came to Kniaz's party, so he raises taxes
+      timeToNews:
+        _day: 0
+        _hours: 1
+        _minutes: 0
+    maxLifetime:
+      _day: 0
+      _hours: 1
+      _minutes: 20
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Destroy the dragon
+    description: The incredible challenge
+    minStartTime:
+      _day: 2
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: The dragon that the whole village was afraid of is defeated
+      timeToNews:
+        _day: 0
+        _hours: 1
+        _minutes: 0
+    failureNews:
+      description: A terrible dragon attacked our village
+      timeToNews:
+        _day: 0
+        _hours: 1
+        _minutes: 10
+    maxLifetime:
+      _day: 0
+      _hours: 1
+      _minutes: 20
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Find the Apple of Youth
+    description: For real adventure lovers
+    minStartTime:
+      _day: 3
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: The Apple of Youth returned to our village - people are happy
+      timeToNews:
+        _day: 0
+        _hours: 3
+        _minutes: 0
+    failureNews:
+      description: People miss the Apple of Youth - they are depressed
+      timeToNews:
+        _day: 0
+        _hours: 3
+        _minutes: 0
+    maxLifetime:
+      _day: 0
+      _hours: 1
+      _minutes: 20
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Fight with a guard
+    description: Nobody can kill the guard
+    minStartTime:
+      _day: 3
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: Raging Adventurer Destroyed by Guardians
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: An evil adventurer has been killing civilians in secret from the
+        guards
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 15
+    maxLifetime:
+      _day: 0
+      _hours: 1
+      _minutes: 20
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Seduce the merchant's wife
+    description: Contains erotic content
+    minStartTime:
+      _day: 3
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: Our village has improved its trade thanks to the merchant's wife
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: The merchant's wife refuses to trade with us - our village is
+        getting poorer
+      timeToNews:
+        _day: 0
+        _hours: 1
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 1
+      _minutes: 20
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Rescue a hostage with a partner
+    description: Cooperation with another real player
+    minStartTime:
+      _day: 4
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: Brave adventurers saved the doctor's son from the clutches of
+        robbers
+      timeToNews:
+        _day: 0
+        _hours: 1
+        _minutes: 0
+    failureNews:
+      description: The doctor's son, who was held hostage, died. The doctor is sad
+        and cannot heal
+      timeToNews:
+        _day: 0
+        _hours: 1
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 1
+      _minutes: 20
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Destroy a thousand of ghouls
+    description: Absolute hardcore
+    minStartTime:
+      _day: 4
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: Ghouls will never disturb us again
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: The villagers were attacked by ghouls
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 2
+      _minutes: 0
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Fishing
+    description: Everyone thinks, that this quest is boring
+    minStartTime:
+      _day: 4
+      _hours: 18
+      _minutes: 20
+    successfulNews:
+      description: Finally, in our village, fish began to be sold again
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: Residents of the city have not eaten fish for 2 years
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 1
+      _minutes: 0
+    successfulHPChange: 2
+    failureHPChange: -5
+  - name: Talk to the old man
+    description: For players, who love dialogue
+    minStartTime:
+      _day: 2
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 2
+      _minutes: 0
+    successfulHPChange: 0
+    failureHPChange: 0
+  - name: 'Deliver a package '
+    description: Needs a lot of walking
+    minStartTime:
+      _day: 3
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 1
+      _minutes: 30
+    successfulHPChange: 0
+    failureHPChange: 0
+  - name: Killing skeletons in the dungeon
+    description: For grind lovers
+    minStartTime:
+      _day: 3
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 2
+      _minutes: 0
+    successfulHPChange: 0
+    failureHPChange: 0
+  - name: Lost Temple Exploration
+    description: Many mysteries to be solved
+    minStartTime:
+      _day: 4
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 2
+      _minutes: 0
+    successfulHPChange: 0
+    failureHPChange: 0
+  - name: Help the alchemist
+    description: Alchemy skills required
+    minStartTime:
+      _day: 4
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 2
+      _minutes: 0
+    successfulHPChange: 0
+    failureHPChange: 0
