@@ -25,13 +25,13 @@ MonoBehaviour:
     GameTime:
       _day: 4
       _hours: 18
-      _minutes: 0
+      _minutes: 20
     Name: JustBen
   - EventType: 0
     GameTime:
       _day: 4
       _hours: 18
-      _minutes: 30
+      _minutes: 50
     Name: NoDamageOnTwitch1
   - EventType: 0
     GameTime:

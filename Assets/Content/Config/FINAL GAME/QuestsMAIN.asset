@@ -289,7 +289,7 @@ MonoBehaviour:
       _hours: 18
       _minutes: 20
     successfulNews:
-      description: Finally, in our game, fish began to be sold again
+      description: Finally, in our village, fish began to be sold again
       timeToNews:
         _day: 0
         _hours: 0

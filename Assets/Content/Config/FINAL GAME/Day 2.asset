@@ -25,7 +25,7 @@ MonoBehaviour:
     GameTime:
       _day: 2
       _hours: 18
-      _minutes: 0
+      _minutes: 15
     Name: Nagibator777
   - EventType: 0
     GameTime:
