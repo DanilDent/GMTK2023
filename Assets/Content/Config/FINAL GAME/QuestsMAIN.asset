@@ -330,7 +330,103 @@ MonoBehaviour:
   - name: Talk to the old man
     description: For players, who love dialogue
     minStartTime:
-      _day: 1
+      _day: 2
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 2
+      _minutes: 0
+    successfulHPChange: 0
+    failureHPChange: 0
+  - name: 'Deliver a package '
+    description: Needs a lot of walking
+    minStartTime:
+      _day: 3
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 2
+      _minutes: 0
+    successfulHPChange: 0
+    failureHPChange: 0
+  - name: Killing skeletons in the dungeon
+    description: For grind lovers
+    minStartTime:
+      _day: 3
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 2
+      _minutes: 0
+    successfulHPChange: 0
+    failureHPChange: 0
+  - name: Lost Temple Exploration
+    description: Many mysteries to be solved
+    minStartTime:
+      _day: 4
+      _hours: 18
+      _minutes: 0
+    successfulNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    failureNews:
+      description: 
+      timeToNews:
+        _day: 0
+        _hours: 0
+        _minutes: 30
+    maxLifetime:
+      _day: 0
+      _hours: 2
+      _minutes: 0
+    successfulHPChange: 0
+    failureHPChange: 0
+  - name: Help the alchemist
+    description: Alchemy skills required
+    minStartTime:
+      _day: 4
       _hours: 18
       _minutes: 0
     successfulNews:
