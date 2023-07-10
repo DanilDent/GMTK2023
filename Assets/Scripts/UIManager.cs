@@ -175,7 +175,10 @@ public class UIManager : MonoSingleton<UIManager>
         // Put hero comming animation here
 
         Debug.Log("?????????");
-        _heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x - _animationPercentForComing * Screen.width, 1f).From();
+        //_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x - _animationPercentForComing * Screen.width, 1f).From();
+        _heroAvatarImg.DOFade(0f, 0f);
+        _heroNicknameText.DOFade(0f, 0f);
+
         _heroAvatarImg.DOFade(1, 1);
         _heroNicknameText.DOFade(1, 1);
         _heroAvatarImg.sprite = hero.CurrentAvatarParts[0].Value;
@@ -185,32 +188,23 @@ public class UIManager : MonoSingleton<UIManager>
     {
         var diagManager = DialogManager.Instance;
 
-        Sequence seq = DOTween.Sequence();
-
         diagManager.DisplayBlank();
-        seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x + _animationPercentForLeaving * Screen.width, 1f));
+        //seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x + _animationPercentForLeaving * Screen.width, 1f));
 
-        _heroAvatarImg.DOFade(0, 1);
-        _heroNicknameText.DOFade(0, 1);
-        seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x, 1f)).OnComplete(() =>
-        {
-            diagManager.DisplayHello();
-        });
-        _heroAvatarImg.DOFade(1, 1);
-        _heroNicknameText.DOFade(1, 1);
+        Sequence seq = DOTween.Sequence();
+        seq.Insert(0, _heroAvatarImg.DOFade(0, 1));
+        seq.Insert(0, _heroNicknameText.DOFade(0, 1));
+        seq.Append(_heroAvatarImg.DOFade(1, 1));
+        seq.Insert(1f, _heroNicknameText.DOFade(1, 1));
+        seq.OnComplete(() => diagManager.DisplayHello());
     }
 
     private void HandleHeroLeftFromScreen()
     {
-        Debug.Log("????????????");
         Sequence seq = DOTween.Sequence();
-        _heroAvatarImg.DOFade(0, 1);
-        _heroNicknameText.DOFade(0, 1);
-        seq.Append(_heroAvatarRect.DOMoveX(_defaultHeroAvatarPosition.x + _animationPercentForLeaving * Screen.width, 1f)).OnComplete(() =>
-        {
-            GameManager.Instance.CurrentHeroNickname = string.Empty;
-        });
-        GameManager.Instance.CurrentHeroNickname = string.Empty;
+        seq.Insert(0, _heroAvatarImg.DOFade(0, 1));
+        seq.Insert(0, _heroNicknameText.DOFade(0, 1));
+        seq.OnComplete(() => { GameManager.Instance.CurrentHeroNickname = string.Empty; });
     }
 
     private void HandleGameTimeUpdated()
