@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class UIManager : MonoSingleton<UIManager>
 {
+    [SerializeField] private Button _startPlayBtn;
+    [SerializeField] private RectTransform _greetingWindow;
+
+    //
     [SerializeField] private Image _tutorTintImg;
     public bool IsTutorComplete = false;
     private Color _defaultTintColor;
@@ -56,6 +60,13 @@ public class UIManager : MonoSingleton<UIManager>
         _eventService.CityStatusChange += HandleCityStatusChange;
         _eventService.DayEnd += HandleDayEnd;
         _eventService.DiagButtonClicked += HandleFirstTimeGetQuestButtonClick;
+        //
+        _startPlayBtn.onClick.AddListener(OnStartPlay);
+    }
+
+    private void OnStartPlay()
+    {
+        EventService.Instance.StartPlay?.Invoke();
     }
 
     public void HideTint()
@@ -223,5 +234,17 @@ public class UIManager : MonoSingleton<UIManager>
         _eventService.CityStatusChange -= HandleCityStatusChange;
         _eventService.DayEnd -= HandleDayEnd;
         _eventService.DiagButtonClicked += HandleFirstTimeGetQuestButtonClick;
+        //
+        _startPlayBtn.onClick.RemoveAllListeners();
+    }
+
+    public void ShowGreeting()
+    {
+        _greetingWindow.gameObject.SetActive(true);
+    }
+
+    public void HideGreeting()
+    {
+        _greetingWindow.gameObject.SetActive(false);
     }
 }

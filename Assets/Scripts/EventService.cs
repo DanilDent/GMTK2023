@@ -55,4 +55,6 @@ public class EventService
 
     public Action DayEnd;
     public Action NextDay;
+
+    public Action StartPlay;
 }

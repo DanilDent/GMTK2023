@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public enum GameState
     {
+        Hello,
         AwaitingQuests,
         NewHero,
         BehaviourAnalysis,
@@ -79,14 +80,28 @@ public class GameManager : MonoBehaviour
 
         // Events
         _eventService.NextDay += HandleNextDay;
-
+        _eventService.StartPlay += HandleStartPlay;
+        //
         _currentGameTime = _timelineConfig.Days.FirstOrDefault().StartOfDay;
-        SetGameState(GameState.AwaitingQuests);
+        SetGameState(GameState.Hello);
 
         EventService.Instance.QuestAssigned += OnQuestAssined;
+
+        IsPaused = true;
+        if (HeroBehPatternExecutor.IsEnabled)
+        {
+            HeroBehPatternExecutor.Instance.Pause();
+        }
+
+        UIManager.Instance.ShowGreeting();
+    }
+
+    private void HandleStartPlay()
+    {
+        IsPaused = false;
         SoundService.Instance.SetClip(SoundService.Instance.BASE);
         SoundService.Instance.Play(2f);
-
+        UIManager.Instance.HideGreeting();
     }
 
     private void OnDestroy()
@@ -94,6 +109,7 @@ public class GameManager : MonoBehaviour
         _instance = null;
         EventService.Instance.QuestAssigned -= OnQuestAssined;
         _eventService.NextDay -= HandleNextDay;
+        _eventService.StartPlay -= HandleStartPlay;
     }
 
     private void Update()
