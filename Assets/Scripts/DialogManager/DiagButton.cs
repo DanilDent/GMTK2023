@@ -12,9 +12,13 @@ public class DiagButton : MonoBehaviour
     private Image _btnImg;
     IEnumerator curCoroutine;
 
-    private void Start()
+    private void Awake()
     {
         _btnImg = GetComponent<Image>();
+    }
+
+    private void Start()
+    {
         _btn.onClick.AddListener(HandleOnClick);
         EventService.Instance.DiagButtonClickedByBot += HandleDiagButtonClickedByBot;
     }
@@ -46,8 +50,14 @@ public class DiagButton : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        _btnImg.sprite = _btnNormal;
+    }
+
     private void OnDisable()
     {
+        _btnImg.sprite = _btnNormal;
         if (curCoroutine != null)
         {
             StopCoroutine(curCoroutine);
