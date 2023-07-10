@@ -90,7 +90,7 @@ public class QuestManager : MonoBehaviour
             {
                 avalaibleQuests.Remove(_quest);
                 EventService.Instance.QuestLifetimeEnded?.Invoke(_quest);
-                //EventService.Instance.QuestCompleted?.Invoke(_quest, false);
+                EventService.Instance.QuestCompleted?.Invoke(_quest, false);
             }
         }
     }
@@ -100,14 +100,16 @@ public class QuestManager : MonoBehaviour
         for (int i = inProgressQuests.Count - 1; i >= 0; i--)
         {
             var _quest = inProgressQuests[i];
+            EventService.Instance.QuestCompleted?.Invoke(_quest, _quest.Result);
+            inProgressQuests.Remove(_quest);
 
-            var timeToNews = (_quest.Result ? _quest.SuccessfulNews.timeToNews : _quest.FailureNews.timeToNews)/* + new GameTime(1, Vector2Int.zero)*/;
-            if (_quest.AssignedTime + timeToNews <= GameManager.Instance.CurrentTime)
-            {
-                Debug.Log("Quest result: " + _quest.Result);
-                inProgressQuests.Remove(_quest);
-                EventService.Instance.QuestCompleted?.Invoke(_quest, _quest.Result);
-            }
+            //var timeToNews = (_quest.Result ? _quest.SuccessfulNews.timeToNews : _quest.FailureNews.timeToNews)/* + new GameTime(1, Vector2Int.zero)*/;
+            //if (_quest.AssignedTime + timeToNews <= GameManager.Instance.CurrentTime)
+            //{
+            //    Debug.Log("Quest result: " + _quest.Result);
+            //    
+
+            //}
         }
     }
 }

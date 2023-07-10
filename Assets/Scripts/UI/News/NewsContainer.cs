@@ -34,10 +34,13 @@ public class NewsContainer : MonoBehaviour
         var news = isQuestSuccesed ? quest.SuccessfulNews : quest.FailureNews;
         var newsType = isQuestSuccesed ? NewsInfo.NewsType.Good : NewsInfo.NewsType.Bad;
 
-        NewDayManager.Instance.NewsCommands.Enqueue
-        (
-            new NewDayCommand { CmdType = NewDayCmdType.DisplayNews, News = new ImportantNews { News = news, NewsType = newsType } }
-         );
+        if (news.description != string.Empty)
+        {
+            NewDayManager.Instance.NewsCommands.Enqueue
+            (
+                new NewDayCommand { CmdType = NewDayCmdType.DisplayNews, News = new ImportantNews { News = news, NewsType = newsType } }
+            );
+        }
 
         //NewsInfo createdNews = Instantiate(_newsPrefab, transform.position, Quaternion.identity);
         //createdNews.transform.SetParent(transform, false);

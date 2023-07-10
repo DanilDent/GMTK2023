@@ -54,4 +54,5 @@ public class EventService
     public Action Defeat;
 
     public Action DayEnd;
+    public Action NextDay;
 }

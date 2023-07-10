@@ -14,13 +14,11 @@ public class NewDayManager : MonoSingleton<NewDayManager>
 
     private void Start()
     {
-        EventService.Instance.QuestLifetimeEnded += HandleQuestLifetimeEnded;
     }
 
     protected override void OnDestroy()
     {
         base.OnDestroy();
-        EventService.Instance.QuestLifetimeEnded -= HandleQuestLifetimeEnded;
     }
 
     public void ExecuteNewsCommands()
@@ -49,19 +47,6 @@ public class NewDayManager : MonoSingleton<NewDayManager>
         }
 
         SoundService.Instance.Play(2f);
-    }
-
-    private void HandleQuestLifetimeEnded(Quest quest)
-    {
-        if (quest.FailureNews.description == string.Empty)
-        {
-            return;
-        }
-        NewDayCommands.Enqueue(new NewDayCommand
-        {
-            CmdType = NewDayCmdType.DisplayNews,
-            News = new ImportantNews { News = quest.FailureNews, NewsType = NewsInfo.NewsType.Bad }
-        });
     }
 }
 
