@@ -141,6 +141,13 @@ public class GameManager : MonoBehaviour
                     else
                     {
                         _currentGameTime = _timelineConfig.Days[_currentGameTime.Day + 1].StartOfDay;
+                        IsPaused = true;
+                        EventService.Instance.DayEnd?.Invoke();
+                        SoundService.Instance.Stop(duration: 2f);
+                        if (HeroBehPatternExecutor.IsEnabled)
+                        {
+                            HeroBehPatternExecutor.Instance.Pause();
+                        }
                     }
                 }
 

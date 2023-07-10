@@ -33,6 +33,10 @@ public class UIManager : MonoSingleton<UIManager>
     [SerializeField]
     private float _animationPercentForLeaving = 0.2f;
 
+    [SerializeField] private Image[] _fadeableImgs;
+    [SerializeField] private TextMeshProUGUI[] _fadeableTexts;
+    [SerializeField] private RectTransform _newDayWindow;
+
     private void Start()
     {
         _heroManager = HeroManager.Instance;
@@ -45,6 +49,32 @@ public class UIManager : MonoSingleton<UIManager>
         _eventService.HeroLeaving += HandleHeroLeaving;
         _eventService.HeroLeftFromScreen += HandleHeroLeftFromScreen;
         _eventService.CityStatusChange += HandleCityStatusChange;
+        _eventService.DayEnd += HandleDayEnd;
+    }
+
+    private void HandleDayEnd()
+    {
+        _newDayWindow.gameObject.SetActive(true);
+
+        foreach (var img in _fadeableImgs)
+        {
+            img.DOFade(0f, 0f);
+        }
+
+        foreach (var txt in _fadeableTexts)
+        {
+            txt.DOFade(0f, 0f);
+        }
+
+        foreach (var img in _fadeableImgs)
+        {
+            img.DOFade(1f, 2f);
+        }
+
+        foreach (var txt in _fadeableTexts)
+        {
+            txt.DOFade(1f, 2f);
+        }
     }
 
     private void HandleCityStatusChange(int status)
@@ -136,5 +166,6 @@ public class UIManager : MonoSingleton<UIManager>
         _eventService.HeroMoodChanged -= HandleHeroMoodChanged;
         _eventService.HeroLeaving -= HandleHeroLeaving;
         _eventService.CityStatusChange -= HandleCityStatusChange;
+        _eventService.DayEnd -= HandleDayEnd;
     }
 }

@@ -52,4 +52,6 @@ public class EventService
     public Action ExitDiagBtnClicked;
     public Action Victory;
     public Action Defeat;
+
+    public Action DayEnd;
 }

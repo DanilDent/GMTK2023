@@ -11,6 +11,7 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
     private const int _recordFrameRate = 60;
     private float _timerMax;
     private float _timer;
+    private bool _isPaused;
 
     private void Start()
     {
@@ -33,17 +34,20 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
         _currentIndex = 0;
         _timer = _timerMax;
     }
+
+
+
     public void Pause()
     {
-        _isPlaying = false;
+        _isPaused = true;
     }
     public void Resume()
     {
-        _isPlaying = true;
+        _isPaused = false;
     }
     public bool IsPaused()
     {
-        return !_isPlaying;
+        return _isPaused;
     }
 
     [SerializeField] private RectTransform _heroCursorRect;
@@ -53,7 +57,7 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
 
     private void Update()
     {
-        if (_isPlaying)
+        if (_isPlaying && !_isPaused)
         {
             _timer -= Time.deltaTime;
 

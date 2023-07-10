@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 public class SoundService : MonoSingleton<SoundService>
 {
@@ -19,9 +20,10 @@ public class SoundService : MonoSingleton<SoundService>
         _audio.Play();
     }
 
-    public void Stop()
+    public void Stop(float duration = 0f)
     {
-        _audio.Stop();
+        DOTween.To(() => _audio.volume, x => _audio.volume = x, 0f, duration)
+            .OnComplete(() => _audio.Stop());
     }
 
     private void Start()

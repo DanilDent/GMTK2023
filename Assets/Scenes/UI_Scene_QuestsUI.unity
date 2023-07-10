@@ -923,7 +923,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &240466132
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1761,7 +1761,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: List of Quesrios
+  m_text: List of Questions
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 394a4282d303a4f419429dae3abb9b44, type: 2}
   m_sharedMaterial: {fileID: 2323445326913669211, guid: 394a4282d303a4f419429dae3abb9b44, type: 2}
@@ -3023,7 +3023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &834178449
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6336,7 +6336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1791501657
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7550,6 +7550,15 @@ MonoBehaviour:
   _heroAvatarRect: {fileID: 655692979}
   _animationPercentForComing: 0.3
   _animationPercentForLeaving: 0.4
+  _fadeableImgs:
+  - {fileID: 2112938905}
+  - {fileID: 834178450}
+  - {fileID: 665529828}
+  - {fileID: 5209817529012816104}
+  _fadeableTexts:
+  - {fileID: 89636207}
+  - {fileID: 4675433544943735011}
+  _newDayWindow: {fileID: 1358570503}
 --- !u!1001 &2095031193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7772,7 +7781,7 @@ GameObject:
   - component: {fileID: 1817235259311005864}
   - component: {fileID: 4675433544943735011}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: OkButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8270,7 +8279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &5209817529012816104
 MonoBehaviour:
   m_ObjectHideFlags: 0
