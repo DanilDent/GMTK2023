@@ -2613,7 +2613,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dear NPC, please provide suitable quests for the players
+  m_text: Dear NPC, pay attention for player's behavior and provide suitable quests
+    for them
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 394a4282d303a4f419429dae3abb9b44, type: 2}
   m_sharedMaterial: {fileID: 2323445326913669211, guid: 394a4282d303a4f419429dae3abb9b44, type: 2}
