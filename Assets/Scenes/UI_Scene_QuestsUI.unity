@@ -1922,7 +1922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &645017764
 Transform:
   m_ObjectHideFlags: 0
@@ -5224,7 +5224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895024734fd906b4f869beed39820380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LockDiagArea: 1
+  LockDiagArea: 0
   _timelineConfig: {fileID: 11400000, guid: 47ed835e504ee6442bd9e1f36a038f3d, type: 2}
   _diagRect: {fileID: 856402414}
 --- !u!4 &1427590225
@@ -6023,11 +6023,11 @@ RectTransform:
   - {fileID: 1770476226}
   - {fileID: 739127085}
   - {fileID: 127698169}
-  - {fileID: 1055938341}
   - {fileID: 1636326304}
   - {fileID: 54738013}
   - {fileID: 856402414}
   - {fileID: 1318962230}
+  - {fileID: 1055938341}
   - {fileID: 419533502}
   m_Father: {fileID: 2043619026}
   m_RootOrder: -1
