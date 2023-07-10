@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoSingleton<UIManager>
 {
+    [SerializeField] private RectTransform _kostilBackground;
     [SerializeField] private Button _startPlayBtn;
     [SerializeField] private RectTransform _greetingWindow;
     //
@@ -195,7 +196,7 @@ public class UIManager : MonoSingleton<UIManager>
         _heroNicknameText.DOFade(0f, 0f);
 
         _heroAvatarImg.DOFade(1, 1);
-        _heroNicknameText.DOFade(1, 1);
+        _heroNicknameText.DOFade(1, 1).OnComplete(() => _kostilBackground.gameObject.SetActive(false));
         _heroAvatarImg.sprite = hero.CurrentAvatarParts[0].Value;
     }
 
@@ -219,7 +220,11 @@ public class UIManager : MonoSingleton<UIManager>
         Sequence seq = DOTween.Sequence();
         seq.Insert(0, _heroAvatarImg.DOFade(0, 1));
         seq.Insert(0, _heroNicknameText.DOFade(0, 1));
-        seq.OnComplete(() => { GameManager.Instance.CurrentHeroNickname = string.Empty; });
+        seq.OnComplete(() =>
+        {
+            GameManager.Instance.CurrentHeroNickname = string.Empty;
+            _kostilBackground.gameObject.SetActive(true);
+        });
     }
 
     private void HandleGameTimeUpdated()
