@@ -32,7 +32,7 @@ MonoBehaviour:
       _day: 4
       _hours: 18
       _minutes: 30
-    Name: NoDamageOnTwitch
+    Name: NoDamageOnTwitch1
   - EventType: 0
     GameTime:
       _day: 3
