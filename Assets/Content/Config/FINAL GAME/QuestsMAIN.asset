@@ -93,13 +93,13 @@ MonoBehaviour:
       _hours: 18
       _minutes: 0
     successfulNews:
-      description: Unknown adventurer finds the ends of the earth
+      description: Unknown adventurer finds the ends of the world
       timeToNews:
         _day: 0
         _hours: 0
         _minutes: 20
     failureNews:
-      description: The ends of the earth not yet found
+      description: The ends of the world not yet found
       timeToNews:
         _day: 0
         _hours: 3
