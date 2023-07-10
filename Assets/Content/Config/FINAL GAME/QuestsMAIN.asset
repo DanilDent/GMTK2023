@@ -111,7 +111,7 @@ MonoBehaviour:
     successfulHPChange: 2
     failureHPChange: -5
   - name: Dance at the Kniaz's birthday
-    description: Available to donate players
+    description: Available only for donate players
     minStartTime:
       _day: 2
       _hours: 18
@@ -302,7 +302,7 @@ MonoBehaviour:
         _minutes: 30
     maxLifetime:
       _day: 0
-      _hours: 2
+      _hours: 1
       _minutes: 0
     successfulHPChange: 2
     failureHPChange: -5
