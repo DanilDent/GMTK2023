@@ -25,7 +25,7 @@ MonoBehaviour:
     GameTime:
       _day: 3
       _hours: 18
-      _minutes: 20
+      _minutes: 12
     Name: GloriousNymph
   - EventType: 0
     GameTime:

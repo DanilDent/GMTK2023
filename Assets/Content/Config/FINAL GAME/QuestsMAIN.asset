@@ -34,7 +34,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 10
+      _minutes: 20
     successfulHPChange: 2
     failureHPChange: -5
   - name: Kill 6 rats
@@ -59,7 +59,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 10
+      _minutes: 20
     successfulHPChange: 2
     failureHPChange: -5
   - name: Collect herbs in the forest.
@@ -83,7 +83,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 20
+      _minutes: 30
     successfulHPChange: 0
     failureHPChange: 0
   - name: Reach the ends of the world
@@ -107,7 +107,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 20
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
   - name: Dance at the Kniaz's birthday
@@ -131,7 +131,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 20
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
   - name: Destroy the dragon
@@ -155,7 +155,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 20
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
   - name: Find the Apple of Youth
@@ -179,7 +179,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 20
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
   - name: Fight with a guard
@@ -204,7 +204,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 20
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
   - name: Seduce the merchant's wife
@@ -229,7 +229,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 20
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
   - name: Rescue a hostage with a partner
@@ -255,7 +255,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 20
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
   - name: Destroy a thousand of ghouls
@@ -278,8 +278,8 @@ MonoBehaviour:
         _minutes: 30
     maxLifetime:
       _day: 0
-      _hours: 2
-      _minutes: 0
+      _hours: 1
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
   - name: Fishing
