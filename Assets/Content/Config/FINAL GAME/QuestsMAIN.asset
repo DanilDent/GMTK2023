@@ -253,9 +253,9 @@ MonoBehaviour:
         _hours: 1
         _minutes: 30
     maxLifetime:
-      _day: 2
-      _hours: 0
-      _minutes: 0
+      _day: 0
+      _hours: 1
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
   - name: Destroy a thousand ghouls
@@ -287,7 +287,7 @@ MonoBehaviour:
     minStartTime:
       _day: 4
       _hours: 18
-      _minutes: 0
+      _minutes: 20
     successfulNews:
       description: Finally, in our game, fish began to be sold again
       timeToNews:
@@ -350,8 +350,8 @@ MonoBehaviour:
         _minutes: 30
     maxLifetime:
       _day: 0
-      _hours: 2
-      _minutes: 0
+      _hours: 1
+      _minutes: 30
     successfulHPChange: 0
     failureHPChange: 0
   - name: Killing skeletons in the dungeon
