@@ -18,8 +18,8 @@ MonoBehaviour:
     _minutes: 0
   _endOfDay:
     _day: 2
-    _hours: 20
-    _minutes: 15
+    _hours: 19
+    _minutes: 30
   _timeline:
   - EventType: 0
     GameTime:
@@ -32,16 +32,10 @@ MonoBehaviour:
       _day: 2
       _hours: 18
       _minutes: 45
-    Name: WoodGoblinGuild
+    Name: NoDamageOnTwitch
   - EventType: 0
     GameTime:
       _day: 2
       _hours: 19
       _minutes: 10
-    Name: NOdamage11Twitch
-  - EventType: 0
-    GameTime:
-      _day: 2
-      _hours: 19
-      _minutes: 40
     Name: Hgdfgkke

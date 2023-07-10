@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RemainingMoney: 2340
   Entries:
-  - bought 5 healing potion
-  - bought 3 antitoxin
-  - Sold 6 scalp
-  AnimationTimeMilliSeconds: 1500
-  TimeToDisappearMilliSeconds: 1500
+  - Sold dragon fang
+  AnimationTimeMilliSeconds: 1000
+  TimeToDisappearMilliSeconds: 1000
