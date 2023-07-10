@@ -86,8 +86,8 @@ MonoBehaviour:
       _minutes: 20
     successfulHPChange: 0
     failureHPChange: 0
-  - name: Reach the ends of the earth
-    description: Allows to fully complete the game
+  - name: Reach the ends of the world
+    description: Allows to complete the game
     minStartTime:
       _day: 2
       _hours: 18
@@ -111,7 +111,7 @@ MonoBehaviour:
     successfulHPChange: 2
     failureHPChange: -5
   - name: Dance at the Kniaz's birthday
-    description: Available to donate players
+    description: Available only for donate players
     minStartTime:
       _day: 2
       _hours: 18
@@ -182,7 +182,7 @@ MonoBehaviour:
       _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
-  - name: Fight with guard
+  - name: Fight with a guard
     description: Nobody can kill the guard
     minStartTime:
       _day: 3
@@ -228,8 +228,8 @@ MonoBehaviour:
         _minutes: 30
     maxLifetime:
       _day: 0
-      _hours: 2
-      _minutes: 0
+      _hours: 1
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
   - name: Rescue a hostage with a partner
@@ -258,7 +258,7 @@ MonoBehaviour:
       _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
-  - name: Destroy a thousand ghouls
+  - name: Destroy a thousand of ghouls
     description: Absolute hardcore
     minStartTime:
       _day: 4
@@ -283,7 +283,7 @@ MonoBehaviour:
     successfulHPChange: 2
     failureHPChange: -5
   - name: Fishing
-    description: The most boring quest in the game
+    description: Everyone thinks, that this quest is boring
     minStartTime:
       _day: 4
       _hours: 18
@@ -302,7 +302,7 @@ MonoBehaviour:
         _minutes: 30
     maxLifetime:
       _day: 0
-      _hours: 2
+      _hours: 1
       _minutes: 0
     successfulHPChange: 2
     failureHPChange: -5
