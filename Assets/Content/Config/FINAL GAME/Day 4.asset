@@ -35,7 +35,7 @@ MonoBehaviour:
     Name: NoDamageOnTwitch1
   - EventType: 0
     GameTime:
-      _day: 3
+      _day: 4
       _hours: 19
       _minutes: 10
     Name: GameDesigner1

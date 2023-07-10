@@ -34,7 +34,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 0
+      _minutes: 20
     successfulHPChange: 2
     failureHPChange: -5
   - name: Kill 6 rats
@@ -59,7 +59,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 0
+      _minutes: 20
     successfulHPChange: 2
     failureHPChange: -5
   - name: Collect herbs in the forest.
@@ -83,7 +83,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 0
+      _minutes: 20
     successfulHPChange: 0
     failureHPChange: 0
   - name: Reach the ends of the earth
