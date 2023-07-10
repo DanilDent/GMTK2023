@@ -18,8 +18,9 @@ public class City : MonoSingleton<City>
         currentHealth = maxHealth / 2;
         EventService.Instance.QuestCompleted += OnQuestComleted;
     }
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         EventService.Instance.QuestCompleted -= OnQuestComleted;
     }
 
@@ -41,7 +42,6 @@ public class City : MonoSingleton<City>
             currentHealth = 0;
             EventService.Instance.CityHealthChanged?.Invoke(0f);
             EventService.Instance.CityDestroyed?.Invoke();
-            EventService.Instance.Defeat?.Invoke();
         }
         else
         {

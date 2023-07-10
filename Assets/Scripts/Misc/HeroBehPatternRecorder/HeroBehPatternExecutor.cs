@@ -5,7 +5,7 @@ using UnityEngine;
 public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
 {
     public static bool IsEnabled => _instance != null ? _instance.gameObject.activeInHierarchy : false;
-    private string RECORDINGS_PATH => Application.dataPath + "\\Content\\Config\\_HeroBehPatterns\\_jsons";
+    private string RECORDINGS_PATH => Application.dataPath + "\\Content\\Config\\_HeroBehPatterns\\_jsons\\Resources";
     private string RECORDINGS_PATH_PERS => Application.persistentDataPath + "\\APP_DATA";
     [SerializeField] private PatternsConfig _patterns;
     private const int _recordFrameRate = 60;
@@ -21,7 +21,12 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
     public void SetRecording(string patternName)
     {
         string path = Path.Combine(RECORDINGS_PATH, $"{patternName}.json");
-        string json = Resources.Load<TextAsset>($"{patternName}").text;
+        string json = Resources.Load<TextAsset>($"{patternName}")?.text ?? string.Empty;
+        if (json == string.Empty)
+        {
+            Debug.LogWarning($"Can't find beh pattern with name {patternName}");
+            return;
+        }
         _recording = JsonConvert.DeserializeObject<Recording>(json);
         Debug.Log($"Recording: {_recording}");
         _currentIndex = 0;
@@ -65,6 +70,11 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
 
     private void Update()
     {
+        if (_recording == null)
+        {
+            return;
+        }
+
         if (_isPlaying && !_isPaused)
         {
             _timer -= Time.deltaTime;

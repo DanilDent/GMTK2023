@@ -156,11 +156,30 @@ public class GameManager : MonoBehaviour
         _eventIndex = 0;
         if (_dayIndex + 1 >= _timelineConfig.Days.Length)
         {
-            EventService.Instance.Victory?.Invoke();
+            if (City.Instance.CurrentHealth <= 0)
+            {
+                EventService.Instance.Defeat?.Invoke();
+                SoundService.Instance.SetClip(SoundService.Instance.LOSE);
+                SoundService.Instance.Play();
+            }
+            else
+            {
+                EventService.Instance.Victory?.Invoke();
+                SoundService.Instance.SetClip(SoundService.Instance.HAPPY);
+                SoundService.Instance.Play();
+            }
             SetGameState(GameState.GameOver);
+            return;
         }
         else
         {
+            if (City.Instance.CurrentHealth <= 0)
+            {
+                EventService.Instance.Defeat?.Invoke();
+                SoundService.Instance.SetClip(SoundService.Instance.LOSE);
+                SoundService.Instance.Play();
+                return;
+            }
             ++_dayIndex;
             _currentGameTime = _timelineConfig.Days[_dayIndex].StartOfDay;
             IsPaused = false;
@@ -194,8 +213,15 @@ public class GameManager : MonoBehaviour
                 Hero hero = HeroManager.Instance.Heroes.FirstOrDefault(_ => _.Nickname == eventData.Name);
                 if (HeroBehPatternExecutor.IsEnabled)
                 {
-                    HeroBehPatternExecutor.Instance.SetRecording(hero.HeroBehPatternName);
-                    HeroBehPatternExecutor.Instance.StartPlay();
+                    if (hero.HeroBehPatternName != string.Empty)
+                    {
+                        HeroBehPatternExecutor.Instance.SetRecording(hero.HeroBehPatternName);
+                        HeroBehPatternExecutor.Instance.StartPlay();
+                    }
+                    else
+                    {
+                        Debug.Log($"Invalid hero pattern name {hero.HeroBehPatternName} for hero {hero.Nickname}");
+                    }
                 }
             }
             _eventIndex++;
