@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class UIManager : MonoSingleton<UIManager>
 {
+    [SerializeField] private Image _tutorTintImg;
+    public bool IsTutorComplete = false;
+    private Color _defaultTintColor;
+
     [SerializeField] private Image _heroAvatarImg;
 
     [SerializeField] private TextMeshProUGUI _heroNicknameText;
@@ -39,6 +43,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     private void Start()
     {
+        _defaultTintColor = _tutorTintImg.color;
         _heroManager = HeroManager.Instance;
         _eventService = EventService.Instance;
         HandleGameTimeUpdated();
@@ -50,6 +55,22 @@ public class UIManager : MonoSingleton<UIManager>
         _eventService.HeroLeftFromScreen += HandleHeroLeftFromScreen;
         _eventService.CityStatusChange += HandleCityStatusChange;
         _eventService.DayEnd += HandleDayEnd;
+        _eventService.DiagButtonClicked += HandleFirstTimeGetQuestButtonClick;
+    }
+
+    public void HideTint()
+    {
+        _tutorTintImg.gameObject.SetActive(false);
+    }
+
+    private void HandleFirstTimeGetQuestButtonClick(ButtonType btnType)
+    {
+        if (!IsTutorComplete && btnType == ButtonType.GetQuest)
+        {
+            _tutorTintImg.gameObject.SetActive(true);
+            _tutorTintImg.DOFade(0f, 0f);
+            _tutorTintImg.DOFade(_defaultTintColor.a, 1f);
+        }
     }
 
     private void HandleDayEnd()
@@ -207,5 +228,6 @@ public class UIManager : MonoSingleton<UIManager>
         _eventService.HeroLeaving -= HandleHeroLeaving;
         _eventService.CityStatusChange -= HandleCityStatusChange;
         _eventService.DayEnd -= HandleDayEnd;
+        _eventService.DiagButtonClicked += HandleFirstTimeGetQuestButtonClick;
     }
 }
