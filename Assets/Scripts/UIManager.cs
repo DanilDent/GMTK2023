@@ -8,7 +8,6 @@ public class UIManager : MonoSingleton<UIManager>
 {
     [SerializeField] private Button _startPlayBtn;
     [SerializeField] private RectTransform _greetingWindow;
-
     //
     [SerializeField] private Image _tutorTintImg;
     public bool IsTutorComplete = false;
@@ -44,6 +43,7 @@ public class UIManager : MonoSingleton<UIManager>
     [SerializeField] private Image[] _fadeableImgs;
     [SerializeField] private TextMeshProUGUI[] _fadeableTexts;
     [SerializeField] private RectTransform _newDayWindow;
+    [SerializeField] private Button _okBtn;
 
     private void Start()
     {
@@ -86,6 +86,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     private void HandleDayEnd()
     {
+        _okBtn.gameObject.SetActive(false);
         _newDayWindow.gameObject.SetActive(true);
 
         Sequence seq = DOTween.Sequence();
@@ -114,6 +115,7 @@ public class UIManager : MonoSingleton<UIManager>
         {
             NewDayManager.Instance.ExecuteNewsCommands();
             NewDayWindowUIView.Instance.ShowNews();
+            _okBtn.gameObject.SetActive(true);
         });
     }
 

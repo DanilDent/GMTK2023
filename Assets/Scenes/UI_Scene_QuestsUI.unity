@@ -1386,7 +1386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &526533866
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3893,7 +3893,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ce86696dd2e734748b5cbe38f9d31906, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a492fcc46cf492546a205081af70b108, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5088,7 +5088,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 35}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1201759485
@@ -8208,6 +8208,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1866251978859436348, guid: 82105b6e3bad2d24fa6561bc88a12957, type: 3}
+      propertyPath: _btnNormal
+      value: 
+      objectReference: {fileID: 21300000, guid: 55dd5b6f8041f584e8b4d949e8c59fc3, type: 3}
+    - target: {fileID: 1866251978859436348, guid: 82105b6e3bad2d24fa6561bc88a12957, type: 3}
+      propertyPath: _btnPressed
+      value: 
+      objectReference: {fileID: 21300000, guid: 38b24d9c6d1db5c48aab1a68a34e017f, type: 3}
     - target: {fileID: 2722038079794355856, guid: 82105b6e3bad2d24fa6561bc88a12957, type: 3}
       propertyPath: m_Name
       value: SkipBtn
@@ -8491,6 +8499,7 @@ MonoBehaviour:
   - {fileID: 89636207}
   - {fileID: 4675433544943735011}
   _newDayWindow: {fileID: 1358570503}
+  _okBtn: {fileID: 1688894225814441447}
 --- !u!1 &2053901715
 GameObject:
   m_ObjectHideFlags: 0

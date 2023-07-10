@@ -4,7 +4,7 @@ public class City : MonoSingleton<City>
 {
     [SerializeField] private CityConfig config;
     [SerializeField] private int currentHealth;
-    private int maxHealth;
+    private int startHealth;
     private int lowerThresholdWellBeingCity;
     private int upperThresholdDeclineCity;
     private int cityStatus = -2;
@@ -12,10 +12,10 @@ public class City : MonoSingleton<City>
     public int CurrentHealth => currentHealth;
     private void Start()
     {
-        maxHealth = config.CityHealth;
+        startHealth = config.CityHealth;
         lowerThresholdWellBeingCity = config.LowerThresholdWellBeingCity;
         upperThresholdDeclineCity = config.UpperThresholdDeclineCity;
-        currentHealth = maxHealth / 2;
+        currentHealth = startHealth;
         EventService.Instance.QuestCompleted += OnQuestComleted;
     }
     protected override void OnDestroy()
@@ -32,24 +32,8 @@ public class City : MonoSingleton<City>
     public void ApplyChange(int valueChange)
     {
         var res = currentHealth + valueChange;
-        if (res >= maxHealth)
-        {
-            currentHealth = maxHealth;
-            EventService.Instance.CityHealthChanged?.Invoke(1f);
-        }
-        else if (res <= 0)
-        {
-            currentHealth = 0;
-            EventService.Instance.CityHealthChanged?.Invoke(0f);
-            EventService.Instance.CityDestroyed?.Invoke();
-        }
-        else
-        {
-            currentHealth = res;
-            EventService.Instance.CityHealthChanged?.Invoke((float)currentHealth / maxHealth);
-        }
-
-        if (currentHealth > upperThresholdDeclineCity)
+        currentHealth = res;
+        if (currentHealth >= upperThresholdDeclineCity)
         {
             if (cityStatus != 1)
             {
@@ -57,7 +41,7 @@ public class City : MonoSingleton<City>
                 EventService.Instance.CityStatusChange?.Invoke(cityStatus);
             }
         }
-        else if (currentHealth < lowerThresholdWellBeingCity)
+        else if (currentHealth <= lowerThresholdWellBeingCity)
         {
             if (cityStatus != -1)
             {

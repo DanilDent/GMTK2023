@@ -304,6 +304,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BtnType: 0
-  _btnPressed: {fileID: 21300000, guid: 55dd5b6f8041f584e8b4d949e8c59fc3, type: 3}
-  _btnNormal: {fileID: 21300000, guid: 38b24d9c6d1db5c48aab1a68a34e017f, type: 3}
+  _btnPressed: {fileID: 21300000, guid: 38b24d9c6d1db5c48aab1a68a34e017f, type: 3}
+  _btnNormal: {fileID: 21300000, guid: 55dd5b6f8041f584e8b4d949e8c59fc3, type: 3}
   _btn: {fileID: 1688894225360973303}
