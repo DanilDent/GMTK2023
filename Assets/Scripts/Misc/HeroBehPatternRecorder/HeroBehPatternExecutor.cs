@@ -21,11 +21,10 @@ public class HeroBehPatternExecutor : MonoSingleton<HeroBehPatternExecutor>
     public void SetRecording(string patternName)
     {
         string path = Path.Combine(RECORDINGS_PATH, $"{patternName}.json");
-        string json = Resources.Load<TextAsset>($"{patternName}")?.text ?? string.Empty;
+        string json = Resources.Load<TextAsset>($"{patternName}")?.text;
         if (json == string.Empty)
         {
-            Debug.LogWarning($"Can't find beh pattern with name {patternName}");
-            return;
+            throw new System.Exception($"Can't find json for pattern {patternName}");
         }
         _recording = JsonConvert.DeserializeObject<Recording>(json);
         Debug.Log($"Recording: {_recording}");

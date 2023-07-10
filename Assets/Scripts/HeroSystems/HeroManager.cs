@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -93,7 +92,7 @@ public class HeroManager : MonoBehaviour
         if (heroes.Count == 0)
         {
             Debug.Log(heroName);
-            throw new Exception();
+            throw new System.Exception($"Can't find hero with name {heroName}");
         }
         return heroes[0];
     }
