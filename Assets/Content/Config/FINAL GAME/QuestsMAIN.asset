@@ -228,8 +228,8 @@ MonoBehaviour:
         _minutes: 30
     maxLifetime:
       _day: 0
-      _hours: 2
-      _minutes: 0
+      _hours: 1
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
   - name: Rescue a hostage with a partner
