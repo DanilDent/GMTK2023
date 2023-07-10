@@ -16,6 +16,17 @@ public class NewDayWindowUIView : MonoSingleton<NewDayWindowUIView>
         _okBtn.onClick.RemoveAllListeners();
     }
 
+    private void OnEnable()
+    {
+        PlayerCursorBehaviour.Instance.LockDiagArea = false;
+    }
+
+    private void OnDisable()
+    {
+        PlayerCursorBehaviour.Instance.LockDiagArea = true;
+        _newsContainer.gameObject.SetActive(false);
+    }
+
     public void AddNews(ImportantNews news)
     {
         var newsInfo = Instantiate(_newsPrefab, _newsContainer.transform);
@@ -34,11 +45,6 @@ public class NewDayWindowUIView : MonoSingleton<NewDayWindowUIView>
     public void ShowNews()
     {
         _newsContainer.gameObject.SetActive(true);
-    }
-
-    private void OnDisable()
-    {
-        _newsContainer.gameObject.SetActive(false);
     }
 
     private void OnOkBtnClick()
