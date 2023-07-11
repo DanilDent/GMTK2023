@@ -33,6 +33,9 @@ public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
         _offset = Input.mousePosition - _rectTransform.position;
 
         _canvasGroup.blocksRaycasts = false;
+
+        //”¡–¿“‹ ≈¡¿Õ€…  Œ—“€ÀÀ‹
+        CursorImageController.Instance.IsDraggingQuest = true;
     }
 
     void IDragHandler.OnDrag(PointerEventData eventData)
@@ -45,6 +48,7 @@ public class QuestPiece : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
         _canvasGroup.blocksRaycasts = true;
         transform.SetParent(parent);
         transform.localPosition = lastPosition;
+        CursorImageController.Instance.IsDraggingQuest = false;
     }
 
     // Start is called before the first frame update
