@@ -255,7 +255,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 30
+      _minutes: 25
     successfulHPChange: 2
     failureHPChange: -5
   - name: Destroy a thousand of ghouls
@@ -279,7 +279,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 30
+      _minutes: 25
     successfulHPChange: 2
     failureHPChange: -5
   - name: Fishing
