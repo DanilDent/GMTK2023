@@ -5224,7 +5224,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 17
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -5937,7 +5937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895024734fd906b4f869beed39820380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LockDiagArea: 0
+  LockDiagArea: 1
   _timelineConfig: {fileID: 11400000, guid: 47ed835e504ee6442bd9e1f36a038f3d, type: 2}
   _diagRect: {fileID: 856402414}
 --- !u!4 &1427590225
