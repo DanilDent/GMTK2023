@@ -70,7 +70,7 @@ MonoBehaviour:
     _shopLists: []
     _nickname: ImInUrMom
     _completableQuestsSO:
-    - QuestName: Fight with  a guard
+    - QuestName: Fight with a guard
       AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: 5a8c70ac99d6c664483208dd1418c9c4, type: 3}
