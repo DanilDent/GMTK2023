@@ -10,26 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6ec13cde5216644c82fa51c53a73f69, type: 3}
-  m_Name: Day 1
+  m_Name: Day 4
   m_EditorClassIdentifier: 
   _startOfDay:
-    _day: 1
+    _day: 4
     _hours: 18
     _minutes: 0
   _endOfDay:
-    _day: 1
+    _day: 4
     _hours: 19
-    _minutes: 20
+    _minutes: 30
   _timeline:
   - EventType: 0
     GameTime:
-      _day: 1
+      _day: 4
       _hours: 18
-      _minutes: 10
-    Name: 4Graynd
+      _minutes: 15
+    Name: JustBen
   - EventType: 0
     GameTime:
-      _day: 1
+      _day: 4
       _hours: 18
-      _minutes: 40
-    Name: LuckyAlex18962
+      _minutes: 50
+    Name: NoDamageOnTwitch1
+  - EventType: 0
+    GameTime:
+      _day: 4
+      _hours: 19
+      _minutes: 10
+    Name: GameDesigner1

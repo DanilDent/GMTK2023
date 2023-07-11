@@ -45,7 +45,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ddde35bbf09589240bd8f1e406c8e93e, type: 2}
     _nickname: NoDamageOnTwitch
     _completableQuestsSO:
-    - QuestName: Kill the dragon
+    - QuestName: Destroy the dragon
       AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: 38ad4ecbeb5f95540ac9423a4f56d857, type: 3}
@@ -53,7 +53,7 @@ MonoBehaviour:
     _shopLists: []
     _nickname: Hgdfgkke
     _completableQuestsSO:
-    - QuestName: Reach the end of the world
+    - QuestName: Reach the ends of the earth
       AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: ff84a9dca9f8dd341b742c109b498434, type: 3}
@@ -70,7 +70,7 @@ MonoBehaviour:
     _shopLists: []
     _nickname: ImInUrMom
     _completableQuestsSO:
-    - QuestName: Fight with a guard
+    - QuestName: Fight with guard
       AvatarOnQuestAssigned: {fileID: 0}
     CurrentAvatarParts:
     - Value: {fileID: 21300000, guid: 5a8c70ac99d6c664483208dd1418c9c4, type: 3}
