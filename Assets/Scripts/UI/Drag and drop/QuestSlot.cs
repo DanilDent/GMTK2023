@@ -20,6 +20,9 @@ public class QuestSlot : MonoBehaviour, IDropHandler
             questPiece.GetComponent<RectTransform>().localPosition = questPiece.lastPosition;
             questPiece.gameObject.SetActive(false);
             questPiece.GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+            //”¡–¿“‹ ≈¡¿Õ€…  Œ—“€ÀÀ‹
+            CursorImageController.Instance.IsDraggingQuest = false;
         }
     }
 
