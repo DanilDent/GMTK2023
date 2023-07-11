@@ -70,7 +70,7 @@ public class NewsManager : MonoBehaviour
     {
         foreach (GameTime gameTime in _cityNewsTime)
         {
-            Debug.Log(gameTime.ToString());
+            //Debug.Log(gameTime.ToString());
             if (gameTime <= GameManager.Instance.CurrentTime)
             {
                 int randomNewsIndex = Random.Range(0, _activeNewsPool.Count - 1);

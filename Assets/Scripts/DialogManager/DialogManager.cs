@@ -25,6 +25,7 @@ public class DialogManager : MonoSingleton<DialogManager>
 
     [SerializeField] private Button[] _btns;
     [SerializeField] private RectTransform _envelope;
+    private QuestSlot _questSlotOnEnvelope;
 
     [SerializeField] private Sprite _closedEnvelope;
     [SerializeField] private Sprite _openEnvelope;
@@ -51,6 +52,16 @@ public class DialogManager : MonoSingleton<DialogManager>
         EventService.Instance.QuestAssigned += OnQuestGivenToHero;
 
         _defaultPosition = _envelope;
+
+        if (_envelope.gameObject.TryGetComponent(out _questSlotOnEnvelope))
+        {
+            Debug.Log(_questSlotOnEnvelope.name + "13421");
+            _questSlotOnEnvelope.enabled = false;
+        }
+        else
+        {
+            Debug.LogWarning("Õ¿ »Õ‹“≈  ¬≈—“—ÀŒ“ Õ¿ œ»—‹ÃŒ");
+        }
 
         if (GameManager.Instance.LockDiagArea)
         {
@@ -119,8 +130,8 @@ public class DialogManager : MonoSingleton<DialogManager>
 
         _envelope.DOMoveX(_envelope.position.x + _animationWidthPercent * Screen.width, 1f).OnComplete(() =>
         {
-            _envelope.gameObject.TryGetComponent(out QuestSlot slot);
-            slot.enabled = true;
+            Debug.Log(_questSlotOnEnvelope.name);
+            _questSlotOnEnvelope.enabled = true;
         });
     }
 
@@ -129,6 +140,8 @@ public class DialogManager : MonoSingleton<DialogManager>
         _envelope.TryGetComponent(out Image image);
         image.sprite = _closedEnvelope;
 
+        _questSlotOnEnvelope.enabled = false;
+
         image.DOFade(0, 1f);
         _envelope.DOMoveY(_envelope.position.y + _animationHeightPercent * Screen.height, 1f).OnComplete(() =>
         {
@@ -136,8 +149,6 @@ public class DialogManager : MonoSingleton<DialogManager>
             image.DOFade(1, 0f);
             EventService.Instance.HeroLeftFromScreen.Invoke();
             DisplayBlank();
-            _envelope.gameObject.TryGetComponent(out QuestSlot slot);
-            slot.enabled = false;
         });
     }
 
