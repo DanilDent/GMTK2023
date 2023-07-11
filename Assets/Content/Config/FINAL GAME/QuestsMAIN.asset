@@ -86,20 +86,20 @@ MonoBehaviour:
       _minutes: 30
     successfulHPChange: 0
     failureHPChange: 0
-  - name: Reach the ends of the world
+  - name: Reach the end of the world
     description: Allows to complete the game
     minStartTime:
       _day: 2
       _hours: 18
       _minutes: 0
     successfulNews:
-      description: Unknown adventurer finds the ends of the world
+      description: Unknown adventurer found the end of the world
       timeToNews:
         _day: 0
         _hours: 0
         _minutes: 20
     failureNews:
-      description: The ends of the world not yet found
+      description: 'The end of the world has not found yet '
       timeToNews:
         _day: 0
         _hours: 3
@@ -134,7 +134,7 @@ MonoBehaviour:
       _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
-  - name: Destroy the dragon
+  - name: Kill the dragon
     description: The incredible challenge
     minStartTime:
       _day: 2
