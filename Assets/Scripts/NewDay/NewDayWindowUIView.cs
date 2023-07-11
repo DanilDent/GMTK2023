@@ -11,6 +11,7 @@ public class NewDayWindowUIView : MonoSingleton<NewDayWindowUIView>
     {
         _okBtn.onClick.AddListener(OnOkBtnClick);
     }
+
     protected override void OnDestroy()
     {
         _okBtn.onClick.RemoveAllListeners();
