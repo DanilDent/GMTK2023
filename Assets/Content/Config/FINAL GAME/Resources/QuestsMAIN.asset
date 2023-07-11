@@ -34,7 +34,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 10
+      _minutes: 20
     successfulHPChange: 2
     failureHPChange: -5
   - name: Kill 6 rats
@@ -59,7 +59,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 10
+      _minutes: 20
     successfulHPChange: 2
     failureHPChange: -5
   - name: Collect herbs in the forest.
@@ -83,23 +83,23 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 20
+      _minutes: 30
     successfulHPChange: 0
     failureHPChange: 0
-  - name: Reach the ends of the world
+  - name: Reach the end of the world
     description: Allows to complete the game
     minStartTime:
       _day: 2
       _hours: 18
       _minutes: 0
     successfulNews:
-      description: Unknown adventurer finds the ends of the world
+      description: Unknown adventurer found the end of the world
       timeToNews:
         _day: 0
         _hours: 0
         _minutes: 20
     failureNews:
-      description: The ends of the world not yet found
+      description: 'The end of the world has not found yet '
       timeToNews:
         _day: 0
         _hours: 3
@@ -107,7 +107,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 20
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
   - name: Dance at the Kniaz's birthday
@@ -131,10 +131,10 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 20
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
-  - name: Destroy the dragon
+  - name: Kill the dragon
     description: The incredible challenge
     minStartTime:
       _day: 2
@@ -155,7 +155,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 20
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
   - name: Find the Apple of Youth
@@ -179,7 +179,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 20
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
   - name: Fight with a guard
@@ -204,7 +204,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 20
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
   - name: Seduce the merchant's wife
@@ -229,7 +229,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 20
+      _minutes: 30
     successfulHPChange: 2
     failureHPChange: -5
   - name: Rescue a hostage with a partner
@@ -255,7 +255,7 @@ MonoBehaviour:
     maxLifetime:
       _day: 0
       _hours: 1
-      _minutes: 20
+      _minutes: 25
     successfulHPChange: 2
     failureHPChange: -5
   - name: Destroy a thousand of ghouls
@@ -278,8 +278,8 @@ MonoBehaviour:
         _minutes: 30
     maxLifetime:
       _day: 0
-      _hours: 2
-      _minutes: 0
+      _hours: 1
+      _minutes: 25
     successfulHPChange: 2
     failureHPChange: -5
   - name: Fishing

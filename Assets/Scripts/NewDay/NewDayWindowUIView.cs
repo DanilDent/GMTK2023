@@ -19,12 +19,12 @@ public class NewDayWindowUIView : MonoSingleton<NewDayWindowUIView>
 
     private void OnEnable()
     {
-        PlayerCursorBehaviour.Instance.LockDiagArea = false;
+        //PlayerCursorBehaviour.Instance.LockDiagArea = false;
     }
 
     private void OnDisable()
     {
-        PlayerCursorBehaviour.Instance.LockDiagArea = true;
+        //PlayerCursorBehaviour.Instance.LockDiagArea = true;
         _newsContainer.gameObject.SetActive(false);
         ClearContainer();
     }
