@@ -42,11 +42,7 @@ public class DiagButton : MonoBehaviour
     {
         if (btnType == BtnType)
         {
-            if (gameObject.activeInHierarchy)
-            {
-                curCoroutine = DiagBtnClickedByBotCoroutine();
-                StartCoroutine(curCoroutine);
-            }
+            _btn.onClick?.Invoke();
         }
     }
 
@@ -65,40 +61,41 @@ public class DiagButton : MonoBehaviour
         }
     }
 
-    private IEnumerator DiagBtnClickedByBotCoroutine()
-    {
-        _btnImg.sprite = _btnPressed;
-        yield return new WaitForSeconds(0.2f);
-        _btnImg.sprite = _btnNormal;
-        _btn.onClick?.Invoke();
-        //switch (BtnType)
-        //{
-        //    case ButtonType.Skip:
-        //        diagManager.DisplayMain();
-        //        break;
-        //    case ButtonType.Next:
-        //        diagManager.DisplayMain();
-        //        break;
-        //    case ButtonType.Shop:
-        //        diagManager.DisplayShop();
-        //        break;
-        //    case ButtonType.Talk:
-        //        diagManager.DisplayTalk();
-        //        break;
-        //    case ButtonType.GetQuest:
-        //        EventService.Instance.GetQuesDiagBtnClicked?.Invoke();
-        //        break;
-        //    case ButtonType.Exit:
-        //        _btn.onClick?.Invoke();
-        //        break;
-        //    case ButtonType.AnsA:
-        //        diagManager.DisplayMain();
-        //        break;
-        //    case ButtonType.AnsB:
-        //        diagManager.DisplayMain();
-        //        break;
-        //    case ButtonType.Back:
-        //        break;
-        //}
-    }
+    //private IEnumerator DiagBtnClickedByBotCoroutine()
+    //{
+    //    _btnImg.sprite = _btnPressed;
+    //    yield return new WaitForSeconds(0.2f);
+    //    _btnImg.sprite = _btnNormal;
+    //    _btn.onClick?.Invoke();
+
+    //    //switch (BtnType)
+    //    //{
+    //    //    case ButtonType.Skip:
+    //    //        diagManager.DisplayMain();
+    //    //        break;
+    //    //    case ButtonType.Next:
+    //    //        diagManager.DisplayMain();
+    //    //        break;
+    //    //    case ButtonType.Shop:
+    //    //        diagManager.DisplayShop();
+    //    //        break;
+    //    //    case ButtonType.Talk:
+    //    //        diagManager.DisplayTalk();
+    //    //        break;
+    //    //    case ButtonType.GetQuest:
+    //    //        EventService.Instance.GetQuesDiagBtnClicked?.Invoke();
+    //    //        break;
+    //    //    case ButtonType.Exit:
+    //    //        _btn.onClick?.Invoke();
+    //    //        break;
+    //    //    case ButtonType.AnsA:
+    //    //        diagManager.DisplayMain();
+    //    //        break;
+    //    //    case ButtonType.AnsB:
+    //    //        diagManager.DisplayMain();
+    //    //        break;
+    //    //    case ButtonType.Back:
+    //    //        break;
+    //    //}
+    //}
 }
